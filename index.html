@@ -39,6 +39,12 @@
 
   /* ---------- Animated background ---------- */
   #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  .glow{position:fixed;z-index:-2;width:80vmax;height:80vmax;border-radius:50%;pointer-events:none;will-change:transform;
+        background:radial-gradient(circle,rgba(212,24,42,.28),rgba(212,24,42,0) 62%)}
+  .g1{left:-30vmax;top:-35vmax;animation:drift1 26s ease-in-out infinite alternate!important}
+  .g2{right:-35vmax;bottom:-40vmax;opacity:.7;animation:drift2 32s ease-in-out infinite alternate!important}
+  @keyframes drift1{to{transform:translate(18vmax,14vmax) scale(1.1)}}
+  @keyframes drift2{to{transform:translate(-16vmax,-12vmax) scale(1.15)}}
 
   /* ---------- Brand ---------- */
   .brand{display:flex;align-items:center;direction:ltr}
@@ -82,7 +88,7 @@
 
   /* browser mockup */
   .stage{perspective:1600px}
-  .browser{background:var(--ink);border:1px solid var(--line-strong);border-radius:18px;overflow:hidden;box-shadow:0 50px 120px -30px rgba(0,0,0,.9),0 30px 90px -40px var(--red-glow);transform:rotateY(-14deg) rotateX(6deg);transition:transform .8s var(--ease)}
+  .browser{background:var(--ink);border:1px solid var(--line-strong);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.85),0 20px 50px -30px var(--red-glow);transform:rotateY(-14deg) rotateX(6deg);transition:transform .8s var(--ease)}
   html[dir="ltr"] .browser{transform:rotateY(14deg) rotateX(6deg)}
   .stage:hover .browser{transform:rotateY(-6deg) rotateX(2deg)}
   .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);direction:ltr}
@@ -253,6 +259,7 @@
 </head>
 <body>
 
+<div class="glow g1" aria-hidden="true"></div><div class="glow g2" aria-hidden="true"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
 
 <header id="top">
@@ -444,77 +451,59 @@
   const waFloat = document.getElementById('waFloat');
   waFloat.href = `https://wa.me/${WA_NUMBER}`; waFloat.target = '_blank'; waFloat.rel = 'noopener';
 
-  /* ---------- Animated background: drifting Weblume marks ---------- */
+  /* ---------- Animated background: drifting web icons ---------- */
   (() => {
     const c = document.getElementById('bg'), ctx = c.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const speed = reduce ? 0.45 : 1;
-    const logo = new Image(); let logoOk = false;
-    logo.onload = () => { logoOk = true; }; logo.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjMwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiZGJkYmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIxMiIgcng9IjI2IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTMiLz48cGF0aCBkPSJNOSA2MkgyNTEiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSIxMSIvPjxnIGZpbGw9IiNmZjFhMmQiPjxjaXJjbGUgY3g9IjQ0IiBjeT0iMzYiIHI9IjEwIi8+PGNpcmNsZSBjeD0iNzQiIGN5PSIzNiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIzNiIgcj0iMTAiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmYxYTJkIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48cGF0aCBkPSJNOTggMTA0TDY2IDEzOUw5OCAxNzQiLz48cGF0aCBkPSJNMTYyIDEwNEwxOTQgMTM5TDE2MiAxNzQiLz48cGF0aCBkPSJNMTQyIDk2TDExOCAxODIiLz48L2c+PC9zdmc+';
-    let W, H, dpr, marks = [];
-    const rand = (a, b) => a + Math.random() * (b - a);
+    const speed = reduce ? 0.5 : 1;
+    // rasterize the icon ONCE, then blit the bitmap every frame (much cheaper than drawing SVG)
+    const SPRITE = 256;
+    const sprite = document.createElement('canvas'); sprite.width = sprite.height = SPRITE;
+    let ready = false;
+    const img = new Image();
+    img.onload = () => {
+      const sc = sprite.getContext('2d'), r = img.naturalWidth / img.naturalHeight || 260/230;
+      const w = r >= 1 ? SPRITE : SPRITE * r, hh = r >= 1 ? SPRITE / r : SPRITE;
+      sc.drawImage(img, (SPRITE - w) / 2, (SPRITE - hh) / 2, w, hh); ready = true;
+    };
+    img.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjMwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiZGJkYmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIxMiIgcng9IjI2IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTMiLz48cGF0aCBkPSJNOSA2MkgyNTEiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSIxMSIvPjxnIGZpbGw9IiNmZjFhMmQiPjxjaXJjbGUgY3g9IjQ0IiBjeT0iMzYiIHI9IjEwIi8+PGNpcmNsZSBjeD0iNzQiIGN5PSIzNiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIzNiIgcj0iMTAiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmYxYTJkIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48cGF0aCBkPSJNOTggMTA0TDY2IDEzOUw5OCAxNzQiLz48cGF0aCBkPSJNMTYyIDEwNEwxOTQgMTM5TDE2MiAxNzQiLz48cGF0aCBkPSJNMTQyIDk2TDExOCAxODIiLz48L2c+PC9zdmc+';
 
+    let W, H, dpr, marks = [], mx = 0, my = 0, tx = 0, ty = 0;
+    const rand = (a, b) => a + Math.random() * (b - a);
     function makeMark(fresh){
-      const s = rand(26, W < 700 ? 70 : 120);
-      return {
-        x: rand(-50, W + 50),
-        y: fresh ? rand(-60, H + 60) : H + rand(60, 200),
-        s, vy: -rand(.12, .45) * (s / 40), vx: rand(-.12, .12),
-        rot: rand(-.35, .35), vr: rand(-.0012, .0012),
-        a: rand(.05, .16), bob: rand(0, Math.PI * 2)
-      };
+      const z = rand(.35, 1);                       // depth: near marks are bigger, faster, brighter
+      const s = (W < 700 ? 34 : 52) + z * (W < 700 ? 46 : 90);
+      return { x: rand(0, W), y: fresh ? rand(0, H) : H + s, s, z,
+               vy: -(14 + z * 34),                   // px per second
+               vx: rand(-6, 6), rot: rand(-.4, .4), vr: rand(-.12, .12),
+               a: .07 + z * .17, bob: rand(0, 6.28) };
     }
     function resize(){
       dpr = Math.min(devicePixelRatio || 1, 1.5);
       W = innerWidth; H = innerHeight;
-      c.width = W * dpr; c.height = H * dpr;
+      c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = W < 700 ? 9 : 16;
+      const n = Math.round(Math.min(22, Math.max(9, W * H / 90000)));
       marks = Array.from({length: n}, () => makeMark(true));
     }
-    function drawMark(m){
-      ctx.save();
-      ctx.translate(m.x, m.y); ctx.rotate(m.rot);
-      ctx.globalAlpha = m.a;
-      if (logoOk) {
-        const h = m.s, w = h * (logo.naturalWidth / logo.naturalHeight);
-        ctx.drawImage(logo, -w / 2, -h / 2, w, h);
-      } else {
-        ctx.font = `700 ${m.s}px Poppins, sans-serif`;
-        ctx.textBaseline = 'middle';
-        const w1 = ctx.measureText('Web').width, w2 = ctx.measureText('lume').width;
-        const x0 = -(w1 + w2) / 2;
-        ctx.fillStyle = '#f7f5f2'; ctx.fillText('Web', x0, 0);
-        ctx.fillStyle = '#ef2336'; ctx.fillText('lume', x0 + w1, 0);
-      }
-      ctx.restore();
-    }
-    let t = 0;
-    function frame(){
-      t += 1;
+    addEventListener('pointermove', e => { tx = (e.clientX / W - .5); ty = (e.clientY / H - .5); }, {passive:true});
+    let last = performance.now(), t = 0;
+    function frame(now){
+      const dt = Math.min(.05, (now - last) / 1000) * speed; last = now; t += dt;
+      mx += (tx - mx) * .05; my += (ty - my) * .05;
       ctx.clearRect(0, 0, W, H);
-      // slow moving red glows
-      const g1x = W * (.25 + .12 * Math.sin(t / 900)), g1y = H * (.25 + .1 * Math.cos(t / 700));
-      const g2x = W * (.8 + .1 * Math.cos(t / 1100)), g2y = H * (.75 + .12 * Math.sin(t / 800));
-      const r = Math.max(W, H) * .55;
-      for (const [x, y, a] of [[g1x, g1y, .22], [g2x, g2y, .14]]) {
-        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-        g.addColorStop(0, `rgba(212,24,42,${a})`); g.addColorStop(1, 'rgba(212,24,42,0)');
-        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-      }
-      for (let i = 0; i < marks.length; i++) {
+      if (ready) for (let i = 0; i < marks.length; i++) {
         const m = marks[i];
-        {
-          m.y += m.vy * speed; m.x += (m.vx + Math.sin(t / 120 + m.bob) * .15) * speed; m.rot += m.vr * speed;
-          if (m.y < -120 || m.x < -260 || m.x > W + 260) marks[i] = makeMark(false);
-        }
-        drawMark(marks[i]);
+        m.y += m.vy * dt; m.x += (m.vx + Math.sin(t * .8 + m.bob) * 10) * dt; m.rot += m.vr * dt;
+        if (m.y < -m.s * 1.5 || m.x < -200 || m.x > W + 200) { marks[i] = makeMark(false); continue; }
+        const px = m.x - mx * 40 * m.z, py = m.y - my * 30 * m.z;   // gentle mouse parallax
+        ctx.save(); ctx.globalAlpha = m.a; ctx.translate(px, py); ctx.rotate(m.rot);
+        ctx.drawImage(sprite, -m.s / 2, -m.s / 2, m.s, m.s); ctx.restore();
       }
       requestAnimationFrame(frame);
     }
     addEventListener('resize', resize);
-    resize();
-    frame();
+    resize(); requestAnimationFrame(frame);
   })();
 
   /* ---------- Header on scroll ---------- */
