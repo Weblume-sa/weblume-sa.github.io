@@ -382,7 +382,7 @@
   <div class="wrap">
     <div class="order-intro">
       <h2 data-en="Tell us what you need">قولنا محتاج إيه</h2>
-      <p data-en="Three quick questions, then we continue the conversation on WhatsApp. Or skip it and message us directly.">3 أسئلة سريعة، وبعدها نكمل كلامنا على الواتساب. أو كلمنا على طول من غير ما تملا حاجة.</p>
+      <p data-en="A few quick questions, then we continue the conversation on WhatsApp. Or skip it and message us directly.">كام سؤال سريع، وبعدها نكمل كلامنا على الواتساب. أو كلمنا على طول من غير ما تملا حاجة.</p>
       <ul class="perks">
         <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Same-day reply">رد في نفس اليوم</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M3 12l6 6L21 6"/></svg><span data-en="Free consultation and quote">استشارة وعرض سعر مجاناً</span></li>
@@ -421,6 +421,7 @@
           </div>
         </div>
       </div>
+      <div class="field"><label for="details" data-en="What do you want? (optional)">اكتب اللي محتاجه (اختياري)</label><textarea class="input" id="details" placeholder="مثال: عندي كافيه وعايز موقع فيه المنيو والفروع وزرار للطلب" data-en-ph="e.g. I have a café and want a site with the menu, branches and an order button"></textarea></div>
       <div class="err" id="err" data-en="Add your name so we know who we're talking to.">اكتب اسمك عشان نعرف بنكلم مين.</div>
       <button class="btn" type="submit" data-en="Send request on WhatsApp">أرسل الطلب على الواتساب</button>
       <p class="note" data-en="WhatsApp opens with your request ready to go — just tap send.">هيفتح الواتساب برسالة جاهزة فيها طلبك، اضغط إرسال وبس.</p>
@@ -610,12 +611,12 @@
 `Hi Weblume, I'd like a website
 Name: ${v('name')}
 Website type: ${label('type')}
-Budget: ${label('budget') || 'Not specified'}`
+Budget: ${label('budget') || 'Not specified'}${v('details') ? '\nDetails: ' + v('details') : ''}`
     :
 `السلام عليكم، عايز أعمل موقع
 الاسم: ${v('name')}
 نوع الموقع: ${label('type')}
-الميزانية: ${label('budget') || 'لم تحدد'}`;
+الميزانية: ${label('budget') || 'لم تحدد'}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
     window.open(waURL(msg), '_blank');
   });
 </script>
