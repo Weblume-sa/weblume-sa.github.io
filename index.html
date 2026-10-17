@@ -468,7 +468,7 @@
     };
     img.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjMwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiZGJkYmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIxMiIgcng9IjI2IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTMiLz48cGF0aCBkPSJNOSA2MkgyNTEiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSIxMSIvPjxnIGZpbGw9IiNmZjFhMmQiPjxjaXJjbGUgY3g9IjQ0IiBjeT0iMzYiIHI9IjEwIi8+PGNpcmNsZSBjeD0iNzQiIGN5PSIzNiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIzNiIgcj0iMTAiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmYxYTJkIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48cGF0aCBkPSJNOTggMTA0TDY2IDEzOUw5OCAxNzQiLz48cGF0aCBkPSJNMTYyIDEwNEwxOTQgMTM5TDE2MiAxNzQiLz48cGF0aCBkPSJNMTQyIDk2TDExOCAxODIiLz48L2c+PC9zdmc+';
 
-    let W, H, dpr, marks = [], mx = 0, my = 0, tx = 0, ty = 0;
+    let W, H, dpr, marks = [];
     const rand = (a, b) => a + Math.random() * (b - a);
     function makeMark(fresh){
       const z = rand(.35, 1);                       // depth: near marks are bigger, faster, brighter
@@ -486,18 +486,15 @@
       const n = Math.round(Math.min(22, Math.max(9, W * H / 90000)));
       marks = Array.from({length: n}, () => makeMark(true));
     }
-    addEventListener('pointermove', e => { tx = (e.clientX / W - .5); ty = (e.clientY / H - .5); }, {passive:true});
     let last = performance.now(), t = 0;
     function frame(now){
       const dt = Math.min(.05, (now - last) / 1000) * speed; last = now; t += dt;
-      mx += (tx - mx) * .05; my += (ty - my) * .05;
       ctx.clearRect(0, 0, W, H);
       if (ready) for (let i = 0; i < marks.length; i++) {
         const m = marks[i];
         m.y += m.vy * dt; m.x += (m.vx + Math.sin(t * .8 + m.bob) * 10) * dt; m.rot += m.vr * dt;
         if (m.y < -m.s * 1.5 || m.x < -200 || m.x > W + 200) { marks[i] = makeMark(false); continue; }
-        const px = m.x - mx * 40 * m.z, py = m.y - my * 30 * m.z;   // gentle mouse parallax
-        ctx.save(); ctx.globalAlpha = m.a; ctx.translate(px, py); ctx.rotate(m.rot);
+        ctx.save(); ctx.globalAlpha = m.a; ctx.translate(m.x, m.y); ctx.rotate(m.rot);
         ctx.drawImage(sprite, -m.s / 2, -m.s / 2, m.s, m.s); ctx.restore();
       }
       requestAnimationFrame(frame);
