@@ -449,7 +449,12 @@
 <script>
   const WA_NUMBER = "966502628316"; // رقم واتساب Weblume بصيغة دولية بدون +
   const waFloat = document.getElementById('waFloat');
-  waFloat.href = `https://wa.me/${WA_NUMBER}`; waFloat.target = '_blank'; waFloat.rel = 'noopener';
+  // phones/tablets open the WhatsApp app; computers open WhatsApp Web directly (no download page)
+  const IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+  const waURL = msg => IS_MOBILE
+    ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
+    : `https://web.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
+  waFloat.href = waURL(''); waFloat.target = '_blank'; waFloat.rel = 'noopener';
 
   /* ---------- Animated background: drifting web icons ---------- */
   (() => {
@@ -553,10 +558,10 @@
     const def = en ? "Hi Weblume, I'd like a website for my business" : 'السلام عليكم، عايز أعمل موقع لمشروعي';
     document.querySelectorAll('.wa-link').forEach(a => {
       const msg = (en ? a.dataset.msgEn : a.dataset.msgAr) || def;
-      a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+      a.href = waURL(msg);
       a.target = '_blank'; a.rel = 'noopener';
     });
-    waFloat.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(def)}`;
+    waFloat.href = waURL(def);
   }
   setWaLinks();
 
@@ -611,7 +616,7 @@ Budget: ${label('budget') || 'Not specified'}`
 الاسم: ${v('name')}
 نوع الموقع: ${label('type')}
 الميزانية: ${label('budget') || 'لم تحدد'}`;
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(waURL(msg), '_blank');
   });
 </script>
 </body>
