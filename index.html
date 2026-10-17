@@ -448,6 +448,7 @@
   (() => {
     const c = document.getElementById('bg'), ctx = c.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const speed = reduce ? 0.45 : 1;
     const logo = new Image(); let logoOk = false;
     logo.onload = () => { logoOk = true; }; logo.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjMwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiZGJkYmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIxMiIgcng9IjI2IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTMiLz48cGF0aCBkPSJNOSA2MkgyNTEiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSIxMSIvPjxnIGZpbGw9IiNmZjFhMmQiPjxjaXJjbGUgY3g9IjQ0IiBjeT0iMzYiIHI9IjEwIi8+PGNpcmNsZSBjeD0iNzQiIGN5PSIzNiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIzNiIgcj0iMTAiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmYxYTJkIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48cGF0aCBkPSJNOTggMTA0TDY2IDEzOUw5OCAxNzQiLz48cGF0aCBkPSJNMTYyIDEwNEwxOTQgMTM5TDE2MiAxNzQiLz48cGF0aCBkPSJNMTQyIDk2TDExOCAxODIiLz48L2c+PC9zdmc+';
     let W, H, dpr, marks = [];
@@ -503,19 +504,17 @@
       }
       for (let i = 0; i < marks.length; i++) {
         const m = marks[i];
-        if (!reduce) {
-          m.y += m.vy; m.x += m.vx + Math.sin(t / 120 + m.bob) * .15; m.rot += m.vr;
+        {
+          m.y += m.vy * speed; m.x += (m.vx + Math.sin(t / 120 + m.bob) * .15) * speed; m.rot += m.vr * speed;
           if (m.y < -120 || m.x < -260 || m.x > W + 260) marks[i] = makeMark(false);
         }
         drawMark(marks[i]);
       }
-      if (!reduce) requestAnimationFrame(frame);
+      requestAnimationFrame(frame);
     }
     addEventListener('resize', resize);
     resize();
-    if (document.fonts) document.fonts.ready.then(() => reduce && frame());
     frame();
-    logo.addEventListener('load', () => reduce && frame());
   })();
 
   /* ---------- Header on scroll ---------- */
