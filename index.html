@@ -456,6 +456,19 @@
     ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
     : `https://web.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
   waFloat.href = waURL(''); waFloat.target = '_blank'; waFloat.rel = 'noopener';
+  // On phones, open the WhatsApp app directly (whatsapp://). If the app isn't installed, fall back to wa.me.
+  function openWhatsApp(msg){
+    if (!IS_MOBILE) { window.open(waURL(msg), '_blank', 'noopener'); return; }
+    const fallback = setTimeout(() => { if (!document.hidden) location.href = waURL(msg); }, 1500);
+    addEventListener('visibilitychange', () => document.hidden && clearTimeout(fallback), {once:true});
+    location.href = `whatsapp://send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('.wa-link, #waFloat');
+    if (!a) return;
+    e.preventDefault();
+    openWhatsApp(decodeURIComponent((a.href.match(/text=([^&]*)/) || [,''])[1]));
+  });
 
   /* ---------- Animated background: drifting web icons ---------- */
   (() => {
@@ -617,7 +630,7 @@ Budget: ${label('budget') || 'Not specified'}${v('details') ? '\nDetails: ' + v(
 الاسم: ${v('name')}
 نوع الموقع: ${label('type')}
 الميزانية: ${label('budget') || 'لم تحدد'}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
-    window.open(waURL(msg), '_blank');
+    openWhatsApp(msg);
   });
 </script>
 </body>
