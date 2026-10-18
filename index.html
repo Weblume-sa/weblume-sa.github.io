@@ -143,6 +143,18 @@
   .art.cafe{background:radial-gradient(circle at 70% 30%,rgba(196,139,82,.6),transparent 45%),radial-gradient(circle at 20% 70%,rgba(212,24,42,.3),transparent 50%),linear-gradient(150deg,#2b1d13,#050302)}
   .art.quran{background:radial-gradient(circle at 30% 30%,rgba(64,140,110,.5),transparent 50%),repeating-conic-gradient(from 0deg at 70% 40%,rgba(255,255,255,.04) 0 15deg,transparent 15deg 30deg),linear-gradient(160deg,#0d1f19,#020504)}
   .art.shasha{background:radial-gradient(ellipse at 50% 0%,rgba(212,24,42,.55),transparent 60%),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 70px),linear-gradient(#120406,#000)}
+  .art.book{background:radial-gradient(circle at 70% 25%,rgba(80,120,230,.5),transparent 50%),repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 26px),linear-gradient(160deg,#0b1430,#020308)}
+  .work .visit{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;font-weight:600;color:#fff;transition:color .25s}
+  .work .visit svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .3s var(--ease)}
+  html[dir="rtl"] .work .visit svg{transform:scaleX(-1)}
+  .work:hover .visit{color:var(--red-hi)}
+  .work:hover .visit svg{transform:translate(2px,-2px)}
+  html[dir="rtl"] .work:hover .visit svg{transform:scaleX(-1) translate(2px,-2px)}
+  .work-link{position:absolute;inset:0;z-index:1}
+  .work-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;position:relative;z-index:2;pointer-events:none}
+  .work-actions .visit{pointer-events:none}
+  .sub-link{pointer-events:auto;margin-top:16px;font-size:14px;color:#c9c6c2;border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:color .25s,border-color .25s}
+  .sub-link:hover{color:#fff;border-color:var(--red)}
   .work .type{font-size:13px;color:var(--muted);margin-bottom:6px}
   .work h3{font-family:var(--display);font-size:clamp(26px,2.6vw,38px);line-height:1.3;margin-bottom:8px}
   .work p{color:#c9c6c2;max-width:420px;font-weight:300}
@@ -323,24 +335,30 @@
     </div>
     <div class="works">
       <div class="work big">
+        <a class="work-link" href="https://tyt-cafe.github.io/" target="_blank" rel="noopener" aria-label="TYT Café"></a>
         <div class="art cafe"></div>
-        <div class="type" data-en="Café website">موقع تعريفي لكافيه</div>
+        <div class="type" data-en="Café website + digital menu">موقع كافيه + منيو إلكتروني</div>
         <h3>TYT Café</h3>
         <p data-en="Shows the menu and branches and connects customers to the café in one tap.">موقع يعرض المنيو والفروع ويوصل الزبون بالكافيه في ضغطة واحدة.</p>
+        <div class="work-actions">
+          <span class="visit"><span data-en="Visit site">زيارة الموقع</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          <a class="sub-link" href="https://tytcafe-menu.github.io/" target="_blank" rel="noopener" data-en="Digital menu">المنيو الإلكتروني</a>
+        </div>
       </div>
-      <div class="work">
+      <a class="work" href="https://quran-companion.github.io/" target="_blank" rel="noopener">
         <div class="art quran"></div>
         <div class="type" data-en="Web app">تطبيق ويب</div>
         <h3 data-en="Quran Companion">رفيق القرآن</h3>
         <p data-en="Helps you memorize the Quran and track your progress day by day.">تطبيق يساعدك تحفظ القرآن وتتابع تقدمك يوم بيوم.</p>
-      </div>
-      <div class="work">
-        <div class="art shasha"></div>
-        <div class="type" data-en="Streaming platform">منصة محتوى</div>
-        <h3 data-en="Shasha">شاشة</h3>
-        <p data-en="A movies and series platform with fast browsing and a cinematic feel.">منصة أفلام ومسلسلات بتصفح سريع وتجربة سينمائية.</p>
-      </div>
-    </div>
+        <span class="visit"><span data-en="Visit site">زيارة الموقع</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="work" href="https://askmybook.github.io/" target="_blank" rel="noopener">
+        <div class="art book"></div>
+        <div class="type" data-en="AI study app">تطبيق مذاكرة بالذكاء الاصطناعي</div>
+        <h3>AskMyBook</h3>
+        <p data-en="Your private tutor for any book: ask questions and get answers straight from it.">مدرّسك الخاص لأي كتاب: اسأل وخد الإجابة من الكتاب نفسه.</p>
+        <span class="visit"><span data-en="Visit site">زيارة الموقع</span><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+      </a>
   </div>
 </section>
 
