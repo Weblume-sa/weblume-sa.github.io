@@ -488,6 +488,14 @@
     img.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjMwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiZGJkYmQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIxMiIgcng9IjI2IiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTMiLz48cGF0aCBkPSJNOSA2MkgyNTEiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSIxMSIvPjxnIGZpbGw9IiNmZjFhMmQiPjxjaXJjbGUgY3g9IjQ0IiBjeT0iMzYiIHI9IjEwIi8+PGNpcmNsZSBjeD0iNzQiIGN5PSIzNiIgcj0iMTAiLz48Y2lyY2xlIGN4PSIxMDQiIGN5PSIzNiIgcj0iMTAiLz48L2c+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmYxYTJkIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIj48cGF0aCBkPSJNOTggMTA0TDY2IDEzOUw5OCAxNzQiLz48cGF0aCBkPSJNMTYyIDEwNEwxOTQgMTM5TDE2MiAxNzQiLz48cGF0aCBkPSJNMTQyIDk2TDExOCAxODIiLz48L2c+PC9zdmc+';
 
     let W, H, dpr, marks = [];
+    // ---- performance guard: weak devices get fewer icons, then a still background ----
+    // level 2 = full, 1 = lite (fewer icons, lower resolution), 0 = static (animation stopped)
+    const weakHint = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)
+                  || (navigator.deviceMemory && navigator.deviceMemory <= 2)
+                  || (navigator.connection && navigator.connection.saveData);
+    let level = weakHint ? 1 : 2, running = true;
+    let fSum = 0, fN = 0, slowStreak = 0;
+    c.dataset.level = level;
     const rand = (a, b) => a + Math.random() * (b - a);
     function makeMark(fresh){
       const z = rand(.35, 1);                       // depth: near marks are bigger, faster, brighter
@@ -498,16 +506,37 @@
                a: .07 + z * .17, bob: rand(0, 6.28) };
     }
     function resize(){
-      dpr = Math.min(devicePixelRatio || 1, 1.5);
+      dpr = level === 2 ? Math.min(devicePixelRatio || 1, 1.5) : 1;
       W = innerWidth; H = innerHeight;
       c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.round(Math.min(22, Math.max(9, W * H / 90000)));
+      let n = Math.round(Math.min(22, Math.max(9, W * H / 90000)));
+      if (level < 2) n = Math.max(6, Math.round(n / 2));
       marks = Array.from({length: n}, () => makeMark(true));
     }
     let last = performance.now(), t = 0;
+    function stopAnimation(){
+      running = false;
+      document.querySelectorAll('.glow').forEach(g => g.style.animation = 'none');
+    }
+    function checkSpeed(raw){
+      if (document.hidden || raw > 250) return;          // ignore tab switches / hiccups
+      fSum += raw; fN++;
+      if (fN < 45) return;                                // judge every ~45 frames
+      const avg = fSum / fN; fSum = 0; fN = 0;
+      // full -> lite below ~40 fps; lite -> still below ~25 fps
+      if (avg > (level === 2 ? 25 : 40)) slowStreak++; else slowStreak = 0;
+      if (slowStreak >= 2) {
+        slowStreak = 0;
+        if (level === 2) { level = 1; resize(); }        // step 1: lighten
+        else if (level === 1) { level = 0; stopAnimation(); } // step 2: freeze
+        c.dataset.level = level;
+      }
+    }
     function frame(now){
-      const dt = Math.min(.05, (now - last) / 1000) * speed; last = now; t += dt;
+      const raw = now - last;
+      const dt = Math.min(.05, raw / 1000) * speed; last = now; t += dt;
+      checkSpeed(raw);
       ctx.clearRect(0, 0, W, H);
       if (ready) for (let i = 0; i < marks.length; i++) {
         const m = marks[i];
@@ -516,9 +545,10 @@
         ctx.save(); ctx.globalAlpha = m.a; ctx.translate(m.x, m.y); ctx.rotate(m.rot);
         ctx.drawImage(sprite, -m.s / 2, -m.s / 2, m.s, m.s); ctx.restore();
       }
-      requestAnimationFrame(frame);
+      if (running) requestAnimationFrame(frame);
     }
-    addEventListener('resize', resize);
+    addEventListener('resize', () => { resize(); if (!running) frame(performance.now()); });
+    document.addEventListener('visibilitychange', () => { last = performance.now(); fSum = 0; fN = 0; });
     resize(); requestAnimationFrame(frame);
   })();
 
