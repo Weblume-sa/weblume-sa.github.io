@@ -447,7 +447,7 @@
       <div class="field"><label for="details" data-en="What do you want? (optional)">اكتب اللي محتاجه (اختياري)</label><textarea class="input" id="details" placeholder="مثال: عندي كافيه وعايز موقع فيه المنيو والفروع وزرار للطلب" data-en-ph="e.g. I have a café and want a site with the menu, branches and an order button"></textarea></div>
       <div class="err" id="err" data-en="Add your name so we know who we're talking to.">اكتب اسمك عشان نعرف بنكلم مين.</div>
       <button class="btn" type="submit" data-en="Send request in chat">أرسل الطلب في الشات</button>
-      <p class="note" id="sentNote" data-en="The chat opens with your request copied — just paste it and send.">هيفتح الشات وطلبك متنسخ، الصقه واضغط إرسال.</p>
+      <p class="note" id="sentNote" data-en="Your request goes straight to our chat and we reply right here.">طلبك هيوصلنا في الشات على طول، وهنرد عليك هنا.</p>
     </form>
   </div>
 </section>
@@ -472,18 +472,10 @@
 </button>
 
 <script>
-  // Order form -> live chat (tawk.to). The request is logged on the visitor in the admin panel,
-  // copied to the clipboard, and the chat window opens so the client can paste and send it.
-  async function sendRequest(msg, name){
-    try { await navigator.clipboard.writeText(msg); } catch (e) {}
-    const T = window.Tawk_API;
-    if (T && typeof T.maximize === 'function') {
-      try { T.setAttributes({name: name}, () => {}); } catch (e) {}
-      try { T.addEvent('website-request', {details: msg.slice(0, 250)}, () => {}); } catch (e) {}
-      window.openChat();
-    } else {
-      window.open('https://ig.me/m/weblume1', '_blank', 'noopener');
-    }
+  // Order form -> Weblume live chat: the request is sent as the visitor's first message
+  function sendRequest(msg, name){
+    if (window.WeblumeChat) window.WeblumeChat.sendRequest(msg, name);
+    else window.open('https://ig.me/m/weblume1', '_blank', 'noopener');
   }
 
   /* ---------- Animated background: drifting web icons ---------- */
@@ -669,37 +661,6 @@ Website type: ${label('type')}${v('details') ? '\nDetails: ' + v('details') : ''
     sendRequest(msg, v('name'));
   });
 </script>
-<script>
-  /* Branded launcher: hide tawk's default bubble and open the chat from our own button */
-  (function(){
-    var T = window.Tawk_API = window.Tawk_API || {};
-    var fab = document.getElementById('chatFab'), cnt = document.getElementById('chatCnt');
-    function hideBubble(){ try { T.hideWidget(); } catch (e) {} fab.classList.remove('hidden'); }
-    window.openChat = function(){
-      if (typeof T.maximize !== 'function') { window.open('https://ig.me/m/weblume1','_blank','noopener'); return; }
-      try { T.showWidget(); } catch (e) {}
-      T.maximize(); fab.classList.add('hidden');
-    };
-    T.onLoad = hideBubble;
-    T.onChatMinimized = hideBubble;
-    T.onChatHidden = function(){ fab.classList.remove('hidden'); };
-    T.onUnreadCountChanged = function(n){ cnt.textContent = n; fab.classList.toggle('has-unread', n > 0); };
-    fab.addEventListener('click', window.openChat);
-    setTimeout(function(){ fab.classList.remove('hidden'); }, 2500);
-  })();
-</script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6ad69803acf34c34c9b0c57d/1k5b43k1j';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+<script type="module" src="assets/chat.js"></script>
 </body>
 </html>

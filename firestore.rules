@@ -1,0 +1,37 @@
+rules_version = '2';
+// Paste into Firebase console → Firestore Database → Rules, after replacing ADMIN_UID.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == 'ADMIN_UID';
+    }
+    function isOwner(chatId) {
+      return request.auth != null && request.auth.uid == chatId;
+    }
+
+    match /meta/status {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /chats/{chatId} {
+      allow read: if isAdmin() || isOwner(chatId);
+      allow create: if isOwner(chatId);
+      allow update: if isAdmin() || (isOwner(chatId) &&
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['name', 'lang', 'updatedAt', 'lastMessage', 'lastFrom', 'unreadAdmin']));
+      allow delete: if isAdmin();
+
+      match /messages/{messageId} {
+        allow read: if isAdmin() || isOwner(chatId);
+        allow create: if request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 1500
+          && ((isAdmin() && request.resource.data.from == 'admin')
+              || (isOwner(chatId) && request.resource.data.from == 'visitor'));
+        allow update: if false;
+        allow delete: if isAdmin();
+      }
+    }
+  }
+}
