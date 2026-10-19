@@ -5,6 +5,26 @@
 import { firebaseConfig, FIREBASE_SDK, isConfigured } from './firebase-config.js';
 
 const FALLBACK = 'https://ig.me/m/weblume1';
+// Phone alerts via the ntfy app (subscribe to this topic in the app)
+const NTFY_TOPIC = 'weblume-chat-k7q2x9m4';
+const ADMIN_URL = 'https://weblume-sa.github.io/admin/';
+
+function alertPhone(text) {
+  try {
+    fetch('https://ntfy.sh/', {
+      method: 'POST',
+      body: JSON.stringify({
+        topic: NTFY_TOPIC,
+        title: 'رسالة جديدة من ' + (store.get(NAME_KEY) || 'زائر'),
+        message: text.slice(0, 300),
+        tags: ['speech_balloon'],
+        priority: 4,
+        click: ADMIN_URL
+      }),
+      keepalive: true
+    }).catch(() => {});
+  } catch (e) {}
+}
 const NAME_KEY = 'wl-chat-name';
 const STARTED_KEY = 'wl-chat-started';
 
@@ -249,6 +269,7 @@ async function send(text) {
       unreadAdmin: fsM.increment(1)
     });
     pending = pending.filter(x => x !== p);
+    alertPhone(text);
   } catch (e) {
     p.failed = true;
     console.error('Weblume chat:', e);
