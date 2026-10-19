@@ -41,7 +41,8 @@
   /* app */
   .app{height:100%;display:flex;flex-direction:column}
   .top{display:flex;align-items:center;gap:10px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top));border-bottom:1px solid var(--line);background:var(--panel)}
-  .top .logo{font-size:20px;margin-inline-end:auto}
+  .logo-img{height:40px;width:auto;margin-inline-end:auto}
+  .logo-img.big{height:110px;margin:0 auto 4px}
   .pill{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:transparent;font-size:13.5px}
   .pill .d{width:9px;height:9px;border-radius:50%;background:#666}
   .pill.on{border-color:rgba(61,220,132,.5)}
@@ -73,6 +74,19 @@
   .m.v{align-self:flex-start;background:#1c1c1c;border:1px solid var(--line);border-start-start-radius:5px}
   .m.a{align-self:flex-end;background:var(--red);color:#fff;border-start-end-radius:5px}
   .m .t{display:block;font-size:11px;opacity:.6;margin-top:3px}
+  .m.img{padding:4px}
+  .m img{display:block;max-width:100%;max-height:320px;border-radius:12px;cursor:zoom-in}
+  .m.img .tx,.m.img .t{padding:4px 8px 0}
+  .m a{color:inherit;text-decoration:underline}
+  .lk{margin-inline-start:auto;display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:transparent;font-size:12.5px;white-space:nowrap}
+  .lk .d{width:8px;height:8px;border-radius:50%;background:#d4182a}
+  .lk.on{border-color:rgba(61,220,132,.5)}
+  .lk.on .d{background:var(--green)}
+  .att{width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:var(--card);display:flex;align-items:center;justify-content:center;flex:none}
+  .att svg{width:21px;height:21px;stroke:#fff;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+  .lb.show{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:10px}
   .day{align-self:center;font-size:12px;color:var(--mut);margin:8px 0}
   .cmp{display:flex;gap:8px;align-items:flex-end;padding:10px 12px;padding-bottom:max(10px,env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--panel)}
   .cmp textarea{flex:1;resize:none;min-height:48px;max-height:140px;line-height:1.5}
@@ -92,7 +106,7 @@
 
 <section class="login" id="loginView">
   <form id="loginForm" novalidate>
-    <div class="logo">Web<span>lume</span></div>
+    <img class="logo-img big" src="../assets/weblume-logo-sm.webp" alt="Weblume">
     <p>لوحة الأدمن · الشات</p>
     <button class="btn gbtn" id="loginBtn" type="submit"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>دخول بحساب جوجل</button>
     <div class="err" id="loginErr"></div>
@@ -102,7 +116,7 @@
 
 <section class="app hide" id="appView">
   <header class="top">
-    <div class="logo">Web<span>lume</span></div>
+    <img class="logo-img" src="../assets/weblume-logo-sm.webp" alt="Weblume">
     <button class="pill" id="onlineBtn" type="button"><span class="d"></span><span id="onlineTxt">أوفلاين</span></button>
     <button class="icon" id="notifBtn" type="button" title="تفعيل الإشعارات" aria-label="تفعيل الإشعارات"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></button>
     <button class="icon" id="logoutBtn" type="button" title="خروج" aria-label="خروج"><svg viewBox="0 0 24 24"><path d="M14 4h5v16h-5"/><path d="M10 8l-4 4 4 4M6 12h10"/></svg></button>
@@ -115,18 +129,22 @@
         <button class="icon back" id="backBtn" type="button" aria-label="رجوع"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
         <div class="av" id="chatAv"></div>
         <div><div class="nm" id="chatName"></div><small id="chatSub"></small></div>
+        <button class="lk" id="linkBtn" type="button"><span class="d"></span><span id="linkTxt">اللينكات ممنوعة</span></button>
       </div>
       <div class="msgs hide" id="msgs"></div>
       <form class="cmp hide" id="cmp" novalidate>
+        <button class="att" id="attBtn" type="button" aria-label="إرسال صورة"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg></button>
+        <input id="fileIn" type="file" accept="image/*" hidden>
         <textarea class="in" id="reply" rows="1" maxlength="1500" placeholder="اكتب ردك…"></textarea>
         <button class="snd" type="submit" aria-label="إرسال"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
       </form>
     </div>
   </div>
 </section>
+<div class="lb" id="lb"><img alt=""></div>
 
 <script type="module">
-import { firebaseConfig, ADMIN_UID, FIREBASE_SDK, isConfigured } from '../assets/firebase-config.js?v=3';
+import { firebaseConfig, ADMIN_UID, FIREBASE_SDK, isConfigured } from '../assets/firebase-config.js?v=4';
 
 const $ = id => document.getElementById(id);
 if (!isConfigured()) {
@@ -278,7 +296,7 @@ function renderList() {
   });
   if (activeId) {
     const c = chats.find(x => x.id === activeId);
-    if (c) { $('chatName').textContent = c.name || 'زائر'; $('chatAv').textContent = initial(c.name); }
+    if (c) { $('chatName').textContent = c.name || 'زائر'; $('chatAv').textContent = initial(c.name); showLinkState(c.linksAllowed); }
   }
 }
 
@@ -293,6 +311,7 @@ function openChat(id) {
   $('chatAv').textContent = initial(c.name);
   $('chatSub').textContent = c.createdAt ? 'من ' + when(c.createdAt) : '';
   renderList();
+  showLinkState(c.linksAllowed);
   if (unsubMsgs) unsubMsgs();
   const ref = F.doc(db, 'chats', id);
   unsubMsgs = F.onSnapshot(F.query(F.collection(ref, 'messages'), F.orderBy('at', 'asc')), snap => {
@@ -314,8 +333,13 @@ function renderMsgs(ms) {
       box.appendChild(s);
     }
     const el = document.createElement('div');
-    el.className = 'm ' + (m.from === 'admin' ? 'a' : 'v');
-    el.textContent = m.text;
+    el.className = 'm ' + (m.from === 'admin' ? 'a' : 'v') + (m.image ? ' img' : '');
+    if (m.image) {
+      const im = document.createElement('img'); im.src = m.image; im.alt = ''; im.loading = 'lazy';
+      im.addEventListener('click', () => { $('lb').querySelector('img').src = m.image; $('lb').classList.add('show'); });
+      el.appendChild(im);
+    }
+    if (m.text) { const tx = document.createElement('div'); tx.className = 'tx'; linkify(tx, m.text); el.appendChild(tx); }
     const t = document.createElement('span'); t.className = 't';
     t.textContent = d.toLocaleTimeString('ar-EG', { hour: 'numeric', minute: '2-digit' });
     el.appendChild(t);
@@ -333,20 +357,89 @@ document.addEventListener('visibilitychange', () => {
   if (!document.hidden && activeId) F.updateDoc(F.doc(db, 'chats', activeId), { unreadAdmin: 0 }).catch(() => {});
 });
 
+async function sendAdmin(text, image) {
+  if ((!text && !image) || !activeId) return false;
+  const ref = F.doc(db, 'chats', activeId);
+  const msg = { from: 'admin', text: text || '', at: F.serverTimestamp() };
+  if (image) msg.image = image;
+  try {
+    await F.addDoc(F.collection(ref, 'messages'), msg);
+    await F.updateDoc(ref, { updatedAt: F.serverTimestamp(), lastMessage: (image ? '📷 صورة ' : '') + (text || '').slice(0, 140), lastFrom: 'admin', unreadAdmin: 0 });
+    return true;
+  } catch (err) {
+    console.error(err);
+    alert('الرد متبعتش، جرّب تاني');
+    return false;
+  }
+}
 $('cmp').addEventListener('submit', async e => {
   e.preventDefault();
   const text = $('reply').value.trim();
-  if (!text || !activeId) return;
+  if (!text) return;
   $('reply').value = ''; $('reply').style.height = '';
-  const ref = F.doc(db, 'chats', activeId);
-  try {
-    await F.addDoc(F.collection(ref, 'messages'), { from: 'admin', text, at: F.serverTimestamp() });
-    await F.updateDoc(ref, { updatedAt: F.serverTimestamp(), lastMessage: text.slice(0, 140), lastFrom: 'admin', unreadAdmin: 0 });
-  } catch (err) {
-    $('reply').value = text;
-    alert('الرد متبعتش، جرّب تاني');
-  }
+  if (!(await sendAdmin(text))) $('reply').value = text;
 });
+
+/* links permission per chat */
+function showLinkState(on) {
+  $('linkBtn').classList.toggle('on', !!on);
+  $('linkTxt').textContent = on ? 'اللينكات مسموحة' : 'اللينكات ممنوعة';
+}
+$('linkBtn').addEventListener('click', async () => {
+  if (!activeId) return;
+  const c = chats.find(x => x.id === activeId) || {};
+  const next = !c.linksAllowed;
+  showLinkState(next);
+  try { await F.updateDoc(F.doc(db, 'chats', activeId), { linksAllowed: next }); }
+  catch (e) { showLinkState(!next); alert('مقدرتش أغيّر الإعداد، جرّب تاني'); }
+});
+
+/* images */
+function linkify(el, text) {
+  const re = /(https?:\/\/[^\s]+)/g; let last = 0, m;
+  while ((m = re.exec(text))) {
+    el.appendChild(document.createTextNode(text.slice(last, m.index)));
+    const a = document.createElement('a'); a.href = m[1]; a.target = '_blank'; a.rel = 'noopener nofollow'; a.textContent = m[1];
+    el.appendChild(a); last = m.index + m[1].length;
+  }
+  el.appendChild(document.createTextNode(text.slice(last)));
+}
+function loadImage(file) {
+  return new Promise((res, rej) => {
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => { URL.revokeObjectURL(url); res(img); };
+    img.onerror = () => { URL.revokeObjectURL(url); rej(new Error('bad')); };
+    img.src = url;
+  });
+}
+async function compress(file) {
+  const img = await loadImage(file);
+  let max = 1400, q = 0.82;
+  for (let i = 0; i < 8; i++) {
+    const s = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+    const c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(img.naturalWidth * s)); c.height = Math.max(1, Math.round(img.naturalHeight * s));
+    const ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(img, 0, 0, c.width, c.height);
+    const out = c.toDataURL('image/jpeg', q);
+    if (out.length <= 850000) return out;
+    max = Math.round(max * 0.8); q = Math.max(0.5, q - 0.07);
+  }
+  throw new Error('big');
+}
+$('attBtn').addEventListener('click', () => $('fileIn').click());
+$('fileIn').addEventListener('change', async () => {
+  const f = $('fileIn').files[0]; $('fileIn').value = '';
+  if (!f) return;
+  try {
+    const data = await compress(f);
+    const cap = $('reply').value.trim();
+    $('reply').value = ''; $('reply').style.height = '';
+    if (!(await sendAdmin(cap, data))) $('reply').value = cap;
+  } catch (e) { alert('مقدرتش أبعت الصورة دي'); }
+});
+$('lb').addEventListener('click', () => $('lb').classList.remove('show'));
+
 $('reply').addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && matchMedia('(hover:hover)').matches) { e.preventDefault(); $('cmp').requestSubmit(); }
 });

@@ -8,6 +8,19 @@ service cloud.firestore {
     function isOwner(chatId) {
       return request.auth != null && request.auth.uid == chatId;
     }
+    function hasLink(s) {
+      return s.lower().matches('(?s).*(https?://|www\\.|[a-z0-9-]+\\.(com|net|org|io|me|sa|eg|ly|co|link|xyz|info|app|dev|site|store|online|gg|tk|ru|biz|us|uk|ae|shop|top|click|live|tv|page|cc|ws|to)\\b).*');
+    }
+    function linksAllowed(chatId) {
+      return get(/databases/$(database)/documents/chats/$(chatId)).data.get('linksAllowed', false) == true;
+    }
+    function validMessage(d) {
+      return d.keys().hasOnly(['from', 'text', 'image', 'at'])
+        && d.text is string && d.text.size() <= 1500
+        && (d.text.size() > 0 || ('image' in d))
+        && (!('image' in d) || (d.image is string && d.image.size() < 900000
+             && d.image.matches('data:image/(jpeg|png|webp);base64,.*')));
+    }
 
     match /meta/status {
       allow read: if true;
@@ -16,7 +29,7 @@ service cloud.firestore {
 
     match /chats/{chatId} {
       allow read: if isAdmin() || isOwner(chatId);
-      allow create: if isOwner(chatId);
+      allow create: if isOwner(chatId) && !('linksAllowed' in request.resource.data);
       allow update: if isAdmin() || (isOwner(chatId) &&
         request.resource.data.diff(resource.data).affectedKeys()
           .hasOnly(['name', 'lang', 'updatedAt', 'lastMessage', 'lastFrom', 'unreadAdmin']));
@@ -24,11 +37,10 @@ service cloud.firestore {
 
       match /messages/{messageId} {
         allow read: if isAdmin() || isOwner(chatId);
-        allow create: if request.resource.data.text is string
-          && request.resource.data.text.size() > 0
-          && request.resource.data.text.size() <= 1500
-          && ((isAdmin() && request.resource.data.from == 'admin')
-              || (isOwner(chatId) && request.resource.data.from == 'visitor'));
+        allow create: if validMessage(request.resource.data) && (
+          (isAdmin() && request.resource.data.from == 'admin') ||
+          (isOwner(chatId) && request.resource.data.from == 'visitor'
+            && (!hasLink(request.resource.data.text) || linksAllowed(chatId))));
         allow update: if false;
         allow delete: if isAdmin();
       }
