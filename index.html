@@ -408,7 +408,7 @@
   <div class="wrap">
     <div class="order-intro">
       <h2 data-en="Tell us what you need">قولنا محتاج إيه</h2>
-      <p data-en="A few quick questions, then send us your request on Instagram and we'll take it from there.">كام سؤال سريع، وبعدها ابعتلنا طلبك على إنستجرام ونكمل معاك من هناك.</p>
+      <p data-en="A few quick questions, then chat with us live right here on the site.">كام سؤال سريع، وبعدها نكمل كلامنا في الشات هنا على الموقع على طول.</p>
       <ul class="perks">
         <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Same-day reply">رد في نفس اليوم</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M3 12l6 6L21 6"/></svg><span data-en="Free consultation and quote">استشارة وعرض سعر مجاناً</span></li>
@@ -437,8 +437,8 @@
       </div>
       <div class="field"><label for="details" data-en="What do you want? (optional)">اكتب اللي محتاجه (اختياري)</label><textarea class="input" id="details" placeholder="مثال: عندي كافيه وعايز موقع فيه المنيو والفروع وزرار للطلب" data-en-ph="e.g. I have a café and want a site with the menu, branches and an order button"></textarea></div>
       <div class="err" id="err" data-en="Add your name so we know who we're talking to.">اكتب اسمك عشان نعرف بنكلم مين.</div>
-      <button class="btn" type="submit" data-en="Send request on Instagram">أرسل الطلب على إنستجرام</button>
-      <p class="note" id="sentNote" data-en="Your request is copied — Instagram opens, just paste it in the message and send.">طلبك هيتنسخ تلقائي، وهيفتح إنستجرام، الصق الرسالة واضغط إرسال.</p>
+      <button class="btn" type="submit" data-en="Send request in chat">أرسل الطلب في الشات</button>
+      <p class="note" id="sentNote" data-en="The chat opens with your request copied — just paste it and send.">هيفتح الشات وطلبك متنسخ، الصقه واضغط إرسال.</p>
     </form>
   </div>
 </section>
@@ -458,11 +458,18 @@
 </footer>
 
 <script>
-  const IG_DM = 'https://ig.me/m/weblume1'; // رسائل إنستجرام Weblume
-  // Copy the request to the clipboard, then open Instagram DMs so the client just pastes and sends
-  async function sendRequest(msg){
+  // Order form -> live chat (tawk.to). The request is logged on the visitor in the admin panel,
+  // copied to the clipboard, and the chat window opens so the client can paste and send it.
+  async function sendRequest(msg, name){
     try { await navigator.clipboard.writeText(msg); } catch (e) {}
-    window.open(IG_DM, '_blank', 'noopener');
+    const T = window.Tawk_API;
+    if (T && typeof T.maximize === 'function') {
+      try { T.setAttributes({name: name}, () => {}); } catch (e) {}
+      try { T.addEvent('website-request', {details: msg.slice(0, 250)}, () => {}); } catch (e) {}
+      T.maximize();
+    } else {
+      window.open('https://ig.me/m/weblume1', '_blank', 'noopener');
+    }
   }
 
   /* ---------- Animated background: drifting web icons ---------- */
@@ -645,8 +652,21 @@ Website type: ${label('type')}${v('details') ? '\nDetails: ' + v('details') : ''
 `السلام عليكم، عايز أعمل موقع
 الاسم: ${v('name')}
 نوع الموقع: ${label('type')}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
-    sendRequest(msg);
+    sendRequest(msg, v('name'));
   });
 </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ad69803acf34c34c9b0c57d/1k5b43k1j';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
