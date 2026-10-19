@@ -226,6 +226,15 @@
   .options li[aria-selected="true"]{color:var(--white)}
   .options li[aria-selected="true"]::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
 
+  .chat-fab{position:fixed;bottom:22px;left:22px;z-index:60;display:flex;align-items:center;gap:10px;height:56px;padding:0 22px 0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:var(--red);color:#fff;font-family:var(--body);font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 12px 34px var(--red-glow),0 4px 14px rgba(0,0,0,.5);transition:transform .25s var(--ease),background .25s,opacity .3s}
+  html[dir="ltr"] .chat-fab{left:auto;right:22px}
+  .chat-fab:hover{background:var(--red-hi);transform:translateY(-3px)}
+  .chat-fab svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .chat-fab .live{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
+  .chat-fab .cnt{min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:#fff;color:var(--red);font-size:12px;display:none;align-items:center;justify-content:center}
+  .chat-fab.has-unread .cnt{display:inline-flex}
+  .chat-fab.hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+  @media (max-width:520px){.chat-fab{height:52px;padding:0 18px 0 15px;bottom:16px;left:16px}html[dir="ltr"] .chat-fab{right:16px}}
   .err{color:var(--red-hi);font-size:14px;margin:-6px 0 14px;display:none}
   .form .btn{width:100%;padding:17px;font-size:17px}
   .note{color:var(--muted);font-size:13px;text-align:center;margin-top:14px}
@@ -457,6 +466,11 @@
   </div>
 </footer>
 
+<button class="chat-fab hidden" id="chatFab" type="button" aria-label="Chat with Weblume">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></svg>
+  <span data-en="Chat with us">كلمنا</span><span class="live" aria-hidden="true"></span><span class="cnt" id="chatCnt"></span>
+</button>
+
 <script>
   // Order form -> live chat (tawk.to). The request is logged on the visitor in the admin panel,
   // copied to the clipboard, and the chat window opens so the client can paste and send it.
@@ -466,7 +480,7 @@
     if (T && typeof T.maximize === 'function') {
       try { T.setAttributes({name: name}, () => {}); } catch (e) {}
       try { T.addEvent('website-request', {details: msg.slice(0, 250)}, () => {}); } catch (e) {}
-      T.maximize();
+      window.openChat();
     } else {
       window.open('https://ig.me/m/weblume1', '_blank', 'noopener');
     }
@@ -654,6 +668,25 @@ Website type: ${label('type')}${v('details') ? '\nDetails: ' + v('details') : ''
 نوع الموقع: ${label('type')}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
     sendRequest(msg, v('name'));
   });
+</script>
+<script>
+  /* Branded launcher: hide tawk's default bubble and open the chat from our own button */
+  (function(){
+    var T = window.Tawk_API = window.Tawk_API || {};
+    var fab = document.getElementById('chatFab'), cnt = document.getElementById('chatCnt');
+    function hideBubble(){ try { T.hideWidget(); } catch (e) {} fab.classList.remove('hidden'); }
+    window.openChat = function(){
+      if (typeof T.maximize !== 'function') { window.open('https://ig.me/m/weblume1','_blank','noopener'); return; }
+      try { T.showWidget(); } catch (e) {}
+      T.maximize(); fab.classList.add('hidden');
+    };
+    T.onLoad = hideBubble;
+    T.onChatMinimized = hideBubble;
+    T.onChatHidden = function(){ fab.classList.remove('hidden'); };
+    T.onUnreadCountChanged = function(n){ cnt.textContent = n; fab.classList.toggle('has-unread', n > 0); };
+    fab.addEventListener('click', window.openChat);
+    setTimeout(function(){ fab.classList.remove('hidden'); }, 2500);
+  })();
 </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
