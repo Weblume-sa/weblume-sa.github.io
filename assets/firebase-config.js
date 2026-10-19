@@ -11,7 +11,7 @@ export const firebaseConfig = {
 };
 
 // UID of the admin user (Firebase console → Authentication → Users).
-export const ADMIN_UID = "";
+export const ADMIN_UID = "76mVaxZZ1UhRYB66NZTHCq8jLsC2";
 
 export const FIREBASE_SDK = "https://www.gstatic.com/firebasejs/10.12.2";
 export const isConfigured = () => Boolean(firebaseConfig.apiKey && firebaseConfig.projectId);

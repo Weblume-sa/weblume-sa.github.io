@@ -1,9 +1,9 @@
 rules_version = '2';
-// Paste into Firebase console → Firestore Database → Rules, after replacing ADMIN_UID.
+// Paste into Firebase console → Firestore Database → Rules → Publish.
 service cloud.firestore {
   match /databases/{database}/documents {
     function isAdmin() {
-      return request.auth != null && request.auth.uid == 'ADMIN_UID';
+      return request.auth != null && request.auth.uid == '76mVaxZZ1UhRYB66NZTHCq8jLsC2';
     }
     function isOwner(chatId) {
       return request.auth != null && request.auth.uid == chatId;
