@@ -421,7 +421,7 @@
         <div class="field full"><label for="name" data-en="Name">الاسم</label><input class="input" id="name" placeholder="اسمك الكريم" data-en-ph="Your name" autocomplete="name"></div>
       </div>
       <div class="grid2">
-        <div class="field">
+        <div class="field full">
           <span class="label" id="typeLabel" data-en="Website type">نوع الموقع</span>
           <div class="select" id="type" data-value="corporate">
             <button type="button" class="select-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="typeLabel"><span class="val"></span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -431,18 +431,6 @@
               <li role="option" data-v="landing" data-en="Landing page">صفحة هبوط</li>
               <li role="option" data-v="care" data-en="Care &amp; upgrades">صيانة وتطوير</li>
               <li role="option" data-v="unsure" data-en="Not sure, need advice">مش متأكد، محتاج استشارة</li>
-            </ul>
-          </div>
-        </div>
-        <div class="field">
-          <span class="label" id="budgetLabel" data-en="Approximate budget">الميزانية التقريبية</span>
-          <div class="select" id="budget" data-value="" data-ph="اختر الميزانية" data-en-ph="Choose a budget">
-            <button type="button" class="select-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="budgetLabel"><span class="val"></span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-            <ul class="options" role="listbox" aria-labelledby="budgetLabel">
-              <li role="option" data-v="b1" data-en="Under 1,000 SAR">أقل من 1,000 ريال</li>
-              <li role="option" data-v="b2" data-en="1,000 – 3,000 SAR">1,000 – 3,000 ريال</li>
-              <li role="option" data-v="b3" data-en="3,000 – 6,000 SAR">3,000 – 6,000 ريال</li>
-              <li role="option" data-v="b4" data-en="Over 6,000 SAR">أكثر من 6,000 ريال</li>
             </ul>
           </div>
         </div>
@@ -652,13 +640,11 @@
     const msg = en ?
 `Hi Weblume, I'd like a website
 Name: ${v('name')}
-Website type: ${label('type')}
-Budget: ${label('budget') || 'Not specified'}${v('details') ? '\nDetails: ' + v('details') : ''}`
+Website type: ${label('type')}${v('details') ? '\nDetails: ' + v('details') : ''}`
     :
 `السلام عليكم، عايز أعمل موقع
 الاسم: ${v('name')}
-نوع الموقع: ${label('type')}
-الميزانية: ${label('budget') || 'لم تحدد'}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
+نوع الموقع: ${label('type')}${v('details') ? '\nالتفاصيل: ' + v('details') : ''}`;
     sendRequest(msg);
   });
 </script>
