@@ -2,7 +2,7 @@
 //   chats/{visitorUid}            -> name, lastMessage, updatedAt, unreadAdmin, unreadVisitor
 //   chats/{visitorUid}/messages   -> from: 'visitor' | 'admin', text, at
 //   meta/status                   -> online, at   (written by the admin page)
-import { firebaseConfig, FIREBASE_SDK, isConfigured } from './firebase-config.js';
+import { firebaseConfig, FIREBASE_SDK, isConfigured } from './firebase-config.js?v=3';
 
 const FALLBACK = 'https://ig.me/m/weblume1';
 // Phone alerts via the ntfy app (subscribe to this topic in the app)
