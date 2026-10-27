@@ -22,6 +22,11 @@ service cloud.firestore {
              && d.image.matches('data:image/(jpeg|png|webp);base64,.*')));
     }
 
+    // Leads (العملاء المحتملين) — admin only, nobody else can read or write.
+    match /leads/{leadId} {
+      allow read, write: if isAdmin();
+    }
+
     match /meta/status {
       allow read: if true;
       allow write: if isAdmin();

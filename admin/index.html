@@ -94,7 +94,64 @@
   .snd svg{width:20px;height:20px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transform:scaleX(-1)}
   .placeholder{flex:1;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:15px;padding:24px;text-align:center}
 
+  /* tabs */
+  .tabs{display:flex;gap:4px;padding:4px;border-radius:999px;border:1px solid var(--line2)}
+  .tab{height:30px;padding:0 14px;border-radius:999px;border:0;background:transparent;font-size:13.5px;color:var(--mut);display:flex;align-items:center;gap:6px}
+  .tab.on{background:var(--red);color:#fff}
+  .tab .badge{min-width:18px;height:18px;font-size:11px;padding:0 5px;background:#fff;color:var(--red)}
+
+  /* leads */
+  .leads{flex:1;overflow-y:auto;padding:16px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+  .lw{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  .stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+  .st{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 10px;text-align:center;cursor:pointer}
+  .st b{display:block;font-family:'Poppins',sans-serif;font-size:24px;line-height:1.2}
+  .st small{color:var(--mut);font-size:12px}
+  .st.on{border-color:var(--red)}
+  .st.won b{color:var(--green)}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .bar .in{flex:1;min-width:180px;height:44px;padding:0 14px}
+  .gh{height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;font-size:14px;white-space:nowrap}
+  .gh:hover{border-color:var(--txt)}
+  .gh.red{background:var(--red);border-color:var(--red);color:#fff}
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
+  .box h3{font-size:15px;font-weight:600}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .box textarea.in{min-height:110px;resize:vertical;line-height:1.6}
+  .note{color:var(--mut);font-size:12.5px;line-height:1.7}
+  #leadList{display:flex;flex-direction:column;gap:10px}
+  .lead{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+  .lead.due{border-color:rgba(255,190,60,.55)}
+  .lh{display:flex;align-items:flex-start;gap:12px}
+  .lh .av{width:42px;height:42px}
+  .lh .t1{flex:1;min-width:0}
+  .lh .nm{font-weight:600;font-size:15.5px}
+  .lh .sub{color:var(--mut);font-size:12.5px;margin-top:2px;display:flex;gap:10px;flex-wrap:wrap}
+  .lh .sub a{color:inherit}
+  .sel{height:34px;border-radius:999px;border:1px solid var(--line2);background:var(--card);padding:0 10px;font-size:13px;color:var(--txt)}
+  .chip{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;font-size:11.5px;background:#222;color:var(--mut)}
+  .chip.due{background:rgba(255,190,60,.15);color:#ffc24a}
+  .msgp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.7;white-space:pre-wrap;color:#ddd;max-height:96px;overflow:hidden;cursor:pointer;position:relative}
+  .msgp.open{max-height:none}
+  .msgp:not(.open)::after{content:'';position:absolute;inset:auto 0 0 0;height:30px;background:linear-gradient(transparent,var(--card))}
+  .msgp[contenteditable=true]{max-height:none;cursor:text;border-color:var(--red);outline:none}
+  .msgp[contenteditable=true]::after{display:none}
+  .acts{display:flex;gap:8px;flex-wrap:wrap}
+  .ab{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:transparent;font-size:13px;display:flex;align-items:center;gap:6px}
+  .ab:hover{border-color:var(--txt)}
+  .ab.wa{background:#1fa855;border-color:#1fa855;color:#fff}
+  .ab.ig{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);border:0;color:#fff}
+  .ab.dl{margin-inline-start:auto;color:var(--mut)}
+  .lnote{width:100%;background:transparent;border:0;border-top:1px dashed var(--line2);padding-top:8px;font-size:13px;color:var(--mut);outline:none;resize:none}
+  .lnote:focus{color:var(--txt)}
+  .hist{font-size:11.5px;color:var(--mut)}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;color:#111;padding:10px 18px;border-radius:999px;font-size:14px;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+  .toast.show{opacity:1}
+
   @media (max-width:760px){
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .grid2{grid-template-columns:1fr}
+    .top{flex-wrap:wrap}
     .list{width:100%;border:0}
     .main.in-chat .list{display:none}
     .main:not(.in-chat) .chat{display:none}
@@ -117,6 +174,10 @@
 <section class="app hide" id="appView">
   <header class="top">
     <img class="logo-img" src="../assets/weblume-logo-sm.webp" alt="Weblume">
+    <div class="tabs" role="tablist">
+      <button class="tab on" id="tabChat" type="button">الشات</button>
+      <button class="tab" id="tabLeads" type="button">العملاء <span class="badge hide" id="dueBadge"></span></button>
+    </div>
     <button class="pill" id="onlineBtn" type="button"><span class="d"></span><span id="onlineTxt">أوفلاين</span></button>
     <button class="icon" id="notifBtn" type="button" title="تفعيل الإشعارات" aria-label="تفعيل الإشعارات"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></button>
     <button class="icon" id="logoutBtn" type="button" title="خروج" aria-label="خروج"><svg viewBox="0 0 24 24"><path d="M14 4h5v16h-5"/><path d="M10 8l-4 4 4 4M6 12h10"/></svg></button>
@@ -140,8 +201,46 @@
       </form>
     </div>
   </div>
+
+  <div class="leads hide" id="leadsView">
+    <div class="lw">
+      <div class="stats" id="stats"></div>
+
+      <div class="bar">
+        <input class="in" id="lq" type="search" placeholder="دوّر بالاسم أو الرقم أو المنطقة…">
+        <button class="gh red" id="addToggle" type="button">+ عميل جديد</button>
+        <button class="gh" id="importToggle" type="button">استيراد قايمة</button>
+      </div>
+
+      <form class="box hide" id="addForm" novalidate>
+        <h3>عميل جديد</h3>
+        <div class="grid2">
+          <input class="in" id="fName" placeholder="اسم المحل *" required>
+          <input class="in" id="fPhone" placeholder="رقم الواتساب (مثال 0551234567)" inputmode="tel" dir="ltr">
+          <input class="in" id="fIg" placeholder="حساب إنستجرام (بدون @)" dir="ltr">
+          <input class="in" id="fArea" placeholder="المنطقة (الدمام، الخبر…)">
+        </div>
+        <textarea class="in" id="fMsg" placeholder="الرسالة اللي هتتبعتله"></textarea>
+        <div class="acts">
+          <button class="ab wa" type="submit" data-go="wa">حفظ وابعت واتساب</button>
+          <button class="ab ig" type="submit" data-go="ig">حفظ وابعت إنستجرام</button>
+          <button class="ab" type="submit" data-go="">حفظ بس</button>
+        </div>
+      </form>
+
+      <div class="box hide" id="importBox">
+        <h3>استيراد قايمة عملاء</h3>
+        <p class="note">الصق القايمة اللي Claude بيجهزهالك (JSON). أي رقم موجود قبل كدا مش هيتكرر.</p>
+        <textarea class="in" id="importTxt" dir="ltr" placeholder='[{"name":"...","phone":"+9665...","area":"...","message":"..."}]'></textarea>
+        <div class="acts"><button class="ab wa" id="importBtn" type="button">استيراد</button></div>
+      </div>
+
+      <div id="leadList"><div class="empty">لسه مفيش عملاء. دوس "+ عميل جديد" أو استورد قايمة.</div></div>
+    </div>
+  </div>
 </section>
 <div class="lb" id="lb"><img alt=""></div>
+<div class="toast" id="toast"></div>
 
 <script type="module">
 import { firebaseConfig, ADMIN_UID, FIREBASE_SDK, isConfigured } from '../assets/firebase-config.js?v=4';
@@ -444,6 +543,237 @@ $('reply').addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && matchMedia('(hover:hover)').matches) { e.preventDefault(); $('cmp').requestSubmit(); }
 });
 $('reply').addEventListener('input', () => { const r = $('reply'); r.style.height = 'auto'; r.style.height = Math.min(r.scrollHeight, 140) + 'px'; });
+
+/* =====================================================================
+   العملاء (Leads): متابعة كل محل اتبعتله رسالة
+   ===================================================================== */
+const STATUSES = [
+  ['new', 'جديد'], ['sent', 'اتبعتله'], ['replied', 'ردّ'],
+  ['interested', 'مهتم'], ['won', 'اشترى ✓'], ['lost', 'رفض']
+];
+const SNAME = Object.fromEntries(STATUSES);
+const FOLLOW_DAYS = 2;
+let leads = [], unsubLeads = null, leadFilter = 'all';
+const leadsCol = F.collection(db, 'leads');
+
+function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 2200); }
+
+/* tabs */
+function showTab(which) {
+  const leadsOn = which === 'leads';
+  $('tabChat').classList.toggle('on', !leadsOn);
+  $('tabLeads').classList.toggle('on', leadsOn);
+  $('main').classList.toggle('hide', leadsOn);
+  $('leadsView').classList.toggle('hide', !leadsOn);
+  try { localStorage.setItem('wl-tab', which); } catch (e) {}
+}
+$('tabChat').addEventListener('click', () => showTab('chat'));
+$('tabLeads').addEventListener('click', () => showTab('leads'));
+try { if (localStorage.getItem('wl-tab') === 'leads') showTab('leads'); } catch (e) {}
+
+/* phone helpers: always store as international digits, e.g. 966551234567 */
+function normPhone(p) {
+  let d = String(p || '').replace(/[^\d]/g, '');
+  if (!d) return '';
+  if (d.startsWith('00')) d = d.slice(2);
+  if (d.startsWith('05') && d.length === 10) d = '966' + d.slice(1);
+  else if (d.startsWith('5') && d.length === 9) d = '966' + d;
+  else if (d.startsWith('01') && d.length === 11) d = '20' + d.slice(1);
+  return d;
+}
+const showPhone = d => d ? '+' + d : '';
+const igHandle = s => String(s || '').trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/[/?#].*$/, '').replace(/^@/, '');
+const isDue = l => l.status === 'sent' && l.sentAt && l.sentAt.toMillis && (Date.now() - l.sentAt.toMillis()) > FOLLOW_DAYS * 864e5;
+
+/* live list */
+function startLeads() {
+  if (unsubLeads) return;
+  unsubLeads = F.onSnapshot(F.query(leadsCol, F.orderBy('updatedAt', 'desc'), F.limit(1000)), snap => {
+    leads = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderLeads();
+  }, err => { $('leadList').innerHTML = '<div class="empty">مش قادر أقرا العملاء. اتأكد إن قواعد Firestore الجديدة اتنشرت.</div>'; console.error(err); });
+}
+function stopLeads() { if (unsubLeads) { unsubLeads(); unsubLeads = null; } }
+const _start = start, _stop = stop;
+start = function () { _start(); startLeads(); };
+stop = function () { _stop(); stopLeads(); };
+if (auth.currentUser && auth.currentUser.uid === ADMIN_UID) startLeads();
+
+function renderStats() {
+  const count = s => leads.filter(l => l.status === s).length;
+  const due = leads.filter(isDue).length;
+  const items = [['all', 'الكل', leads.length], ['sent', 'اتبعتله', count('sent')], ['due', 'محتاج متابعة', due],
+                 ['replied', 'ردّوا', count('replied') + count('interested')], ['won', 'اشتروا', count('won')], ['lost', 'رفضوا', count('lost')]];
+  const box = $('stats'); box.textContent = '';
+  items.forEach(([k, label, n]) => {
+    const b = document.createElement('button'); b.type = 'button';
+    b.className = 'st' + (leadFilter === k ? ' on' : '') + (k === 'won' ? ' won' : '');
+    b.innerHTML = '<b></b><small></small>';
+    b.querySelector('b').textContent = n; b.querySelector('small').textContent = label;
+    b.addEventListener('click', () => { leadFilter = leadFilter === k ? 'all' : k; renderLeads(); });
+    box.appendChild(b);
+  });
+  $('dueBadge').textContent = due; $('dueBadge').classList.toggle('hide', !due);
+}
+
+function renderLeads() {
+  renderStats();
+  const q = $('lq').value.trim().toLowerCase();
+  let list = leads.filter(l => {
+    if (leadFilter === 'due') return isDue(l);
+    if (leadFilter === 'replied') return l.status === 'replied' || l.status === 'interested';
+    if (leadFilter !== 'all') return l.status === leadFilter;
+    return true;
+  });
+  if (q) list = list.filter(l => [l.name, l.phone, l.area, l.instagram, l.note].join(' ').toLowerCase().includes(q));
+  list.sort((a, b) => (isDue(b) - isDue(a)));
+  const box = $('leadList'); box.textContent = '';
+  if (!list.length) { box.innerHTML = '<div class="empty">' + (leads.length ? 'مفيش عملاء بالفلتر ده.' : 'لسه مفيش عملاء. دوس "+ عميل جديد" أو استورد قايمة.') + '</div>'; return; }
+  list.forEach(l => box.appendChild(leadCard(l)));
+}
+$('lq').addEventListener('input', renderLeads);
+
+function leadCard(l) {
+  const el = document.createElement('div');
+  el.className = 'lead' + (isDue(l) ? ' due' : '');
+  el.innerHTML = `
+    <div class="lh">
+      <div class="av"></div>
+      <div class="t1"><div class="nm"></div><div class="sub"></div></div>
+      <select class="sel"></select>
+    </div>
+    <div class="msgp" title="دوس عشان تشوف الرسالة كاملة"></div>
+    <div class="acts">
+      <button class="ab wa" type="button" data-a="wa">واتساب</button>
+      <button class="ab ig" type="button" data-a="ig">إنستجرام</button>
+      <button class="ab" type="button" data-a="copy">نسخ الرسالة</button>
+      <button class="ab" type="button" data-a="edit">تعديل الرسالة</button>
+      <button class="ab dl" type="button" data-a="del">حذف</button>
+    </div>
+    <textarea class="lnote" rows="1" placeholder="ملاحظة (السعر، ردهم، ميعاد متابعة…)"></textarea>
+    <div class="hist"></div>`;
+  el.querySelector('.av').textContent = initial(l.name);
+  el.querySelector('.nm').textContent = l.name || 'بدون اسم';
+  const sub = el.querySelector('.sub');
+  const addSub = (txt, href) => { const s = document.createElement(href ? 'a' : 'span'); s.textContent = txt; if (href) { s.href = href; s.target = '_blank'; s.rel = 'noopener'; s.dir = 'ltr'; } sub.appendChild(s); };
+  if (l.area) addSub('📍 ' + l.area);
+  if (l.phone) addSub(showPhone(l.phone), 'tel:+' + l.phone);
+  if (l.instagram) addSub('@' + l.instagram, 'https://instagram.com/' + l.instagram);
+  if (l.mapsUrl) addSub('خرايط جوجل', l.mapsUrl);
+  if (isDue(l)) { const c = document.createElement('span'); c.className = 'chip due'; c.textContent = 'محتاج متابعة'; sub.appendChild(c); }
+
+  const sel = el.querySelector('select');
+  STATUSES.forEach(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; sel.appendChild(o); });
+  sel.value = l.status || 'new';
+  sel.addEventListener('change', () => setStatus(l, sel.value));
+
+  const msg = el.querySelector('.msgp');
+  msg.textContent = l.message || '— مفيش رسالة —';
+  msg.addEventListener('click', () => { if (msg.contentEditable !== 'true') msg.classList.toggle('open'); });
+
+  const note = el.querySelector('.lnote');
+  note.value = l.note || '';
+  note.addEventListener('change', () => F.updateDoc(F.doc(db, 'leads', l.id), { note: note.value.trim(), updatedAt: F.serverTimestamp() }).catch(() => toast('الملاحظة متحفظتش')));
+
+  const h = el.querySelector('.hist');
+  const bits = [];
+  if (l.createdAt) bits.push('اتضاف ' + when(l.createdAt));
+  if (l.sentAt) bits.push('اتبعتله ' + when(l.sentAt) + (l.sentVia ? (l.sentVia === 'wa' ? ' (واتساب)' : ' (إنستجرام)') : ''));
+  if (l.source) bits.push('المصدر: ' + l.source);
+  h.textContent = bits.join(' · ');
+
+  el.querySelector('.acts').addEventListener('click', async e => {
+    const a = e.target.closest('[data-a]'); if (!a) return;
+    const act = a.dataset.a;
+    if (act === 'wa') sendWA(l);
+    else if (act === 'ig') sendIG(l);
+    else if (act === 'copy') { await copy(l.message || ''); toast('الرسالة اتنسخت'); }
+    else if (act === 'edit') {
+      if (msg.contentEditable === 'true') {
+        msg.contentEditable = 'false'; a.textContent = 'تعديل الرسالة';
+        await F.updateDoc(F.doc(db, 'leads', l.id), { message: msg.innerText.trim(), updatedAt: F.serverTimestamp() }).then(() => toast('اتحفظت')).catch(() => toast('محفظتش'));
+      } else { msg.contentEditable = 'true'; msg.focus(); a.textContent = 'حفظ الرسالة'; }
+    }
+    else if (act === 'del') { if (confirm('تمسح ' + (l.name || 'العميل ده') + '؟')) F.deleteDoc(F.doc(db, 'leads', l.id)).catch(() => toast('متمسحش')); }
+  });
+  return el;
+}
+
+async function copy(t) { try { await navigator.clipboard.writeText(t); } catch (e) { const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove(); } }
+
+async function setStatus(l, s) {
+  const upd = { status: s, updatedAt: F.serverTimestamp(), history: F.arrayUnion({ s, at: Date.now() }) };
+  if (s === 'sent' && !l.sentAt) upd.sentAt = F.serverTimestamp();
+  try { await F.updateDoc(F.doc(db, 'leads', l.id), upd); toast('الحالة: ' + SNAME[s]); } catch (e) { toast('محفظتش، جرّب تاني'); }
+}
+async function markSent(l, via) {
+  if (l.status && l.status !== 'new') return; // already moved on, don't overwrite
+  try { await F.updateDoc(F.doc(db, 'leads', l.id), { status: 'sent', sentVia: via, sentAt: F.serverTimestamp(), updatedAt: F.serverTimestamp(), history: F.arrayUnion({ s: 'sent', at: Date.now(), via }) }); } catch (e) {}
+}
+function sendWA(l) {
+  if (!l.phone) { toast('مفيش رقم واتساب للعميل ده'); return; }
+  window.open('https://wa.me/' + l.phone + '?text=' + encodeURIComponent(l.message || ''), '_blank', 'noopener');
+  markSent(l, 'wa'); toast('اتسجّل إنه اتبعتله ✓');
+}
+async function sendIG(l) {
+  await copy(l.message || '');
+  window.open(l.instagram ? 'https://ig.me/m/' + l.instagram : 'https://instagram.com/direct/inbox/', '_blank', 'noopener');
+  markSent(l, 'ig'); toast('الرسالة اتنسخت — الصقها في الشات');
+}
+
+/* add new */
+$('addToggle').addEventListener('click', () => { $('addForm').classList.toggle('hide'); $('importBox').classList.add('hide'); $('fName').focus(); });
+$('importToggle').addEventListener('click', () => { $('importBox').classList.toggle('hide'); $('addForm').classList.add('hide'); });
+
+function findDup(phone, ig) { return leads.find(l => (phone && l.phone === phone) || (ig && l.instagram && l.instagram.toLowerCase() === ig.toLowerCase())); }
+
+let lastGo = '';
+$('addForm').addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) lastGo = b.dataset.go; });
+$('addForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const go = lastGo; lastGo = '';
+  const name = $('fName').value.trim();
+  if (!name) { $('fName').focus(); toast('اكتب اسم المحل'); return; }
+  const phone = normPhone($('fPhone').value), instagram = igHandle($('fIg').value);
+  const dup = findDup(phone, instagram);
+  if (dup) { toast('العميل ده موجود قبل كدا: ' + dup.name); return; }
+  const data = { name, phone, instagram, area: $('fArea').value.trim(), message: $('fMsg').value.trim(), status: 'new', note: '', source: 'يدوي',
+                 createdAt: F.serverTimestamp(), updatedAt: F.serverTimestamp(), history: [{ s: 'new', at: Date.now() }] };
+  try {
+    const ref = await F.addDoc(leadsCol, data);
+    const l = { id: ref.id, ...data };
+    $('addForm').reset(); $('addForm').classList.add('hide');
+    if (go === 'wa') sendWA(l); else if (go === 'ig') sendIG(l); else toast('اتضاف ✓');
+  } catch (err) { console.error(err); toast('محفظتش — اتأكد من قواعد Firestore'); }
+});
+
+/* bulk import */
+$('importBtn').addEventListener('click', async () => {
+  let arr;
+  try { arr = JSON.parse($('importTxt').value); if (!Array.isArray(arr)) arr = [arr]; }
+  catch (e) { toast('الصيغة مش مظبوطة'); return; }
+  const batch = F.writeBatch(db); let added = 0, skipped = 0; const seen = new Set();
+  arr.forEach(x => {
+    if (!x || !x.name) { skipped++; return; }
+    const phone = normPhone(x.phone), instagram = igHandle(x.instagram);
+    const key = phone || instagram.toLowerCase();
+    if (findDup(phone, instagram) || (key && seen.has(key))) { skipped++; return; }
+    if (key) seen.add(key);
+    const status = STATUSES.some(s => s[0] === x.status) ? x.status : 'new';
+    batch.set(F.doc(leadsCol), {
+      name: String(x.name).slice(0, 120), phone, instagram, area: String(x.area || '').slice(0, 80),
+      message: String(x.message || '').slice(0, 3000), mapsUrl: String(x.mapsUrl || '').slice(0, 500),
+      note: String(x.note || '').slice(0, 1000), source: String(x.source || 'استيراد').slice(0, 60), status,
+      createdAt: F.serverTimestamp(), updatedAt: F.serverTimestamp(), history: [{ s: status, at: Date.now() }],
+      ...(status === 'sent' ? { sentAt: F.serverTimestamp(), sentVia: x.sentVia === 'ig' ? 'ig' : 'wa' } : {})
+    });
+    added++;
+  });
+  if (!added) { toast('مفيش جديد (' + skipped + ' متكرر أو ناقص)'); return; }
+  try { await batch.commit(); $('importTxt').value = ''; $('importBox').classList.add('hide'); toast('اتضاف ' + added + (skipped ? ' · اتساب ' + skipped : '')); }
+  catch (e) { console.error(e); toast('الاستيراد فشل — اتأكد من قواعد Firestore'); }
+});
+setInterval(() => { if (!$('leadsView').classList.contains('hide')) renderStats(); }, 60000);
 </script>
 </body>
 </html>
