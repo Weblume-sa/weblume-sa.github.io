@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>…</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+  :root{
+    --brand:#1F4D3A; --accent:#D9A441; --paper:#F7F4EE; --ink:#1B1A17;
+    --mut:color-mix(in srgb,var(--ink) 58%,var(--paper));
+    --line:color-mix(in srgb,var(--ink) 12%,var(--paper));
+    --soft:color-mix(in srgb,var(--brand) 7%,var(--paper));
+    --on-brand:#fff;
+    --wrap:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{background:var(--paper);color:var(--ink);font:400 16px/1.75 'IBM Plex Sans Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+  @media (min-width:860px){body{padding-bottom:0}}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:'Alexandria',sans-serif;line-height:1.25;font-weight:700}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+  /* demo ribbon */
+  .ribbon{background:var(--ink);color:var(--paper);font-size:13px;text-align:center;padding:7px 16px}
+  .ribbon a{color:var(--accent);font-weight:600;text-decoration:none}
+
+  /* hero */
+  .hero{position:relative;background:var(--brand);color:var(--on-brand);overflow:hidden}
+  .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--brand) 92%,#000) 8%,color-mix(in srgb,var(--brand) 35%,transparent) 70%)}
+  .hero .in{position:relative;min-height:min(78vh,620px);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 20px 36px;max-width:var(--wrap);margin:0 auto}
+  .hero .logo{height:76px;width:auto;margin-bottom:20px;border-radius:14px}
+  .hero h1{font-size:clamp(44px,11vw,104px);font-weight:800;letter-spacing:-.5px;line-height:1.05;text-wrap:balance}
+  .hero .en{font-family:'Alexandria',sans-serif;font-weight:500;opacity:.7;direction:ltr;text-align:right;font-size:clamp(15px,2.4vw,20px);margin-top:6px}
+  .hero p{font-size:clamp(17px,2.6vw,21px);max-width:34ch;margin-top:14px;opacity:.92}
+  .status{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:10px 18px 10px 16px;border-radius:999px;background:color-mix(in srgb,#000 28%,transparent);backdrop-filter:blur(6px);font-weight:600;font-size:15px;width:max-content;max-width:100%}
+  .status .dot{width:10px;height:10px;border-radius:50%;background:#9a9a9a;flex:none}
+  .status.open .dot{background:#4ADE80;animation:pulse 2s ease-out infinite}
+  .status .sub{font-weight:400;opacity:.85}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}80%,100%{box-shadow:0 0 0 10px rgba(74,222,128,0)}}
+
+  /* quick actions */
+  .quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;background:none;font-family:inherit}
+  .btn svg{width:19px;height:19px;flex:none}
+  .btn.solid{background:var(--accent);color:var(--ink)}
+  .btn.ghost{border-color:color-mix(in srgb,var(--on-brand) 45%,transparent);color:var(--on-brand)}
+  .btn.ink{background:var(--brand);color:var(--on-brand)}
+  .btn.line{border-color:var(--line);color:var(--ink)}
+
+  section{padding:64px 0}
+  .sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:22px}
+  .sh h2{font-size:clamp(28px,5vw,40px);color:var(--brand)}
+  .sh .note{color:var(--mut);font-size:14px}
+
+  /* menu */
+  .cats{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:8px}
+  .cats .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
+  .cats .wrap::-webkit-scrollbar{display:none}
+  .chip{flex:none;height:40px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;font:600 15px 'IBM Plex Sans Arabic',sans-serif;color:var(--ink);cursor:pointer;white-space:nowrap}
+  .chip[aria-current="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+  .cat{padding-top:30px}
+  .cat h3{font-size:22px;margin-bottom:6px}
+  .items{display:grid;grid-template-columns:1fr;column-gap:48px}
+  @media (min-width:860px){.items{grid-template-columns:1fr 1fr}}
+  .item{display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+  .item .tx{flex:1;min-width:0}
+  .item .nm{font-weight:600;font-size:17px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .item .tag{font-size:12px;font-weight:600;color:var(--brand);background:color-mix(in srgb,var(--accent) 30%,var(--paper));padding:1px 10px;border-radius:999px}
+  .item .ds{color:var(--mut);font-size:14.5px;line-height:1.6;margin-top:2px}
+  .item .pr{font-family:'Alexandria',sans-serif;font-weight:700;font-size:18px;color:var(--brand);margin-top:6px}
+  .item .pr small{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;font-size:13px;color:var(--mut);margin-inline-start:4px}
+  .thumb{width:92px;height:92px;border-radius:16px;flex:none;overflow:hidden;background:var(--soft);display:flex;align-items:center;justify-content:center}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb.ph{font-family:'Alexandria',sans-serif;font-weight:800;font-size:34px;color:color-mix(in srgb,var(--brand) 55%,var(--paper))}
+
+  /* about */
+  .about{background:var(--brand);color:var(--on-brand)}
+  .about .wrap{display:grid;gap:28px}
+  @media (min-width:860px){.about .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+  .about h2{font-size:clamp(28px,5vw,40px)}
+  .about p{font-size:18px;opacity:.92;max-width:52ch;margin-top:12px}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .gal img{aspect-ratio:1;object-fit:cover;border-radius:12px;width:100%}
+
+  /* hours + location */
+  .visit .wrap{display:grid;gap:40px}
+  @media (min-width:860px){.visit .wrap{grid-template-columns:5fr 7fr}}
+  .hours{width:100%;border-collapse:collapse;font-size:16px}
+  .hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+  .hours td:last-child{text-align:left;direction:ltr;font-variant-numeric:tabular-nums}
+  .hours tr.today td{font-weight:600;color:var(--brand)}
+  .hours tr.today td:first-child::after{content:"اليوم";font-size:12px;font-weight:600;background:var(--accent);color:var(--ink);padding:1px 9px;border-radius:999px;margin-inline-start:8px}
+  .map{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--soft)}
+  .map iframe{width:100%;height:100%;border:0;display:block}
+  .addr{margin-top:14px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+  .addr p{color:var(--mut)}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+  footer .so{display:flex;gap:10px}
+  footer .so a{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center}
+  footer .so svg{width:19px;height:19px}
+  footer .by a{color:var(--ink);font-weight:600;text-decoration:none}
+
+  /* mobile action bar */
+  .bar{position:fixed;inset:auto 0 0 0;z-index:20;display:flex;gap:8px;padding:10px 12px;padding-bottom:max(10px,env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .bar .btn{flex:1;justify-content:center;padding:0 10px;height:50px}
+  @media (min-width:860px){.bar{display:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+(function () {
+  var C = window.CAFE || {};
+  var D = ["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+  var I = {
+    wa: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.5 11.5 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>',
+    map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 7h14M5 12h14M5 17h9"/></svg>',
+    call: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+    ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
+  };
+
+  /* colors */
+  var col = C.colors || {}, root = document.documentElement.style;
+  ["brand","accent","paper","ink"].forEach(function (k) { if (col[k]) root.setProperty("--" + k, col[k]); });
+  /* readable text on the brand color */
+  (function () {
+    var h = (col.brand || "#1F4D3A").replace("#", ""); if (h.length === 3) h = h.replace(/(.)/g, "$1$1");
+    var r = parseInt(h.substr(0,2),16), g = parseInt(h.substr(2,2),16), b = parseInt(h.substr(4,2),16);
+    if ((r*299 + g*587 + b*114) / 1000 > 165) root.setProperty("--on-brand", col.ink || "#1B1A17");
+  })();
+  document.title = C.name + (C.tagline ? " | " + C.tagline : "");
+
+  /* hours helpers */
+  var mins = function (t) { var p = String(t).split(":"); return (+p[0]) * 60 + (+p[1] || 0); };
+  var fmt = function (t) {
+    var m = mins(t) % 1440, h = Math.floor(m / 60), mm = m % 60, pm = h >= 12;
+    h = h % 12 || 12;
+    return h + (mm ? ":" + String(mm).padStart(2, "0") : "") + " " + (pm ? "م" : "ص");
+  };
+  var dayRange = function (d) { var x = (C.hours || {})[d]; if (!x || x === "closed") return null; var o = mins(x.open), c = mins(x.close); if (c <= o) c += 1440; return { o: o, c: c, x: x }; };
+  function status() {
+    if (!C.hours) return null;
+    var now = new Date(), d = now.getDay(), t = now.getHours() * 60 + now.getMinutes();
+    var y = dayRange((d + 6) % 7);
+    if (y && t + 1440 < y.c) return { open: true, text: "مفتوح الآن", sub: "يقفل " + fmt(y.x.close) };
+    var r = dayRange(d);
+    if (r && t >= r.o && t < r.c) return { open: true, text: "مفتوح الآن", sub: "يقفل " + fmt(r.x.close) };
+    if (r && t < r.o) return { open: false, text: "مغلق الآن", sub: "يفتح اليوم " + fmt(r.x.open) };
+    for (var i = 1; i <= 7; i++) { var n = dayRange((d + i) % 7); if (n) return { open: false, text: "مغلق الآن", sub: "يفتح " + (i === 1 ? "بكرة" : D[(d + i) % 7]) + " " + fmt(n.x.open) }; }
+    return null;
+  }
+
+  var mapsUrl = C.mapsQuery ? (/^https?:/.test(C.mapsQuery) ? C.mapsQuery : "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.mapsQuery)) : "";
+  var embed = C.mapsQuery && !/^https?:/.test(C.mapsQuery) ? "https://maps.google.com/maps?q=" + encodeURIComponent(C.mapsQuery) + "&z=15&output=embed" : "";
+  var waUrl = C.whatsapp ? "https://wa.me/" + String(C.whatsapp).replace(/\D/g, "") : "";
+  var cur = esc(C.currency || "ر.س");
+
+  var h = "";
+  if (C.demo) h += '<div class="ribbon">تصور مبدئي من <a href="https://weblume-sa.github.io" target="_blank" rel="noopener">Weblume</a> للمعاينة — المحتوى النهائي يتعدّل حسب طلبكم</div>';
+
+  /* hero */
+  var st = status();
+  h += '<header class="hero">' + (C.heroImage ? '<div class="bg" style="background-image:url(\'' + esc(C.heroImage) + '\')"></div>' : "") + '<div class="in">';
+  if (C.logo) h += '<img class="logo" src="' + esc(C.logo) + '" alt="' + esc(C.name) + '">';
+  h += '<h1>' + esc(C.name) + '</h1>';
+  if (C.nameEn) h += '<div class="en">' + esc(C.nameEn) + '</div>';
+  if (C.tagline) h += '<p>' + esc(C.tagline) + '</p>';
+  if (st) h += '<div class="status' + (st.open ? " open" : "") + '" role="status"><span class="dot" aria-hidden="true"></span>' + st.text + '<span class="sub">' + st.sub + '</span></div>';
+  h += '<div class="quick"><a class="btn solid" href="#menu">' + I.menu + 'شوف المنيو</a>';
+  if (mapsUrl) h += '<a class="btn ghost" href="#visit">' + I.map + 'الموقع والمواعيد</a>';
+  h += '</div></div></header>';
+
+  /* menu */
+  var menu = C.menu || [];
+  if (menu.length) {
+    h += '<section id="menu" style="padding-top:44px"><div class="wrap sh"><h2>المنيو</h2><span class="note">الأسعار بال' + cur + ' وشاملة الضريبة</span></div>';
+    if (menu.length > 1) {
+      h += '<nav class="cats" aria-label="أقسام المنيو"><div class="wrap">';
+      menu.forEach(function (c, i) { h += '<button class="chip" type="button" data-go="cat' + i + '"' + (i === 0 ? ' aria-current="true"' : "") + '>' + esc(c.name) + '</button>'; });
+      h += '</div></nav>';
+    }
+    h += '<div class="wrap">';
+    menu.forEach(function (c, i) {
+      h += '<div class="cat" id="cat' + i + '"><h3>' + esc(c.name) + '</h3><div class="items">';
+      (c.items || []).forEach(function (it) {
+        var thumb = it.image ? '<div class="thumb"><img src="' + esc(it.image) + '" alt="' + esc(it.name) + '" loading="lazy"></div>'
+                             : '<div class="thumb ph" aria-hidden="true">' + esc(String(it.name || "").trim().charAt(0)) + '</div>';
+        h += '<div class="item"><div class="tx"><div class="nm">' + esc(it.name) + (it.tag ? '<span class="tag">' + esc(it.tag) + '</span>' : "") + '</div>' +
+             (it.desc ? '<div class="ds">' + esc(it.desc) + '</div>' : "") +
+             (it.price != null && it.price !== "" ? '<div class="pr">' + esc(it.price) + '<small>' + cur + '</small></div>' : "") + '</div>' + thumb + '</div>';
+      });
+      h += '</div></div>';
+    });
+    h += '</div></section>';
+  }
+
+  /* about */
+  if (C.about || (C.gallery || []).length) {
+    h += '<section class="about"><div class="wrap"><div><h2>عن ' + esc(C.name) + '</h2>' + (C.about ? '<p>' + esc(C.about) + '</p>' : "") + '</div>';
+    if ((C.gallery || []).length) { h += '<div class="gal">'; C.gallery.slice(0, 6).forEach(function (g) { h += '<img src="' + esc(g) + '" alt="" loading="lazy">'; }); h += '</div>'; }
+    h += '</div></section>';
+  }
+
+  /* visit */
+  if (C.hours || mapsUrl) {
+    h += '<section class="visit" id="visit"><div class="wrap">';
+    if (C.hours) {
+      var today = new Date().getDay();
+      h += '<div><div class="sh"><h2>المواعيد</h2></div><table class="hours"><tbody>';
+      [6,0,1,2,3,4,5].forEach(function (d) {
+        var x = C.hours[d];
+        h += '<tr' + (d === today ? ' class="today"' : "") + '><td>' + D[d] + '</td><td>' + (!x || x === "closed" ? "مغلق" : fmt(x.open) + " – " + fmt(x.close)) + '</td></tr>';
+      });
+      h += '</tbody></table></div>';
+    }
+    if (mapsUrl) {
+      h += '<div><div class="sh"><h2>تلاقونا هنا</h2></div>';
+      if (embed) h += '<div class="map"><iframe src="' + esc(embed) + '" loading="lazy" title="خريطة ' + esc(C.name) + '" referrerpolicy="no-referrer-when-downgrade"></iframe></div>';
+      h += '<div class="addr"><p>' + esc(C.address || C.city || "") + '</p><a class="btn ink" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">' + I.map + 'افتح في خرايط جوجل</a></div></div>';
+    }
+    h += '</div></section>';
+  }
+
+  /* footer */
+  h += '<footer><div class="wrap"><div class="so">';
+  if (C.instagram) h += '<a href="https://instagram.com/' + esc(C.instagram) + '" target="_blank" rel="noopener" aria-label="إنستجرام">' + I.ig + '</a>';
+  if (waUrl) h += '<a href="' + esc(waUrl) + '" target="_blank" rel="noopener" aria-label="واتساب">' + I.wa + '</a>';
+  if (C.phone) h += '<a href="tel:' + esc(C.phone) + '" aria-label="اتصال">' + I.call + '</a>';
+  h += '</div><div>© ' + new Date().getFullYear() + ' ' + esc(C.name) + '</div><div class="by">تصميم وتطوير <a href="https://weblume-sa.github.io" target="_blank" rel="noopener">Weblume</a></div></div></footer>';
+
+  /* mobile bar */
+  var bar = "";
+  if (waUrl) bar += '<a class="btn ink" href="' + esc(waUrl) + '" target="_blank" rel="noopener">' + I.wa + 'واتساب</a>';
+  else if (C.phone) bar += '<a class="btn ink" href="tel:' + esc(C.phone) + '">' + I.call + 'اتصل</a>';
+  if (mapsUrl) bar += '<a class="btn line" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">' + I.map + 'الاتجاهات</a>';
+  bar += '<a class="btn line" href="#menu">' + I.menu + 'المنيو</a>';
+  h += '<nav class="bar" aria-label="إجراءات سريعة">' + bar + '</nav>';
+
+  document.getElementById("app").innerHTML = h;
+
+  /* category chips: jump + follow scroll */
+  var chips = [].slice.call(document.querySelectorAll(".chip"));
+  chips.forEach(function (b) {
+    b.addEventListener("click", function () { document.getElementById(b.dataset.go).scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); });
+  });
+  if (chips.length && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        chips.forEach(function (c) {
+          var on = c.dataset.go === e.target.id;
+          c.setAttribute("aria-current", on ? "true" : "false");
+          if (on) c.scrollIntoView({ block: "nearest", inline: "center" });
+        });
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    menu.forEach(function (_, i) { io.observe(document.getElementById("cat" + i)); });
+  }
+})();
+</script>
+</body>
+</html>
