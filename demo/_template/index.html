@@ -35,6 +35,7 @@
 
   /* hero */
   .hero{position:relative;background:var(--brand);color:var(--on-brand);overflow:hidden}
+  .hero.noimg .in{min-height:min(56vh,460px)}
   .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center}
   .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,color-mix(in srgb,var(--brand) 92%,#000) 8%,color-mix(in srgb,var(--brand) 35%,transparent) 70%)}
   .hero .in{position:relative;min-height:min(78vh,620px);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 20px 36px;max-width:var(--wrap);margin:0 auto}
@@ -97,7 +98,7 @@
   @media (min-width:860px){.visit .wrap{grid-template-columns:5fr 7fr}}
   .hours{width:100%;border-collapse:collapse;font-size:16px}
   .hours td{padding:11px 0;border-bottom:1px solid var(--line)}
-  .hours td:last-child{text-align:left;direction:ltr;font-variant-numeric:tabular-nums}
+  .hours td:last-child{text-align:left;font-variant-numeric:tabular-nums;unicode-bidi:isolate}
   .hours tr.today td{font-weight:600;color:var(--brand)}
   .hours tr.today td:first-child::after{content:"اليوم";font-size:12px;font-weight:600;background:var(--accent);color:var(--ink);padding:1px 9px;border-radius:999px;margin-inline-start:8px}
   .map{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--soft)}
@@ -149,6 +150,7 @@
   var mins = function (t) { var p = String(t).split(":"); return (+p[0]) * 60 + (+p[1] || 0); };
   var fmt = function (t) {
     var m = mins(t) % 1440, h = Math.floor(m / 60), mm = m % 60, pm = h >= 12;
+    if (m === 0) return "12 بالليل";
     h = h % 12 || 12;
     return h + (mm ? ":" + String(mm).padStart(2, "0") : "") + " " + (pm ? "م" : "ص");
   };
@@ -175,7 +177,7 @@
 
   /* hero */
   var st = status();
-  h += '<header class="hero">' + (C.heroImage ? '<div class="bg" style="background-image:url(\'' + esc(C.heroImage) + '\')"></div>' : "") + '<div class="in">';
+  h += '<header class="hero' + (C.heroImage ? '' : ' noimg') + '">' + (C.heroImage ? '<div class="bg" style="background-image:url(\'' + esc(C.heroImage) + '\')"></div>' : "") + '<div class="in">';
   if (C.logo) h += '<img class="logo" src="' + esc(C.logo) + '" alt="' + esc(C.name) + '">';
   h += '<h1>' + esc(C.name) + '</h1>';
   if (C.nameEn) h += '<div class="en">' + esc(C.nameEn) + '</div>';
@@ -188,7 +190,9 @@
   /* menu */
   var menu = C.menu || [];
   if (menu.length) {
-    h += '<section id="menu" style="padding-top:44px"><div class="wrap sh"><h2>المنيو</h2><span class="note">الأسعار بال' + cur + ' وشاملة الضريبة</span></div>';
+    var hasPrice = menu.some(function (c) { return (c.items || []).some(function (it) { return it.price != null && it.price !== ""; }); });
+    var note = C.menuNote || (hasPrice ? "الأسعار بال" + cur + " وشاملة الضريبة" : "");
+    h += '<section id="menu" style="padding-top:44px"><div class="wrap sh"><h2>المنيو</h2>' + (note ? '<span class="note">' + esc(note) + '</span>' : '') + '</div>';
     if (menu.length > 1) {
       h += '<nav class="cats" aria-label="أقسام المنيو"><div class="wrap">';
       menu.forEach(function (c, i) { h += '<button class="chip" type="button" data-go="cat' + i + '"' + (i === 0 ? ' aria-current="true"' : "") + '>' + esc(c.name) + '</button>'; });
@@ -224,7 +228,7 @@
       h += '<div><div class="sh"><h2>المواعيد</h2></div><table class="hours"><tbody>';
       [6,0,1,2,3,4,5].forEach(function (d) {
         var x = C.hours[d];
-        h += '<tr' + (d === today ? ' class="today"' : "") + '><td>' + D[d] + '</td><td>' + (!x || x === "closed" ? "مغلق" : fmt(x.open) + " – " + fmt(x.close)) + '</td></tr>';
+        h += '<tr' + (d === today ? ' class="today"' : "") + '><td>' + D[d] + '</td><td>' + (!x || x === "closed" ? "مغلق" : 'من ' + fmt(x.open) + ' إلى ' + fmt(x.close)) + '</td></tr>';
       });
       h += '</tbody></table></div>';
     }
