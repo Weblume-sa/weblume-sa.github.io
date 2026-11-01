@@ -67,11 +67,12 @@
 
   /* ---------- Brand ---------- */
   .brand{display:flex;align-items:center;direction:ltr}
-  .brand .b-full{height:84px;width:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35));transition:height .35s var(--ease),filter .35s,transform .35s var(--ease)}
+  .brand .b-full{height:84px;width:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35));transition:filter .35s,transform .35s var(--ease)}
   header .brand:hover .b-full{transform:scale(1.04);filter:drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 10px 30px rgba(239,35,54,.8))}
-  header.scrolled .b-full{height:62px}
+  header.scrolled .b-full{transform:scale(.74)}
+  header.scrolled .brand:hover .b-full{transform:scale(.78)}
   footer .b-foot{height:120px;width:auto}
-  @media (max-width:640px){.brand .b-full{height:66px}header.scrolled .b-full{height:52px}}
+  @media (max-width:640px){.brand .b-full{height:66px;filter:none}header.scrolled .b-full{transform:scale(.79)}}
   .brand-text{display:none;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:24px;direction:ltr;letter-spacing:-.6px}
   .brand-text b{color:var(--red);font-weight:700}
 
@@ -316,6 +317,16 @@
     section{padding:72px 0}
     .hero{padding:104px 0 40px}
     .g1,.g2{animation:none}
+    .glow{will-change:auto}
+    .hero::after{display:none}
+    .orbit.back .comet{display:none}
+    .orbit i:first-child{box-shadow:0 0 14px rgba(239,35,54,.5)}
+    .stage{perspective:none}
+    .fan{transform:none;transform-style:flat;transition:none}
+    .win{box-shadow:0 18px 36px -14px rgba(0,0,0,.9)}
+    .win[data-p="0"]{z-index:3}
+    .win[data-p="1"]{z-index:2;transform:translate(calc(var(--flip)*-5%),-19%) scale(.93)}
+    .win[data-p="2"]{z-index:1;transform:translate(calc(var(--flip)*5%),19%) scale(.86)}
     .kicker{margin-bottom:16px}
     .ctas{flex-wrap:nowrap;gap:10px}
     .ctas .btn{flex:1 1 auto;padding:14px 16px;font-size:15px;white-space:nowrap}
@@ -615,6 +626,7 @@
     const hero = document.querySelector('.hero'), stage = hero.querySelector('.stage'), fan = stage.querySelector('.fan');
     const wins = [...fan.children].reverse();      // front window first
     const dots = [...hero.querySelectorAll('.gnav .dot')];
+    wins.forEach(w => w.querySelector('img').decode().catch(() => {}));
     const HOLD = 1000, FLIP = 700, AFTER_TOUCH = 3000;
     let now = 0, timer, hovering = false, onScreen = true;
     function show(i){
@@ -727,7 +739,10 @@
         c.dataset.level = level;
       }
     }
+    let lastScroll = -1e4;
+    addEventListener('scroll', () => lastScroll = performance.now(), {passive: true});
     function frame(now){
+      if (W < 700 && now - lastScroll < 250) { last = now; if (running) requestAnimationFrame(frame); return; }
       const raw = now - last;
       const dt = Math.min(.05, raw / 1000) * speed; last = now; t += dt;
       checkSpeed(raw);
