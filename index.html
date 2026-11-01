@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700;800&family=Almarai:wght@300;400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
+  if (!location.hash) {
     document.documentElement.classList.add('intro');
     setTimeout(() => document.documentElement.classList.remove('intro'), 6000);
   }
@@ -94,11 +94,13 @@
   header .btn{padding:10px 22px;font-size:14px}
 
   /* ---------- Intro: logo holds the centre, then flies to the header ---------- */
-  #intro{display:none;position:fixed;inset:0;z-index:100;background:#000;place-items:center;pointer-events:none}
+  #intro{display:none;position:fixed;inset:0;z-index:100;background:#000;place-items:center;place-content:center;overflow:hidden;pointer-events:none}
   html.intro #intro{display:grid}
   html.intro header .b-full{visibility:hidden}
   html.intro .reveal,html.intro .ln>span{animation-play-state:paused}
-  #intro img{width:min(64vw,420px);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
+  #intro img{grid-area:1/1;position:relative;width:min(64vw,420px);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
+  #intro u{grid-area:1/1;width:min(64vw,420px);aspect-ratio:1;border-radius:50%;border:2px solid var(--red-hi);box-shadow:0 0 40px var(--red-hi),inset 0 0 40px rgba(239,35,54,.5);opacity:0}
+  #intro b{grid-area:1/1;width:min(100vw,820px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
   #intro i{position:absolute;left:50%;top:calc(50% + min(34vw,210px));width:150px;height:2px;margin-left:-75px;border-radius:2px;background:var(--red-hi);box-shadow:0 0 14px var(--red-hi);transform:scaleX(0)}
 
   /* ---------- Hero ---------- */
@@ -352,13 +354,23 @@
     const box = document.getElementById('intro'), target = document.querySelector('header .b-full');
     const logo = target.cloneNode(); logo.removeAttribute('class'); logo.alt = '';
     const bar = document.createElement('i');
+    const glow = document.createElement('b');
+    box.append(glow);
+    // two shockwave rings burst out as the logo forms from nothing
+    [0, 240].forEach(delay => box.appendChild(document.createElement('u')).animate([{opacity: .95, transform: 'scale(.12)'}, {opacity: 0, transform: 'scale(2.8)'}], {duration: 1400, delay, easing: 'cubic-bezier(.15,.7,.3,1)', fill: 'both'}));
+    glow.animate([{opacity: 0}, {opacity: 1, offset: .45}, {opacity: .6}], {duration: 1400, easing: 'ease-out', fill: 'forwards'});
     box.append(logo, bar);
-    logo.animate([{opacity: 0, transform: 'scale(.8)'}, {opacity: 1, transform: 'none'}], {duration: 800, easing: 'cubic-bezier(.2,.7,.2,1)'});
-    bar.animate([{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: 1200, easing: 'ease-in-out', fill: 'forwards'});
+    const shadow = 'drop-shadow(0 6px 18px rgba(212,24,42,.35))';
+    logo.animate([
+      {opacity: 0, transform: 'scale(.25)', filter: `blur(26px) brightness(3) ${shadow}`},
+      {opacity: 1, transform: 'scale(1.07)', filter: `blur(0) brightness(1.7) ${shadow}`, offset: .6},
+      {opacity: 1, transform: 'none', filter: `blur(0) brightness(1) ${shadow}`}
+    ], {duration: 1200, easing: 'cubic-bezier(.2,.8,.2,1)'});
+    bar.animate([{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: 1800, easing: 'ease-in-out', fill: 'forwards'});
     const wait = ms => new Promise(r => setTimeout(r, ms));
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
-    const ready = Promise.all([wait(1300), loaded, document.fonts ? document.fonts.ready : 0]);
-    Promise.race([ready, wait(3000)]).then(() => {
+    const ready = Promise.all([wait(2000), loaded, document.fonts ? document.fonts.ready : 0]);
+    Promise.race([ready, wait(3600)]).then(() => {
       box.style.display = 'grid'; target.style.visibility = 'hidden';
       root.classList.remove('intro');     // hero text starts rising as the logo leaves
       begin();
@@ -367,6 +379,7 @@
       let finished = false;
       const end = () => { if (finished) return; finished = true; target.style.visibility = ''; box.remove(); };
       bar.animate([{opacity: 1}, {opacity: 0}], {duration: 200, fill: 'forwards'});
+      glow.animate([{opacity: .6}, {opacity: 0}], {duration: 500, fill: 'forwards'});
       box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 800, easing: 'ease-out', fill: 'forwards'});
       logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 1000, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
       setTimeout(end, 1300);              // background tabs may never fire onfinish
