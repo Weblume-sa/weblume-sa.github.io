@@ -99,7 +99,6 @@
   html.intro header .b-full{visibility:hidden}
   html.intro .reveal,html.intro .ln>span{animation-play-state:paused}
   #intro img{grid-area:1/1;position:relative;width:min(64vw,420px);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
-  #intro u{grid-area:1/1;width:min(64vw,420px);aspect-ratio:1;border-radius:50%;border:2px solid var(--red-hi);box-shadow:0 0 40px var(--red-hi),inset 0 0 40px rgba(239,35,54,.5);opacity:0}
   #intro b{grid-area:1/1;width:min(100vw,820px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
   #intro .shards{grid-area:1/1;position:relative}
   #intro .shards i{position:absolute;background-image:var(--logo);background-repeat:no-repeat}
@@ -376,19 +375,18 @@
             {opacity: 0, transform: `translate(${Math.cos(angle) * dist}px,${Math.sin(angle) * dist}px) rotate(${(Math.random() - .5) * 540}deg) scale(${.5 + Math.random()})`},
             {opacity: 1, offset: .35},
             {opacity: 1, transform: 'none'}
-          ], {duration: 520, delay: Math.random() * 240, easing: 'cubic-bezier(.16,.85,.3,1)', fill: 'backwards'}).finished);
+          ], {duration: 900, delay: Math.random() * 400, easing: 'cubic-bezier(.16,.85,.3,1)', fill: 'backwards'}).finished);
         });
       }
       box.append(shards);
-      glow.animate([{opacity: 0}, {opacity: .6}], {duration: 760, fill: 'forwards'});
+      glow.animate([{opacity: 0}, {opacity: .6}], {duration: 1300, fill: 'forwards'});
       // swap to the real image when the pieces lock, which also hides the seams between them
-      return Promise.race([Promise.all(runs), wait(1000)]).then(() => {
+      return Promise.race([Promise.all(runs), wait(1500)]).then(() => {
         logo.style.opacity = ''; shards.remove();
-        logo.animate([{transform: 'scale(1.08)', filter: 'brightness(1.8)'}, {transform: 'none', filter: 'brightness(1)'}], {duration: 240, easing: 'ease-out'});
-        box.appendChild(document.createElement('u')).animate([{opacity: .9, transform: 'scale(.5)'}, {opacity: 0, transform: 'scale(2.4)'}], {duration: 520, easing: 'ease-out', fill: 'both'});
+        logo.animate([{transform: 'scale(1.08)', filter: 'brightness(1.8)'}, {transform: 'none', filter: 'brightness(1)'}], {duration: 320, easing: 'ease-out'});
       });
     };
-    const assembled = logo.decode().catch(() => {}).then(assemble).then(() => wait(160));
+    const assembled = logo.decode().catch(() => {}).then(assemble).then(() => wait(900));   // time to read the whole logo
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
     const ready = Promise.all([assembled, loaded, document.fonts ? document.fonts.ready : 0]);
     Promise.race([ready, assembled.then(() => wait(500))]).then(() => {
@@ -400,9 +398,9 @@
       let finished = false;
       const end = () => { if (finished) return; finished = true; target.style.visibility = ''; box.remove(); };
       glow.animate([{opacity: .6}, {opacity: 0}], {duration: 500, fill: 'forwards'});
-      box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 550, easing: 'ease-out', fill: 'forwards'});
-      logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 700, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
-      setTimeout(end, 1000);              // background tabs may never fire onfinish
+      box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 700, easing: 'ease-out', fill: 'forwards'});
+      logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 850, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
+      setTimeout(end, 1200);              // background tabs may never fire onfinish
     });
   });
 </script>
