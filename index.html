@@ -59,10 +59,10 @@
   #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
   .glow{position:fixed;z-index:-2;width:80vmax;height:80vmax;border-radius:50%;pointer-events:none;will-change:transform;
         background:radial-gradient(circle,rgba(212,24,42,.28),rgba(212,24,42,0) 62%)}
-  .g1{left:-30vmax;top:-35vmax;animation:drift1 26s ease-in-out infinite alternate!important}
-  .g2{right:-35vmax;bottom:-40vmax;opacity:.7;animation:drift2 32s ease-in-out infinite alternate!important}
-  @keyframes drift1{to{transform:translate(18vmax,14vmax) scale(1.1)}}
-  @keyframes drift2{to{transform:translate(-16vmax,-12vmax) scale(1.15)}}
+  .g1{left:-30vmax;top:-35vmax;animation:drift1 26s ease-in-out infinite alternate}
+  .g2{right:-35vmax;bottom:-40vmax;opacity:.7;animation:drift2 32s ease-in-out infinite alternate}
+  @keyframes drift1{to{transform:translate(18vmax,14vmax)}}
+  @keyframes drift2{to{transform:translate(-16vmax,-12vmax)}}
 
   /* ---------- Brand ---------- */
   .brand{display:flex;align-items:center;direction:ltr}
@@ -127,11 +127,22 @@
   .hero-perks svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--red-hi);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
   /* real project windows, circled by the logo's orbit ring */
-  .stage{--flip:1;position:relative;aspect-ratio:1/.92;perspective:1600px}
+  .stage{--flip:1;position:relative;aspect-ratio:1/.86;perspective:1600px;touch-action:pan-y}
   html[dir="ltr"] .stage{--flip:-1}
+  .show{min-width:0}
+  .gnav{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}
+  .gnav button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:50%;background:rgba(0,0,0,.5);color:var(--white);cursor:pointer;transition:border-color .25s,background .25s}
+  .gnav button:hover{border-color:var(--red-hi);background:var(--red)}
+  .gnav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  html[dir="rtl"] .gnav svg{transform:scaleX(-1)}
+  .gnav .dot{width:44px;height:44px;border:0;background:none}
+  .gnav .dot:hover{background:none}
+  .gnav .dot::before{content:"";width:10px;height:10px;border-radius:50%;background:#55524f;transition:background .25s,transform .25s}
+  .gnav .dot[aria-current="true"]::before{background:var(--red-hi);box-shadow:0 0 10px var(--red-hi);transform:scale(1.3)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
   .stage::before{content:"";position:absolute;inset:-12%;background:radial-gradient(circle,rgba(212,24,42,.3),transparent 62%);pointer-events:none}
   .fan{position:absolute;inset:0;z-index:1;transform-style:preserve-3d;transform:rotateY(calc(var(--flip)*-13deg + var(--ry,0deg))) rotateX(calc(5deg + var(--rx,0deg)));transition:transform .5s ease-out}
-  .win{position:absolute;left:5%;top:22%;width:90%;background:var(--ink);border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -18px rgba(0,0,0,.9),0 20px 60px -24px var(--red-glow);transition:transform 1s var(--ease),opacity 1s var(--ease)}
+  .win{position:absolute;left:5%;top:22%;width:90%;background:var(--ink);border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -18px rgba(0,0,0,.9),0 20px 60px -24px var(--red-glow);transition:transform .7s var(--ease),opacity .7s var(--ease);cursor:pointer}
   .win img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
   .win[data-p="0"]{transform:translateZ(0)}
   .win[data-p="1"]{transform:translate3d(calc(var(--flip)*-10%),-24%,-130px);opacity:.7}
@@ -145,7 +156,9 @@
   .orbit.front{z-index:2;clip-path:inset(50% 0 0 0)}
   .orbit i{position:absolute;inset:0;border-radius:50%;transform:rotateX(74deg)}
   .orbit i:first-child{border:2px solid rgba(239,35,54,.4);box-shadow:0 0 34px rgba(239,35,54,.5),inset 0 0 34px rgba(239,35,54,.5)}
-  .orbit .comet{background:conic-gradient(transparent 0 62%,rgba(239,35,54,.5) 86%,#ff5a68 97%,#fff);mask:radial-gradient(closest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));-webkit-mask:radial-gradient(closest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));animation:orbit 7s linear infinite}
+  .orbit .comet{animation:orbit 7s linear infinite}
+  .orbit .comet::after{content:"";position:absolute;left:50%;top:-2px;width:13%;height:5px;border-radius:3px;background:linear-gradient(90deg,transparent,#ff5a68 75%,#fff);box-shadow:0 0 12px #ff3b4d}
+  .hero.off .comet{animation-play-state:paused}
   @keyframes orbit{from{transform:rotateX(74deg) rotateZ(0)}to{transform:rotateX(74deg) rotateZ(360deg)}}
   .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);direction:ltr}
   .bar span{width:10px;height:10px;border-radius:50%;background:#2b2b2b}
@@ -232,7 +245,7 @@
   .perks li{display:flex;gap:14px;align-items:center;color:#d4d1cd}
   .perks svg{width:22px;height:22px;flex:none;stroke:var(--red-hi);fill:none;stroke-width:1.8}
 
-  .form{background:rgba(16,16,16,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-strong);border-radius:28px;padding:44px}
+  .form{background:rgba(16,16,16,.94);border:1px solid var(--line-strong);border-radius:28px;padding:44px}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .grid2 .full{grid-column:1/-1}
   .field{margin-bottom:22px;position:relative}
@@ -286,7 +299,7 @@
   @media (max-width:980px){
     .hero .wrap,.order .wrap{grid-template-columns:1fr}
     .hero{min-height:auto;padding-top:120px}
-    .stage{width:100%;max-width:560px;margin:10px auto 0}
+    .show{width:100%;max-width:560px;margin:10px auto 0}
     .works{grid-template-columns:1fr}
     .work.big{grid-row:auto;min-height:420px}
     .svc{grid-template-columns:1fr auto;gap:10px 20px}
@@ -301,6 +314,7 @@
     nav{display:none}
     section{padding:72px 0}
     .hero{padding:104px 0 40px}
+    .g1,.g2{animation:none}
     .kicker{margin-bottom:16px}
     .ctas{flex-wrap:nowrap;gap:10px}
     .ctas .btn{flex:1 1 auto;padding:14px 16px;font-size:15px;white-space:nowrap}
@@ -319,7 +333,7 @@
     footer .wrap{justify-content:center}
   }
   @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition:none!important}
+    *:not(.win),*::before,*::after{animation:none!important;transition:none!important}
     .reveal,.ln>span{opacity:1;transform:none}
   }
 </style>
@@ -357,12 +371,12 @@
     box.append(glow, logo);
     const wait = ms => new Promise(r => setTimeout(r, ms));
     // the logo is cut into triangles that fly in from every side and lock together
-    const assemble = () => {
+    const assemble = src => {
       const {width: W, height: H} = logo.getBoundingClientRect();
-      const COLS = 6, ROWS = 5, cw = W / COLS, ch = H / ROWS, far = Math.max(innerWidth, innerHeight) * .7;
+      const small = innerWidth < 700, COLS = small ? 5 : 6, ROWS = small ? 4 : 5, cw = W / COLS, ch = H / ROWS, far = Math.max(innerWidth, innerHeight) * .7;
       const shards = document.createElement('div');
       shards.className = 'shards';
-      shards.style.cssText = `width:${W}px;height:${H}px;--logo:url("${target.src}")`;
+      shards.style.cssText = `width:${W}px;height:${H}px;--logo:url("${src}")`;
       const runs = [];
       for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
         const flip = Math.random() < .5;
@@ -386,7 +400,9 @@
         logo.animate([{transform: 'scale(1.08)', filter: 'brightness(1.8)'}, {transform: 'none', filter: 'brightness(1)'}], {duration: 320, easing: 'ease-out'});
       });
     };
-    const assembled = logo.decode().catch(() => {}).then(assemble).then(() => wait(900));   // time to read the whole logo
+    const shardImage = fetch(target.src).then(r => r.blob()).then(URL.createObjectURL).catch(() => target.src);
+    const preload = new Image();
+    const assembled = logo.decode().catch(() => {}).then(() => shardImage).then(src => { preload.src = src; return preload.decode().catch(() => {}).then(() => assemble(src)); }).then(() => wait(900));   // time to read the whole logo
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
     const ready = Promise.all([assembled, loaded, document.fonts ? document.fonts.ready : 0]);
     Promise.race([ready, assembled.then(() => wait(500))]).then(() => {
@@ -421,6 +437,7 @@
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-en="Perfected on mobile">مظبوط على الموبايل</span></li>
       </ul>
     </div>
+    <div class="show">
     <div class="stage reveal d3" aria-hidden="true">
       <div class="orbit back"><i></i><i class="comet"></i></div>
       <div class="fan">
@@ -429,6 +446,14 @@
         <div class="win" data-p="0"><div class="bar"><span></span><span></span><span></span><div class="url">tyt-cafe.github.io</div></div><img src="assets/hero/tyt.webp" width="960" height="600" alt="" decoding="async"></div>
       </div>
       <div class="orbit front"><i></i><i class="comet"></i></div>
+    </div>
+    <div class="gnav reveal d4">
+      <button type="button" data-go="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="sr" data-en="Previous project">المشروع السابق</span></button>
+      <button type="button" class="dot" data-to="0" aria-current="true"><span class="sr">TYT Café</span></button>
+      <button type="button" class="dot" data-to="1"><span class="sr" data-en="Quran Companion">رفيق القرآن</span></button>
+      <button type="button" class="dot" data-to="2"><span class="sr">AskMyBook</span></button>
+      <button type="button" data-go="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg><span class="sr" data-en="Next project">المشروع التالي</span></button>
+    </div>
     </div>
   </div>
 </section>
@@ -579,20 +604,58 @@
     else window.open('https://ig.me/m/weblume1', '_blank', 'noopener');
   }
 
-  /* ---------- Hero: windows fan out, rotate through the work, lean toward the cursor ---------- */
+  /* ---------- Hero gallery: flips on its own, and visitors can flip it too ---------- */
   (() => {
-    const stage = document.querySelector('.stage'), fan = stage.querySelector('.fan');
-    const wins = [...fan.children];
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { fan.classList.add('open'); return; }
-    window.introDone.then(() => setTimeout(() => fan.classList.add('open'), 400));
-    setInterval(() => {
-      if (document.hidden || scrollY > innerHeight) return;
-      wins.forEach(w => w.dataset.p = (+w.dataset.p + 1) % wins.length);
-    }, 4500);
-    if (matchMedia('(pointer: fine)').matches) document.querySelector('.hero').addEventListener('pointermove', e => {
-      stage.style.setProperty('--ry', (e.clientX / innerWidth - .5) * 10 + 'deg');
-      stage.style.setProperty('--rx', (.5 - e.clientY / innerHeight) * 6 + 'deg');
+    const hero = document.querySelector('.hero'), stage = hero.querySelector('.stage'), fan = stage.querySelector('.fan');
+    const wins = [...fan.children].reverse();      // front window first
+    const dots = [...hero.querySelectorAll('.gnav .dot')];
+    const HOLD = 1000, FLIP = 700, AFTER_TOUCH = 3000;
+    let now = 0, timer, hovering = false, onScreen = true;
+    function show(i){
+      now = (i + wins.length) % wins.length;
+      wins.forEach((w, k) => w.dataset.p = (k - now + wins.length) % wins.length);
+      dots.forEach((d, k) => d.setAttribute('aria-current', k === now));
+    }
+    function schedule(wait){
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (!document.hidden && onScreen && !hovering) show(now + 1);
+        schedule(HOLD + FLIP);
+      }, wait);
+    }
+    const choose = i => { show(i); schedule(AFTER_TOUCH); };
+    hero.querySelector('.gnav').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      choose(b.dataset.to ? +b.dataset.to : now + +b.dataset.go);
     });
+    wins.forEach((w, k) => w.addEventListener('click', () => { if (!swiped && k !== now) choose(k); }));
+    let downX = null, swiped = false;
+    stage.addEventListener('pointerdown', e => { downX = e.clientX; swiped = false; });
+    stage.addEventListener('pointerup', e => {
+      if (downX === null) return;
+      const dx = e.clientX - downX; downX = null;
+      if (Math.abs(dx) < 40) return;
+      swiped = true;
+      const rtl = document.documentElement.dir === 'rtl';
+      choose(now + ((dx < 0) !== rtl ? 1 : -1));
+    });
+    stage.addEventListener('pointercancel', () => downX = null);
+    new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; hero.classList.toggle('off', !onScreen); }).observe(hero);
+    window.introDone.then(() => { setTimeout(() => fan.classList.add('open'), 400); schedule(400 + FLIP + HOLD); });
+    if (matchMedia('(pointer: fine)').matches) {
+      stage.addEventListener('pointerenter', () => hovering = true);
+      stage.addEventListener('pointerleave', () => { hovering = false; downX = null; });
+      let queued = false, x = 0, y = 0;
+      hero.addEventListener('pointermove', e => {
+        x = e.clientX; y = e.clientY;
+        if (queued) return; queued = true;
+        requestAnimationFrame(() => {
+          queued = false;
+          stage.style.setProperty('--ry', (x / innerWidth - .5) * 10 + 'deg');
+          stage.style.setProperty('--rx', (.5 - y / innerHeight) * 6 + 'deg');
+        });
+      }, {passive: true});
+    }
   })();
 
   /* ---------- Animated background: drifting web icons ---------- */
@@ -618,7 +681,7 @@
     const weakHint = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)
                   || (navigator.deviceMemory && navigator.deviceMemory <= 2)
                   || (navigator.connection && navigator.connection.saveData);
-    let level = weakHint ? 1 : 2, running = true;
+    let level = (weakHint || innerWidth < 700) ? 1 : 2, running = true;
     let fSum = 0, fN = 0, slowStreak = 0;
     c.dataset.level = level;
     const rand = (a, b) => a + Math.random() * (b - a);
