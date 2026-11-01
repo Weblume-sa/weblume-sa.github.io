@@ -31,6 +31,8 @@
     setTimeout(() => document.documentElement.classList.remove('intro'), 6000);
   }
 </script>
+<link rel="preload" as="image" href="assets/intro-w.webp">
+<link rel="preload" as="image" href="assets/intro-ring.webp">
 <style>
   :root{
     --black:#000000;
@@ -106,7 +108,11 @@
       linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) center/72px 72px,
       radial-gradient(90% 75% at 50% 48%,#3a0a11 0%,#1f060a 45%,#0a0304 100%)}
   #intro b::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 48%,transparent 35%,rgba(0,0,0,.72) 100%)}
-  #intro .ring{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--intro-w);height:auto;overflow:visible;fill:none;stroke-linecap:round;opacity:0}
+  #intro .stack{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--intro-w);aspect-ratio:560/404}
+  #intro .stack img{position:absolute;inset:0;left:0;top:0;translate:none;width:100%;height:100%;filter:none}
+  #intro .far{clip-path:polygon(-20% -60%,120% -60%,120% 7.5%,-20% 59.1%)}
+  #intro .near{clip-path:polygon(-20% 59.1%,120% 7.5%,120% 160%,-20% 160%)}
+  #intro .chevron{clip-path:polygon(50% 5%,67.1% 60.1%,58.4% 60.1%,50.2% 37.9%,41.8% 60.1%,33% 60.1%)}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;overflow:hidden}
@@ -385,32 +391,37 @@
     const glow = document.createElement('b');
     box.append(glow, logo);
     const wait = ms => new Promise(r => setTimeout(r, ms));
-    // simple reveal: the logo fades up on the crimson stage while one light circles its ring once.
-    // The far half of the ring passes behind the W, the near half in front of it.
-    const ring = (id, y, height) => {
-      const t = document.createElement('template');
-      t.innerHTML = `<svg class="ring" viewBox="0 0 320 230" aria-hidden="true"><clipPath id="${id}"><rect x="-60" y="${y}" width="460" height="${height}"/></clipPath><g transform="rotate(-17.3 163 71)"><g clip-path="url(#${id})"><ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#ff4a5a" stroke-opacity=".45" stroke-width="4" stroke-dasharray="24 76"/><ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#fff" stroke-width="2.4" stroke-dasharray="14 86" stroke-dashoffset="-5"/></g></g></svg>`;
-      return t.content.firstChild;
-    };
-    const reveal = () => {
+    // simple reveal: the logo fades up on the crimson stage while its own ring turns one lap around the W.
+    // The logo is split into the W and the ring. Spinning the ring in its tilted plane keeps it on its
+    // ellipse; the far half stays behind the W, the near half crosses the legs but not the red centre.
+    const part = (name, cls) => { const i = new Image(); i.src = `assets/intro-${name}.webp`; i.alt = ''; if (cls) i.className = cls; return i; };
+    const stack = document.createElement('div');
+    stack.className = 'stack';
+    const rings = [part('ring', 'far'), part('ring', 'near')];
+    stack.append(rings[0], part('w'), rings[1], part('w', 'chevron'));
+    const partsReady = Promise.race([
+      Promise.all([...stack.children].map(i => i.decode())).then(() => true).catch(() => false),
+      wait(900).then(() => false)
+    ]);
+    const reveal = spin => {
       const shadow = 'drop-shadow(0 6px 18px rgba(212,24,42,.35))';
       glow.animate([{opacity: 0}, {opacity: 1}], {duration: 500, easing: 'ease-out', fill: 'forwards'});
-      logo.style.opacity = '';
-      const appear = logo.animate([
+      const shown = spin ? stack : logo;
+      if (spin) box.insertBefore(stack, logo); else logo.style.opacity = '';
+      const runs = [shown.animate([
         {opacity: 0, transform: 'scale(.95)', filter: `blur(6px) ${shadow}`},
         {opacity: 1, transform: 'none', filter: `blur(0) ${shadow}`}
-      ], {duration: 700, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both'});
-      const far = ring('ringFar', -200, 271), near = ring('ringNear', 71, 300);
-      logo.before(far); logo.after(near);
-      const lap = {duration: 1150, delay: 300, easing: 'cubic-bezier(.45,0,.3,1)', fill: 'both'};
-      const runs = [appear];
-      [far, near].forEach(o => {
-        runs.push(o.animate([{opacity: 0}, {opacity: 1, offset: .1}, {opacity: 1, offset: .88}, {opacity: 0}], {...lap, easing: 'linear'}));
-        o.querySelectorAll('ellipse').forEach((e, k) => runs.push(e.animate([{strokeDashoffset: k ? -5 : 0}, {strokeDashoffset: k ? -105 : -100}], lap)));
+      ], {duration: 700, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both'})];
+      if (spin) rings.forEach(r => {
+        r.style.transformOrigin = '51.07% 32.92%';
+        const turn = deg => `rotate(-14.9deg) scaleY(.224) rotate(${deg}deg) scaleY(4.464) rotate(14.9deg)`;
+        runs.push(r.animate([{transform: turn(0)}, {transform: turn(360)}], {duration: 1200, delay: 250, easing: 'cubic-bezier(.45,0,.3,1)', fill: 'both'}));
       });
-      return Promise.race([Promise.all(runs.map(a => a.finished)), wait(1700)]).then(() => { appear.cancel(); far.remove(); near.remove(); });
+      return Promise.race([Promise.all(runs.map(a => a.finished)), wait(1700)]).then(() => {
+        if (spin) { logo.style.opacity = ''; stack.remove(); } else runs[0].cancel();
+      });
     };
-    const assembled = logo.decode().catch(() => {}).then(reveal).then(() => wait(200));
+    const assembled = logo.decode().catch(() => {}).then(() => partsReady).then(reveal).then(() => wait(200));
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
     const ready = Promise.all([assembled, loaded, document.fonts ? document.fonts.ready : 0]);
     Promise.race([ready, assembled.then(() => wait(500))]).then(() => {
