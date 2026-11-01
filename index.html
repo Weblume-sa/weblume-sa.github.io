@@ -101,7 +101,8 @@
   #intro img{grid-area:1/1;position:relative;width:min(64vw,420px);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
   #intro u{grid-area:1/1;width:min(64vw,420px);aspect-ratio:1;border-radius:50%;border:2px solid var(--red-hi);box-shadow:0 0 40px var(--red-hi),inset 0 0 40px rgba(239,35,54,.5);opacity:0}
   #intro b{grid-area:1/1;width:min(100vw,820px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
-  #intro i{position:absolute;left:50%;top:calc(50% + min(34vw,210px));width:150px;height:2px;margin-left:-75px;border-radius:2px;background:var(--red-hi);box-shadow:0 0 14px var(--red-hi);transform:scaleX(0)}
+  #intro .shards{grid-area:1/1;position:relative}
+  #intro .shards i{position:absolute;background-image:var(--logo);background-repeat:no-repeat}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;overflow:hidden}
@@ -352,25 +353,45 @@
     const root = document.documentElement;
     if (!root.classList.contains('intro')) return begin();
     const box = document.getElementById('intro'), target = document.querySelector('header .b-full');
-    const logo = target.cloneNode(); logo.removeAttribute('class'); logo.alt = '';
-    const bar = document.createElement('i');
+    const logo = target.cloneNode(); logo.removeAttribute('class'); logo.alt = ''; logo.style.opacity = 0;
     const glow = document.createElement('b');
-    box.append(glow);
-    // two shockwave rings burst out as the logo forms from nothing
-    [0, 240].forEach(delay => box.appendChild(document.createElement('u')).animate([{opacity: .95, transform: 'scale(.12)'}, {opacity: 0, transform: 'scale(2.8)'}], {duration: 1400, delay, easing: 'cubic-bezier(.15,.7,.3,1)', fill: 'both'}));
-    glow.animate([{opacity: 0}, {opacity: 1, offset: .45}, {opacity: .6}], {duration: 1400, easing: 'ease-out', fill: 'forwards'});
-    box.append(logo, bar);
-    const shadow = 'drop-shadow(0 6px 18px rgba(212,24,42,.35))';
-    logo.animate([
-      {opacity: 0, transform: 'scale(.25)', filter: `blur(26px) brightness(3) ${shadow}`},
-      {opacity: 1, transform: 'scale(1.07)', filter: `blur(0) brightness(1.7) ${shadow}`, offset: .6},
-      {opacity: 1, transform: 'none', filter: `blur(0) brightness(1) ${shadow}`}
-    ], {duration: 1200, easing: 'cubic-bezier(.2,.8,.2,1)'});
-    bar.animate([{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], {duration: 1800, easing: 'ease-in-out', fill: 'forwards'});
+    box.append(glow, logo);
     const wait = ms => new Promise(r => setTimeout(r, ms));
+    // the logo is cut into triangles that fly in from every side and lock together
+    const assemble = () => {
+      const {width: W, height: H} = logo.getBoundingClientRect();
+      const COLS = 6, ROWS = 5, cw = W / COLS, ch = H / ROWS, far = Math.max(innerWidth, innerHeight) * .7;
+      const shards = document.createElement('div');
+      shards.className = 'shards';
+      shards.style.cssText = `width:${W}px;height:${H}px;--logo:url("${target.src}")`;
+      const runs = [];
+      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
+        const flip = Math.random() < .5;
+        (flip ? ['0 0,100% 0,100% 100%', '0 0,100% 100%,0 100%'] : ['0 0,100% 0,0 100%', '100% 0,100% 100%,0 100%']).forEach(shape => {
+          const p = shards.appendChild(document.createElement('i'));
+          p.style.cssText = `left:${c * cw}px;top:${r * ch}px;width:${cw + .5}px;height:${ch + .5}px;background-size:${W}px ${H}px;background-position:${-c * cw}px ${-r * ch}px;clip-path:polygon(${shape})`;
+          const angle = Math.atan2(r * ch + ch / 2 - H / 2, c * cw + cw / 2 - W / 2) + (Math.random() - .5) * 1.2;
+          const dist = far * (.6 + Math.random() * .6);
+          runs.push(p.animate([
+            {opacity: 0, transform: `translate(${Math.cos(angle) * dist}px,${Math.sin(angle) * dist}px) rotate(${(Math.random() - .5) * 540}deg) scale(${.5 + Math.random()})`},
+            {opacity: 1, offset: .35},
+            {opacity: 1, transform: 'none'}
+          ], {duration: 520, delay: Math.random() * 240, easing: 'cubic-bezier(.16,.85,.3,1)', fill: 'backwards'}).finished);
+        });
+      }
+      box.append(shards);
+      glow.animate([{opacity: 0}, {opacity: .6}], {duration: 760, fill: 'forwards'});
+      // swap to the real image when the pieces lock, which also hides the seams between them
+      return Promise.race([Promise.all(runs), wait(1000)]).then(() => {
+        logo.style.opacity = ''; shards.remove();
+        logo.animate([{transform: 'scale(1.08)', filter: 'brightness(1.8)'}, {transform: 'none', filter: 'brightness(1)'}], {duration: 240, easing: 'ease-out'});
+        box.appendChild(document.createElement('u')).animate([{opacity: .9, transform: 'scale(.5)'}, {opacity: 0, transform: 'scale(2.4)'}], {duration: 520, easing: 'ease-out', fill: 'both'});
+      });
+    };
+    const assembled = logo.decode().catch(() => {}).then(assemble).then(() => wait(160));
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
-    const ready = Promise.all([wait(2000), loaded, document.fonts ? document.fonts.ready : 0]);
-    Promise.race([ready, wait(3600)]).then(() => {
+    const ready = Promise.all([assembled, loaded, document.fonts ? document.fonts.ready : 0]);
+    Promise.race([ready, assembled.then(() => wait(500))]).then(() => {
       box.style.display = 'grid'; target.style.visibility = 'hidden';
       root.classList.remove('intro');     // hero text starts rising as the logo leaves
       begin();
@@ -378,11 +399,10 @@
       const dx = b.left + b.width / 2 - a.left - a.width / 2, dy = b.top + b.height / 2 - a.top - a.height / 2;
       let finished = false;
       const end = () => { if (finished) return; finished = true; target.style.visibility = ''; box.remove(); };
-      bar.animate([{opacity: 1}, {opacity: 0}], {duration: 200, fill: 'forwards'});
       glow.animate([{opacity: .6}, {opacity: 0}], {duration: 500, fill: 'forwards'});
-      box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 800, easing: 'ease-out', fill: 'forwards'});
-      logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 1000, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
-      setTimeout(end, 1300);              // background tabs may never fire onfinish
+      box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 550, easing: 'ease-out', fill: 'forwards'});
+      logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 700, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
+      setTimeout(end, 1000);              // background tabs may never fire onfinish
     });
   });
 </script>
@@ -566,7 +586,7 @@
     const stage = document.querySelector('.stage'), fan = stage.querySelector('.fan');
     const wins = [...fan.children];
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) { fan.classList.add('open'); return; }
-    window.introDone.then(() => setTimeout(() => fan.classList.add('open'), 600));
+    window.introDone.then(() => setTimeout(() => fan.classList.add('open'), 400));
     setInterval(() => {
       if (document.hidden || scrollY > innerHeight) return;
       wins.forEach(w => w.dataset.p = (+w.dataset.p + 1) % wins.length);
