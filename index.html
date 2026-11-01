@@ -96,13 +96,13 @@
   header .btn{padding:10px 22px;font-size:14px}
 
   /* ---------- Intro: logo holds the centre, then flies to the header ---------- */
-  #intro{display:none;position:fixed;inset:0;z-index:100;background:#000;place-items:center;place-content:center;overflow:hidden;pointer-events:none}
+  #intro{display:none;position:fixed;inset:0;z-index:100;--intro-w:min(52vw,300px);background:#000;overflow:hidden;pointer-events:none}
   html.intro #intro{display:grid}
   html.intro header .b-full{visibility:hidden}
   html.intro .reveal,html.intro .ln>span{animation-play-state:paused}
-  #intro img{grid-area:1/1;position:relative;width:min(64vw,420px);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
-  #intro b{grid-area:1/1;width:min(100vw,820px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
-  #intro .shards{grid-area:1/1;position:relative}
+  #intro img{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--intro-w);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
+  #intro b{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(100vw,640px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
+  #intro .shards{position:absolute;left:50%;top:50%;translate:-50% -50%}
   #intro .shards i{position:absolute;background-image:var(--logo);background-repeat:no-repeat}
 
   /* ---------- Hero ---------- */
