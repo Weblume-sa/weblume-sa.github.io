@@ -102,8 +102,10 @@
   html.intro .reveal,html.intro .ln>span{animation-play-state:paused}
   #intro img{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--intro-w);height:auto;filter:drop-shadow(0 6px 18px rgba(212,24,42,.35))}
   #intro b{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(100vw,640px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(212,24,42,.5),transparent 65%);opacity:0}
-  #intro .shards{position:absolute;left:50%;top:50%;translate:-50% -50%}
-  #intro .shards i{position:absolute;background-image:var(--logo);background-repeat:no-repeat}
+  #intro .parts{position:absolute;left:50%;top:50%;translate:-50% -50%}
+  #intro .parts>*{position:absolute;inset:0;translate:none;width:100%;height:100%}
+  #intro .parts svg{overflow:visible;fill:none;stroke-linecap:round}
+  #intro .sheen{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) no-repeat 200% 0/300% 100%;-webkit-mask:var(--logo) center/100% 100% no-repeat;mask:var(--logo) center/100% 100% no-repeat}
 
   /* ---------- Hero ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 60px;overflow:hidden}
@@ -382,39 +384,42 @@
     const glow = document.createElement('b');
     box.append(glow, logo);
     const wait = ms => new Promise(r => setTimeout(r, ms));
-    // the logo is cut into triangles that fly in from every side and lock together
-    const assemble = src => {
+    // the logo's orbit ring draws itself, then the W, the wordmark and the tagline follow it in
+    const reveal = src => {
       const {width: W, height: H} = logo.getBoundingClientRect();
-      const small = innerWidth < 700, COLS = small ? 5 : 6, ROWS = small ? 4 : 5, cw = W / COLS, ch = H / ROWS, far = Math.max(innerWidth, innerHeight) * .7;
-      const shards = document.createElement('div');
-      shards.className = 'shards';
-      shards.style.cssText = `width:${W}px;height:${H}px;--logo:url("${src}")`;
-      const runs = [];
-      for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) {
-        const flip = Math.random() < .5;
-        (flip ? ['0 0,100% 0,100% 100%', '0 0,100% 100%,0 100%'] : ['0 0,100% 0,0 100%', '100% 0,100% 100%,0 100%']).forEach(shape => {
-          const p = shards.appendChild(document.createElement('i'));
-          p.style.cssText = `left:${c * cw}px;top:${r * ch}px;width:${cw + .5}px;height:${ch + .5}px;background-size:${W}px ${H}px;background-position:${-c * cw}px ${-r * ch}px;clip-path:polygon(${shape})`;
-          const angle = Math.atan2(r * ch + ch / 2 - H / 2, c * cw + cw / 2 - W / 2) + (Math.random() - .5) * 1.2;
-          const dist = far * (.6 + Math.random() * .6);
-          runs.push(p.animate([
-            {opacity: 0, transform: `translate(${Math.cos(angle) * dist}px,${Math.sin(angle) * dist}px) rotate(${(Math.random() - .5) * 540}deg) scale(${.5 + Math.random()})`},
-            {opacity: 1, offset: .35},
-            {opacity: 1, transform: 'none'}
-          ], {duration: 900, delay: Math.random() * 400, easing: 'cubic-bezier(.16,.85,.3,1)', fill: 'backwards'}).finished);
-        });
-      }
-      box.append(shards);
-      glow.animate([{opacity: 0}, {opacity: .6}], {duration: 1300, fill: 'forwards'});
-      // swap to the real image when the pieces lock, which also hides the seams between them
-      return Promise.race([Promise.all(runs), wait(1500)]).then(() => {
-        logo.style.opacity = ''; shards.remove();
-        logo.animate([{transform: 'scale(1.08)', filter: 'brightness(1.8)'}, {transform: 'none', filter: 'brightness(1)'}], {duration: 320, easing: 'ease-out'});
-      });
+      const parts = document.createElement('div');
+      parts.className = 'parts';
+      parts.style.cssText = `width:${W}px;height:${H}px;--logo:url("${src}")`;
+      const ease = 'cubic-bezier(.2,.8,.2,1)';
+      const layer = band => { const i = parts.appendChild(new Image()); i.src = src; i.alt = ''; i.style.clipPath = band; return i; };
+      const wipe = (band, angle, size, from, to, more, timing) => {
+        const s = layer(band).style;
+        s.webkitMaskImage = s.maskImage = `linear-gradient(${angle},#000 0 40%,transparent 66%)`;
+        s.webkitMaskSize = s.maskSize = size;
+        s.webkitMaskRepeat = s.maskRepeat = 'no-repeat';
+        return parts.lastChild.animate([{maskPosition: from, webkitMaskPosition: from, ...more[0]}, {maskPosition: to, webkitMaskPosition: to, ...more[1]}], {fill: 'both', ...timing});
+      };
+      // vertical bands of the image, in %: W and ring 0-65, wordmark 65-94, tagline 94-100
+      const runs = [
+        wipe('inset(0 0 35% 0)', '0deg', '100% 300%', '0 0', '0 100%', [{transform: 'translateY(5%) scale(.97)'}, {transform: 'none'}], {duration: 850, delay: 150, easing: ease}),
+        wipe('inset(65% 0 6% 0)', '90deg', '300% 100%', '100% 0', '0 0', [{}, {}], {duration: 700, delay: 650, easing: 'cubic-bezier(.5,0,.2,1)'}),
+        layer('inset(94% 0 0 0)').animate([{opacity: 0, transform: 'translateY(3%)'}, {opacity: 1, transform: 'none'}], {duration: 380, delay: 1100, easing: 'ease-out', fill: 'both'}),
+      ];
+      parts.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 320 230" aria-hidden="true"><g transform="rotate(-17.3 163 71)"><ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#ef2336" stroke-opacity=".35" stroke-width="7" stroke-dasharray="26 74"/><ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#fff" stroke-width="2" stroke-dasharray="16 84"/></g></svg>');
+      const comet = parts.querySelector('svg');
+      comet.querySelectorAll('ellipse').forEach(e => runs.push(e.animate([{strokeDashoffset: 100}, {strokeDashoffset: -60}], {duration: 950, easing: 'cubic-bezier(.35,0,.25,1)', fill: 'both'})));
+      runs.push(comet.animate([{opacity: 0}, {opacity: 1, offset: .12}, {opacity: 1, offset: .8}, {opacity: 0}], {duration: 950, fill: 'both'}));
+      const sheen = parts.appendChild(document.createElement('div'));
+      sheen.className = 'sheen';
+      runs.push(sheen.animate([{backgroundPosition: '200% 0'}, {backgroundPosition: '-100% 0'}], {duration: 620, delay: 1200, easing: 'ease-in-out', fill: 'both'}));
+      box.append(parts);
+      glow.animate([{opacity: 0}, {opacity: .6}], {duration: 1200, fill: 'forwards'});
+      // hand over to the real image once everything is in place
+      return Promise.race([Promise.all(runs.map(a => a.finished)), wait(2100)]).then(() => { logo.style.opacity = ''; parts.remove(); });
     };
-    const shardImage = fetch(target.src).then(r => r.blob()).then(URL.createObjectURL).catch(() => target.src);
+    const logoFile = fetch(target.src).then(r => r.blob()).then(URL.createObjectURL).catch(() => target.src);
     const preload = new Image();
-    const assembled = logo.decode().catch(() => {}).then(() => shardImage).then(src => { preload.src = src; return preload.decode().catch(() => {}).then(() => assemble(src)); }).then(() => wait(900));   // time to read the whole logo
+    const assembled = logo.decode().catch(() => {}).then(() => logoFile).then(src => { preload.src = src; return preload.decode().catch(() => {}).then(() => reveal(src)); }).then(() => wait(500));
     const loaded = new Promise(r => addEventListener('load', r, {once: true}));
     const ready = Promise.all([assembled, loaded, document.fonts ? document.fonts.ready : 0]);
     Promise.race([ready, assembled.then(() => wait(500))]).then(() => {
