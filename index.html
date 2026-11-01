@@ -110,7 +110,7 @@
   #intro .beam{position:absolute;left:50%;top:50%;width:min(86vw,660px);height:2px;margin:-1px 0 0 calc(min(86vw,660px)/-2);background:linear-gradient(90deg,transparent,#ff5a68 22%,#fff 50%,#ff5a68 78%,transparent);box-shadow:0 0 18px 2px rgba(239,35,54,.85)}
   #intro .parts{position:absolute;left:50%;top:50%;translate:-50% -50%}
   #intro .parts>*{position:absolute;inset:0;translate:none;width:100%;height:100%}
-  #intro .parts svg{overflow:visible;fill:none;stroke-linecap:round}
+  #intro .ring{position:absolute;left:50%;top:50%;translate:-50% -50%;width:var(--intro-w);height:auto;overflow:visible;fill:none;stroke-linecap:round;opacity:0}
   #intro .sheen{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) no-repeat 200% 0/300% 100%;-webkit-mask:var(--logo) center/100% 100% no-repeat;mask:var(--logo) center/100% 100% no-repeat}
 
   /* ---------- Hero ---------- */
@@ -387,7 +387,7 @@
     if (!root.classList.contains('intro')) return begin();
     const box = document.getElementById('intro'), target = document.querySelector('header .b-full');
     const logo = target.cloneNode(); logo.removeAttribute('class'); logo.alt = ''; logo.style.opacity = 0;
-    const glow = document.createElement('b');
+    const glow = document.createElement('b'), orbits = [];
     box.append(glow, logo);
     const wait = ms => new Promise(r => setTimeout(r, ms));
     // film-title reveal: a beam of light opens across the stage and the logo emerges from it
@@ -401,6 +401,19 @@
       box.append(parts);
       glow.animate([{opacity: 0}, {opacity: 1}], {duration: 700, easing: 'ease-out', fill: 'forwards'});
       glow.appendChild(document.createElement('u')).animate([{transform: 'translateX(-14%)'}, {transform: 'translateX(14%)'}], {duration: 2600, easing: 'ease-in-out', fill: 'forwards'});
+      const ringPath = '<ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#ff4a5a" stroke-opacity=".4" stroke-width="4" stroke-dasharray="16 34"/><ellipse cx="163" cy="71" rx="141" ry="28" pathLength="100" stroke="#fff" stroke-width="2.4" stroke-dasharray="11 39" stroke-dashoffset="-4"/>';
+      const ring = (id, y, height) => {
+        const t = document.createElement('template');
+        t.innerHTML = `<svg class="ring" viewBox="0 0 320 230" aria-hidden="true"><clipPath id="${id}"><rect x="-60" y="${y}" width="460" height="${height}"/></clipPath><g transform="rotate(-17.3 163 71)"><g clip-path="url(#${id})">${ringPath}</g></g></svg>`;
+        return t.content.firstChild;
+      };
+      const far = ring('ringFar', -200, 271), near = ring('ringNear', 71, 300);
+      logo.before(far); logo.after(near);
+      orbits.push(far, near);
+      orbits.forEach(o => {
+        o.animate([{opacity: 0}, {opacity: 1}], {duration: 450, delay: 700, easing: 'ease-out', fill: 'both'});
+        o.querySelectorAll('ellipse').forEach((e, k) => e.animate([{strokeDashoffset: k ? -4 : 0}, {strokeDashoffset: k ? -104 : -100}], {duration: 1700, iterations: Infinity}));
+      });
       const open = H / 2 + 16;
       const beams = [-1, 1].map(side => {
         const b = box.appendChild(document.createElement('i'));
@@ -446,7 +459,9 @@
       const end = () => { if (finished) return; finished = true; target.style.visibility = ''; box.remove(); };
       glow.animate([{opacity: 1}, {opacity: 0}], {duration: 700, easing: 'ease-out', fill: 'forwards'});
       box.animate([{backgroundColor: '#000'}, {backgroundColor: 'transparent'}], {duration: 700, easing: 'ease-out', fill: 'forwards'});
-      logo.animate([{transform: 'none'}, {transform: `translate(${dx}px,${dy}px) scale(${b.width / a.width})`}], {duration: 850, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'}).onfinish = end;
+      const landing = `translate(${dx}px,${dy}px) scale(${b.width / a.width})`, flight = {duration: 850, easing: 'cubic-bezier(.75,0,.2,1)', fill: 'forwards'};
+      orbits.forEach(o => o.animate([{transform: 'none', opacity: 1}, {opacity: 1, offset: .6}, {transform: landing, opacity: 0}], flight));
+      logo.animate([{transform: 'none'}, {transform: landing}], flight).onfinish = end;
       setTimeout(end, 1200);              // background tabs may never fire onfinish
     });
   });
