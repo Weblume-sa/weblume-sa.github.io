@@ -1,0 +1,439 @@
+{
+  "communities": {
+    "0": [
+      "assets_chat",
+      "assets_chat_alertphone",
+      "assets_chat_applytexts",
+      "assets_chat_body",
+      "assets_chat_box",
+      "assets_chat_bubble",
+      "assets_chat_close",
+      "assets_chat_cmp",
+      "assets_chat_compress",
+      "assets_chat_connect",
+      "assets_chat_ensurechat",
+      "assets_chat_fab",
+      "assets_chat_fabcnt",
+      "assets_chat_filein",
+      "assets_chat_lang",
+      "assets_chat_lb",
+      "assets_chat_linkify",
+      "assets_chat_listen",
+      "assets_chat_loadimage",
+      "assets_chat_messages",
+      "assets_chat_msgin",
+      "assets_chat_nameform",
+      "assets_chat_namein",
+      "assets_chat_open",
+      "assets_chat_pending",
+      "assets_chat_render",
+      "assets_chat_send",
+      "assets_chat_sendrequest",
+      "assets_chat_setnote",
+      "assets_chat_setunread",
+      "assets_chat_statusel",
+      "assets_chat_store",
+      "assets_chat_style",
+      "assets_chat_t",
+      "assets_firebase_config",
+      "assets_firebase_config_admin_uid",
+      "assets_firebase_config_firebase_sdk",
+      "assets_firebase_config_firebaseconfig",
+      "assets_firebase_config_isconfigured",
+      "index_chat_fab"
+    ],
+    "1": [
+      "demo__template_index_brand_contrast",
+      "demo__template_index_cafe_config",
+      "demo__template_index_category_scroll_spy",
+      "demo__template_index_dayrange",
+      "demo__template_index_demo_ribbon",
+      "demo__template_index_esc",
+      "demo__template_index_fmt",
+      "demo__template_index_mins",
+      "demo__template_index_noindex_meta",
+      "demo__template_index_page_renderer",
+      "demo__template_index_status",
+      "demo_la_casa_de_pan_data",
+      "demo_la_casa_de_pan_index_cafe_config",
+      "demo_la_casa_de_pan_index_category_scroll_spy",
+      "demo_la_casa_de_pan_index_dayrange",
+      "demo_la_casa_de_pan_index_demo_ribbon",
+      "demo_la_casa_de_pan_index_esc",
+      "demo_la_casa_de_pan_index_fmt",
+      "demo_la_casa_de_pan_index_mins",
+      "demo_la_casa_de_pan_index_page_renderer",
+      "demo_la_casa_de_pan_index_status",
+      "demo_readme_client_demo_workflow",
+      "demo_readme_data_js_config",
+      "demo_readme_demo_flag",
+      "demo_readme_noindex_pages",
+      "demo_readme_template_folder",
+      "demo_template_data"
+    ],
+    "2": [
+      "admin_index_admin_panel",
+      "admin_index_beep",
+      "admin_index_compress",
+      "admin_index_file_change_handler",
+      "admin_index_firestore_chats",
+      "admin_index_firestore_status",
+      "admin_index_initial",
+      "admin_index_link_toggle_handler",
+      "admin_index_linkify",
+      "admin_index_loadimage",
+      "admin_index_logout_handler",
+      "admin_index_notify",
+      "admin_index_onauthstatechanged",
+      "admin_index_openchat",
+      "admin_index_renderlist",
+      "admin_index_rendermsgs",
+      "admin_index_reply_submit_handler",
+      "admin_index_sendadmin",
+      "admin_index_setonline",
+      "admin_index_showlinkstate",
+      "admin_index_showtab",
+      "admin_index_start",
+      "admin_index_stop",
+      "admin_index_stopleads",
+      "admin_index_when",
+      "readme_github_pages",
+      "readme_single_file_site",
+      "readme_weblume"
+    ],
+    "3": [
+      "assets_hero_quran",
+      "assets_hero_quran_arabic_rtl_layout",
+      "assets_hero_quran_brand_logo",
+      "assets_hero_quran_continue_button",
+      "assets_hero_quran_daily_review_card",
+      "assets_hero_quran_daily_review_habit",
+      "assets_hero_quran_daily_tagline",
+      "assets_hero_quran_dark_emerald_theme",
+      "assets_hero_quran_header_controls",
+      "assets_hero_quran_hero_heading",
+      "assets_hero_quran_hero_subtitle",
+      "assets_hero_quran_memorization_tracking",
+      "assets_hero_quran_navbar",
+      "assets_hero_quran_progress_card",
+      "assets_hero_quran_progress_ring",
+      "assets_hero_quran_progress_stats",
+      "assets_hero_quran_quran_companion_app",
+      "assets_hero_quran_recent_memorization_card",
+      "assets_hero_quran_start_button"
+    ],
+    "4": [
+      "admin_index_addform_submit_handler",
+      "admin_index_copy",
+      "admin_index_finddup",
+      "admin_index_firestore_leads",
+      "admin_index_ighandle",
+      "admin_index_import_handler",
+      "admin_index_isdue",
+      "admin_index_leadcard",
+      "admin_index_marksent",
+      "admin_index_normphone",
+      "admin_index_renderleads",
+      "admin_index_renderstats",
+      "admin_index_sendig",
+      "admin_index_sendwa",
+      "admin_index_setstatus",
+      "admin_index_startleads",
+      "admin_index_toast"
+    ],
+    "5": [
+      "index_applylang",
+      "index_closeall",
+      "index_closesel",
+      "index_custom_select_widget",
+      "index_data_en_i18n",
+      "index_instagram_dm_fallback",
+      "index_order_form",
+      "index_order_form_submit",
+      "index_process_steps",
+      "index_renderselect",
+      "index_sendrequest",
+      "index_service_card_picker",
+      "index_services_section",
+      "index_setvalue",
+      "index_weblume_site",
+      "index_weblumechat_bridge"
+    ],
+    "6": [
+      "index_askmybook_project",
+      "index_bg_canvas_animation",
+      "index_checkspeed",
+      "index_frame",
+      "index_hero_fan_animation",
+      "index_makemark",
+      "index_performance_guard",
+      "index_portfolio_work_section",
+      "index_quran_companion_project",
+      "index_resize",
+      "index_sprite_rasterization",
+      "index_stopanimation",
+      "index_tyt_cafe_project",
+      "index_tyt_menu_project"
+    ],
+    "7": [
+      "assets_hero_book",
+      "assets_hero_book_add_pdf_button",
+      "assets_hero_book_arabic_first_rtl",
+      "assets_hero_book_askmybook_app",
+      "assets_hero_book_book_scope_selector",
+      "assets_hero_book_dark_indigo_theme",
+      "assets_hero_book_empty_library_state",
+      "assets_hero_book_page_actions",
+      "assets_hero_book_quick_actions",
+      "assets_hero_book_reading_panel",
+      "assets_hero_book_tutor_panel",
+      "assets_hero_book_voice_controls"
+    ],
+    "8": [
+      "assets_hero_tyt",
+      "assets_hero_tyt_get_directions_button",
+      "assets_hero_tyt_language_toggle",
+      "assets_hero_tyt_logo_mascot",
+      "assets_hero_tyt_navbar",
+      "assets_hero_tyt_ramadan_badge",
+      "assets_hero_tyt_tagline",
+      "assets_hero_tyt_value_props",
+      "assets_hero_tyt_view_menu_button",
+      "assets_hero_tyt_wordmark"
+    ],
+    "9": [
+      "demo_loopie_cafe_brew",
+      "demo_loopie_cafe_cafe",
+      "demo_loopie_cafe_draw",
+      "demo_loopie_cafe_drinkdata",
+      "demo_loopie_cafe_drinks",
+      "demo_loopie_cafe_errors",
+      "demo_loopie_cafe_esc",
+      "demo_loopie_cafe_fmt",
+      "demo_loopie_cafe_frame",
+      "demo_loopie_cafe_gallery",
+      "demo_loopie_cafe_iris",
+      "demo_loopie_cafe_lang",
+      "demo_loopie_cafe_load",
+      "demo_loopie_cafe_loopopen",
+      "demo_loopie_cafe_menu",
+      "demo_loopie_cafe_menuphone",
+      "demo_loopie_cafe_mins",
+      "demo_loopie_cafe_page",
+      "demo_loopie_cafe_place",
+      "demo_loopie_cafe_pour",
+      "demo_loopie_cafe_pump",
+      "demo_loopie_cafe_req",
+      "demo_loopie_cafe_roast",
+      "demo_loopie_cafe_sequence"
+    ],
+    "10": [
+      "assets_weblume_logo",
+      "assets_weblume_logo_brand_palette",
+      "assets_weblume_logo_red_orbit_ring",
+      "assets_weblume_logo_tagline",
+      "assets_weblume_logo_w_mark",
+      "assets_weblume_logo_wordmark"
+    ],
+    "11": [
+      "assets_weblume_logo_sm",
+      "assets_weblume_logo_sm_brand_palette",
+      "assets_weblume_logo_sm_tagline",
+      "assets_weblume_logo_sm_w_mark",
+      "assets_weblume_logo_sm_wordmark"
+    ],
+    "12": [
+      "og_image_brand_palette",
+      "og_image_tagline",
+      "og_image_w_mark",
+      "og_image_weblume_logo",
+      "og_image_wordmark"
+    ],
+    "13": [
+      "assets_weblume_icon",
+      "assets_weblume_icon_brand_palette",
+      "assets_weblume_icon_code_window_icon",
+      "assets_weblume_icon_w_monogram"
+    ],
+    "14": [
+      "assets_hero_tyt_centered_hero_layout",
+      "assets_hero_tyt_dark_gold_purple_palette"
+    ],
+    "15": [
+      "index_onscroll"
+    ],
+    "17": [
+      "ref_three"
+    ],
+    "18": [
+      "demo_backup_loopie_2026_11_02_data"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08333333333333333,
+    "1": 0.09686609686609686,
+    "2": 0.08465608465608465,
+    "3": 0.10526315789473684,
+    "4": 0.25,
+    "5": 0.15,
+    "6": 0.18681318681318682,
+    "7": 0.19696969696969696,
+    "8": 0.28888888888888886,
+    "9": 0.11231884057971014,
+    "10": 0.4666666666666667,
+    "11": 0.7,
+    "12": 0.5,
+    "13": 0.8333333333333334,
+    "14": 1.0,
+    "15": 1.0,
+    "17": 1.0,
+    "18": 1.0
+  },
+  "gods": [
+    {
+      "id": "demo_loopie_cafe_page",
+      "label": "Loopie Cafe Page",
+      "degree": 11
+    },
+    {
+      "id": "admin_index_leadcard",
+      "label": "leadCard()",
+      "degree": 10
+    },
+    {
+      "id": "demo__template_index_page_renderer",
+      "label": "Demo Page Renderer IIFE",
+      "degree": 9
+    },
+    {
+      "id": "assets_chat_render",
+      "label": "render()",
+      "degree": 8
+    },
+    {
+      "id": "demo_la_casa_de_pan_index_page_renderer",
+      "label": "Demo Page Renderer IIFE",
+      "degree": 8
+    },
+    {
+      "id": "assets_hero_tyt",
+      "label": "TYT hero screenshot (tyt.webp)",
+      "degree": 8
+    },
+    {
+      "id": "assets_chat_send",
+      "label": "send()",
+      "degree": 7
+    },
+    {
+      "id": "assets_hero_quran",
+      "label": "Quran Companion home screen hero image",
+      "degree": 7
+    },
+    {
+      "id": "admin_index_addform_submit_handler",
+      "label": "addForm new lead submit handler",
+      "degree": 7
+    },
+    {
+      "id": "admin_index_openchat",
+      "label": "openChat()",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Single-file index.html site",
+      "target": "Weblume admin panel",
+      "source_files": [
+        "README.md",
+        "admin/index.html"
+      ],
+      "confidence": "AMBIGUOUS",
+      "relation": "conceptually_related_to",
+      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "Demo Preview Ribbon",
+      "target": "Weblume Website",
+      "source_files": [
+        "demo/_template/index.html",
+        "index.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Arabic and English Switch",
+      "target": "window.CAFE (Loopie)",
+      "source_files": [
+        "demo/loopie-cafe/index.html",
+        "demo/loopie-cafe/data.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ code); peripheral node `Arabic and English Switch` unexpectedly reaches hub `window.CAFE (Loopie)`"
+    },
+    {
+      "source": "Demo Page Renderer IIFE",
+      "target": "Demo Page Renderer IIFE",
+      "source_files": [
+        "demo/la-casa-de-pan/index.html",
+        "demo/_template/index.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "_template Folder",
+      "target": "Demo Page Renderer IIFE",
+      "source_files": [
+        "demo/README.md",
+        "demo/_template/index.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `_template Folder` unexpectedly reaches hub `Demo Page Renderer IIFE`"
+    }
+  ],
+  "questions": [
+    {
+      "type": "ambiguous_edge",
+      "question": "What is the exact relationship between `Weblume admin panel` and `Single-file index.html site`?",
+      "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low.",
+      "low_confidence": true
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Weblume Website` connect `Order Form and Language` to `Cafe Demo Template`, `Homepage Background and Work`?",
+      "why": "High betweenness centrality (0.102) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `_template Folder`) actually correct?",
+      "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Chat Floating Button (#chatFab)`, `Brand Color Contrast Check`, `Menu Category Chips Scroll Spy` to the rest of the system?",
+      "why": "35 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Live Chat Widget` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `Client Demo Workflow`) actually correct?",
+      "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Cafe Demo Template` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#141210">
+<title>…</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Jost:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/drink-capp.webp">
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="data.js"></script>
+<style>
+  :root{--ink:#141210;--white:#fff;--bone:#F6F1EA;--yellow:#EBB81F;--grey:#6F675E;--line:#DDD5CA;--gut:clamp(20px,4vw,56px);--bar:56px}
+  @media (min-width:860px){:root{--bar:0px}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  body{background:var(--ink);color:var(--ink);font:400 16px/1.7 'Almarai',system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:56px;overflow-x:clip}
+  @media (min-width:860px){body{padding-bottom:0}}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  ul{list-style:none}
+  h1,h2,h3{font-weight:800;letter-spacing:-.02em}
+  :focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+  .sign{font:500 14px/1 'Jost',sans-serif;letter-spacing:.3em;direction:ltr;white-space:nowrap}
+
+  .ribbon{position:relative;z-index:30;background:var(--yellow);color:var(--ink);font-size:12px;text-align:center;padding:4px 16px}
+  .ribbon a{text-decoration:underline}
+
+  /* the nav stays readable over any frame or color */
+  .nav{position:fixed;top:26px;inset-inline:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px var(--gut);color:#fff;mix-blend-mode:difference;pointer-events:none}
+  .nav a{pointer-events:auto}
+  .nav ul{display:none;gap:32px;font-size:15px;font-weight:700}
+  .nav .wa{font-size:15px;font-weight:700;border-bottom:1.5px solid}
+  @media (min-width:860px){.nav ul{display:flex}}
+
+  .pin{position:relative}
+  .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+  canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  /* phones: show a 4:5 frame instead of zooming a wide clip to full height */
+  @media (max-aspect-ratio:1/1){
+    canvas{height:125vw;max-height:100%;bottom:auto}
+    .scrim{display:none}
+    .tone{height:125vw;bottom:auto}
+    .brew .stage,.pour .stage{background:#0d0b0a!important}
+    .roast .stage{background:#140f0d!important}
+  }
+
+  /* 1. brew */
+  .brew{height:640vh;background:var(--ink)}
+  .brew .stage{background:var(--ink);color:#fff}
+  .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0) 45%)}
+  .dark{position:absolute;inset:0;background:#0d0b0a;opacity:0}
+  .cap{position:absolute;inset-inline:var(--gut);bottom:calc(var(--bar) + clamp(24px,7vh,64px));font-weight:800;font-size:clamp(68px,15vw,230px);line-height:1;letter-spacing:-.03em;opacity:0;will-change:transform,opacity}
+  .cap.first{font-size:clamp(44px,8vw,128px);line-height:1.15}
+  .cap small{display:block;font-size:15px;font-weight:400;letter-spacing:0;margin-top:14px}
+  .bigword{position:absolute;inset-inline:0;top:50%;text-align:center;font-weight:800;font-size:min(36vw,58vh);line-height:1;letter-spacing:-.03em;color:#fff;transform:translateY(-62%);opacity:0;white-space:nowrap}
+  .herocup{--w:min(46vh,80vw);position:absolute;left:50%;top:50%;width:var(--w);aspect-ratio:1070/1000;margin-left:calc(var(--w)/-2);margin-top:calc(var(--w)*-.5);filter:drop-shadow(0 34px 34px rgba(0,0,0,.55));will-change:transform;transform:translateY(120vh)}
+  @media (max-width:859px){.bigword{top:24%}.herocup{--w:min(38vh,74vw);top:52%}}
+  .final{position:absolute;inset-inline:var(--gut);bottom:calc(var(--bar) + clamp(20px,5vh,48px));display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;opacity:0;pointer-events:none}
+  .final.on{pointer-events:auto}
+  .final h1{font-size:clamp(24px,3.2vw,48px);line-height:1.3}
+  .final .links{display:flex;gap:8px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 26px;font-weight:700;font-size:15px;transition:background .2s,color .2s}
+  .btn.y{background:var(--yellow);color:var(--ink)}
+  .btn.y:hover{background:#fff}
+  .btn.w{background:#fff;color:var(--ink)}
+  .btn.w:hover{background:var(--yellow)}
+
+  /* 2. roast */
+  .roast{height:360vh;background:var(--ink)}
+  .roast .stage{color:#fff;background:#222}
+  .tone{position:absolute;inset:0;mix-blend-mode:multiply}
+  .temp{position:absolute;top:clamp(84px,13vh,120px);right:var(--gut);direction:ltr;font-weight:800;font-size:clamp(76px,15vw,230px);line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .temp sup{font-size:.42em;vertical-align:.8em;letter-spacing:0}
+  .rl{position:absolute;left:var(--gut);bottom:calc(var(--bar) + clamp(20px,6vh,56px));max-width:62vw;height:80px;width:100%}
+  .rl div{position:absolute;bottom:0;left:0;text-align:left;width:max-content;max-width:62vw;opacity:0}
+  .rl h3{font-size:clamp(22px,2.6vw,38px);line-height:1.25}
+  .rl p{font-size:15px;line-height:1.5}
+  .curve{position:absolute;inset:auto 0 calc(var(--bar) + 130px);height:40%;width:100%;pointer-events:none}
+
+  /* 3. drinks */
+  .drinks{height:400vh}
+  .drinks .stage{background:#B5502F;color:#FFF6EC}
+  .dhead{position:absolute;top:clamp(76px,11vh,104px);right:var(--gut);font-size:clamp(20px,2.2vw,30px);line-height:1.3;z-index:3}
+  .dword{position:absolute;inset-inline:0;top:50%;margin-top:-.56em;text-align:center;font-weight:800;font-size:min(18vw,44vh);line-height:1;letter-spacing:-.03em;white-space:nowrap;opacity:0;will-change:transform,opacity}
+  .dcup{--h:min(72vh,108vw);position:absolute;left:50%;top:50%;height:calc(var(--h)*var(--s,1));transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 30px 28px rgba(0,0,0,.34));will-change:transform;opacity:0}  .dcup img{object-fit:contain}
+  .dfoot{position:absolute;inset-inline:var(--gut);bottom:calc(var(--bar) + clamp(12px,4vh,36px));z-index:3;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px}
+  .dinfo{position:relative;height:26px;flex:1 1 240px}
+  .dinfo p{position:absolute;inset-inline:0;bottom:0;font-size:15px;font-weight:700;opacity:0;white-space:nowrap}
+  .dbtns{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+  .dbtns button{flex:none;background:none;border:0;border-bottom:2px solid transparent;color:inherit;font:700 15px 'Almarai',sans-serif;padding:6px 0;cursor:pointer;opacity:.55}
+  .dbtns button[aria-pressed="true"]{opacity:1;border-bottom-color:currentColor}
+  @media (max-width:859px){.dword{top:24%;font-size:21vw}.dcup{--h:min(50vh,100vw);top:54%}}
+
+  /* 4. statement */
+  .say{background:var(--yellow);padding:clamp(72px,14vw,200px) var(--gut)}
+  .say p.big{font-weight:800;font-size:clamp(38px,7.6vw,128px);line-height:1.2;letter-spacing:-.025em;max-width:15ch}
+  .say p.big span{opacity:.18}
+  .say .small{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 32px;margin-top:clamp(32px,5vw,72px);font-weight:700}
+
+  /* 5. menu */
+  .menu{background:var(--ink);color:#fff}
+  .mhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 24px;padding:clamp(72px,10vw,150px) var(--gut) clamp(32px,4vw,56px)}
+  .menu h2,.visit h2,.place h2{font-size:clamp(64px,13vw,220px);line-height:.95;letter-spacing:-.04em}
+  .note{font-size:13px;color:#A79E93}
+  .chap{display:grid;border-top:1px solid #2E2925}
+  .chap figure{aspect-ratio:4/5;overflow:hidden;background:#222}
+  .chap .list{padding:clamp(28px,4vw,64px) var(--gut) clamp(48px,6vw,96px)}
+  .chap h3{font-size:15px;letter-spacing:0;font-weight:700;color:var(--yellow);margin-bottom:clamp(16px,2vw,28px)}
+  .it{padding:clamp(12px,1.4vw,20px) 0;border-bottom:1px solid #2E2925}
+  .it b{display:block;font-weight:800;font-size:clamp(38px,5.4vw,88px);line-height:1.12;letter-spacing:-.025em}
+  .it span{display:block;font-size:15px;color:#A79E93;margin-top:4px}
+  .it i{float:left;font-style:normal;font-weight:700;font-size:clamp(18px,2vw,26px);margin-top:.5em}
+  @media (min-width:860px){
+    .chap{grid-template-columns:1fr 1fr;align-items:start}
+    .chap figure{aspect-ratio:auto;height:100vh;position:sticky;top:0}
+    .chap:nth-child(even) figure{order:2}
+    .chap .list{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+  }
+
+  /* invite scene */
+  .pour{height:280vh;background:var(--ink)}
+  .pour .stage{color:#fff;background:#0d0b0a}
+  .inv{position:absolute;inset-inline:var(--gut);bottom:calc(var(--bar) + clamp(24px,7vh,64px));display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;opacity:0}
+  .inv p{font-weight:800;font-size:clamp(56px,11vw,190px);line-height:1;letter-spacing:-.03em}
+
+  /* 6. place */
+  .place{height:340vh;background:var(--ink);color:#fff}
+  .place .stage{display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,3vh,28px);padding-top:56px}
+  .place h2{padding-inline:var(--gut)}
+  .track{display:flex;gap:10px;padding-inline:var(--gut);height:min(58vh,560px);width:max-content;will-change:transform}
+  .track figure{height:100%;flex:none;background:#222;overflow:hidden}
+
+  /* 7. visit */
+  .visit{background:var(--bone);padding:clamp(72px,10vw,150px) var(--gut);display:grid;gap:36px}
+  .addr{font-weight:800;font-size:clamp(26px,3.2vw,48px);line-height:1.3;margin-top:28px;max-width:20ch;letter-spacing:-.015em}
+  .facts{margin-top:20px;font-size:17px}
+  .facts a{border-bottom:2px solid var(--yellow)}
+  .days{width:100%;max-width:340px;border-collapse:collapse;font-size:15px;margin-top:8px}
+  .days td{padding:2px 0}
+  .days td:last-child{text-align:left}
+  .days .today{font-weight:700}
+  .visit .btn{margin-top:28px;background:var(--ink);color:#fff}
+  .visit .btn:hover{background:var(--yellow);color:var(--ink)}
+  .map{min-height:min(70vh,560px);background:#ddd}
+  .map iframe{width:100%;height:100%;min-height:min(70vh,560px);border:0;display:block}
+  @media (min-width:860px){.visit{grid-template-columns:5fr 7fr;gap:clamp(48px,7vw,112px)}}
+
+  footer{background:var(--ink);color:#fff;padding:clamp(48px,7vw,96px) var(--gut) 28px;font-size:14px;overflow:hidden}
+  footer .huge{font-weight:800;font-size:min(30vw,380px);line-height:.95;letter-spacing:-.03em;text-align:center}
+  footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;margin-top:28px}
+  footer ul{display:flex;gap:20px;font-weight:700}
+  footer a:hover{color:var(--yellow)}
+  footer .by a{text-decoration:underline}
+
+  .bar{position:fixed;inset:auto 0 0;z-index:25;display:grid;grid-template-columns:1fr 1fr;padding-bottom:env(safe-area-inset-bottom);background:var(--ink)}
+  .bar a{height:56px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff}
+  .bar a:first-child{background:var(--yellow);color:var(--ink)}
+  @media (min-width:860px){.bar{display:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+(function () {
+  var C = window.CAFE || {};
+  var D = ["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); };
+  document.title = C.name + (C.tagline ? " | " + C.tagline : "");
+
+  var mins = function (t) { var p = String(t).split(":"); return (+p[0]) * 60 + (+p[1] || 0); };
+  var fmt = function (t) {
+    var m = mins(t) % 1440, h = Math.floor(m / 60), mm = m % 60, pm = h >= 12;
+    if (m === 0) return "12 بالليل";
+    h = h % 12 || 12;
+    return h + (mm ? ":" + String(mm).padStart(2, "0") : "") + " " + (pm ? "م" : "ص");
+  };
+
+  var mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.mapsQuery);
+  var embed = "https://maps.google.com/maps?q=" + encodeURIComponent(C.mapsQuery) + "&z=15&output=embed";
+  var waUrl = C.whatsapp ? "https://wa.me/" + String(C.whatsapp).replace(/\D/g, "") : "";
+  var dr = C.drinks || [];
+  var h = "";
+
+  if (C.demo) h += '<div class="ribbon">تصور مبدئي من <a href="https://weblume-sa.github.io" target="_blank" rel="noopener">Weblume</a></div>';
+
+  h += '<header class="nav"><a class="sign" href="#top" aria-label="' + esc(C.name) + '">' + esc(C.nameEn) + '</a>' +
+       '<ul><li><a href="#drinks">المشروبات</a></li><li><a href="#menu">المنيو</a></li><li><a href="#place">المكان</a></li><li><a href="#visit">زورونا</a></li></ul>' +
+       (waUrl ? '<a class="wa" href="' + esc(waUrl) + '" target="_blank" rel="noopener">واتساب</a>' : "") + '</header>';
+
+  /* 1. brew */
+  h += '<section class="pin brew" id="top"><div class="stage"><canvas id="cv1" aria-hidden="true"></canvas><div class="scrim"></div><div class="dark" id="dark"></div>' +
+    '<div class="cap first" data-a="-1" data-b=".06">انزل..<br>وحضّر قهوتك<small>حرّك الصفحة وشوف الكوب بيتحضّر</small></div>' +
+    '<div class="cap" data-a=".05" data-b=".21" aria-hidden="true">حصاد.</div>' +
+    '<div class="cap" data-a=".25" data-b=".43" aria-hidden="true">طحن.</div>' +
+    '<div class="cap" data-a=".47" data-b=".64" aria-hidden="true">استخلاص.</div>' +
+    '<div class="cap" data-a=".68" data-b=".84" aria-hidden="true">صبّ.</div>' +
+    '<div class="bigword" id="bigword" aria-hidden="true">' + esc(C.word) + '</div>' +
+    '<div class="herocup" id="herocup"><img src="assets/img/drink-capp.webp" alt="كوب لاتيه" style="object-fit:contain"></div>' +
+    '<div class="final" id="final"><h1>' + esc(C.tagline) + '</h1><div class="links"><a class="btn y" href="#menu">المنيو</a><a class="btn w" href="#visit">الموقع</a></div></div>' +
+  '</div></section>';
+
+  /* 2. roast */
+  h += '<section class="pin roast" id="roast"><div class="stage"><canvas id="cv2" aria-hidden="true"></canvas><div class="tone" id="tone"></div>' +
+    '<svg class="curve" id="curve" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 290C220 286 360 250 500 170S800 50 1000 18" fill="none" stroke="#fff" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>' +
+    '<div class="temp"><span id="temp">25</span><sup>°C</sup></div>' +
+    '<div class="rl" id="rl"><div><h3>حبة خضراء</h3><p>نكهة عشبية، قبل ما تلمسها النار</p></div><div><h3>تحميص متوسط</h3><p>حلاوة وحموضة متوازنة</p></div><div><h3>تحميص غامق</h3><p>جسم أثقل ونكهة شوكولاتة</p></div></div>' +
+  '</div></section>';
+
+  /* 3. drinks */
+  h += '<section class="pin drinks" id="drinks"><div class="stage" id="dstage"><h2 class="dhead">كيف تحب قهوتك؟</h2>';
+  dr.forEach(function (x) { h += '<div class="dword" aria-hidden="true">' + esc(x.name) + '</div>'; });
+  dr.forEach(function (x) { h += '<div class="dcup" style="aspect-ratio:' + esc(x.ratio) + ';--s:' + esc(x.s) + '"><img src="' + esc(x.img) + '" alt="' + esc(x.name) + '"></div>'; });
+  h += '<div class="dfoot"><div class="dinfo">';
+  dr.forEach(function (x) { h += '<p>' + esc(x.desc) + '</p>'; });
+  h += '</div><div class="dbtns" role="group" aria-label="اختر مشروب">';
+  dr.forEach(function (x, i) { h += '<button type="button" data-i="' + i + '">' + esc(x.name) + '</button>'; });
+  h += '</div></div></div></section>';
+
+  /* 4. statement */
+  h += '<section class="say" id="say"><p class="big">' + esc(C.about).split(" ").map(function (w) { return '<span>' + w + '</span>'; }).join(" ") + '</p><div class="small"><span>' + esc(C.hashtag) + '</span>' +
+       (C.rating ? '<span>' + esc(C.rating.value) + ' على خرائط جوجل، من ' + esc(C.rating.count) + ' تقييم</span>' : "") + '</div></section>';
+
+  /* 5. menu */
+  h += '<section class="menu" id="menu"><div class="mhead"><h2>المنيو</h2>' + (C.menuNote ? '<p class="note">' + esc(C.menuNote) + '</p>' : "") + '</div><div>';
+  (C.menu || []).forEach(function (c) {
+    h += '<div class="chap"><figure><img src="' + esc(c.img) + '" alt="' + esc(c.alt) + '" loading="lazy"></figure><div class="list"><h3>' + esc(c.name) + '</h3>';
+    (c.items || []).forEach(function (it) {
+      h += '<div class="it">' + (it.price != null && it.price !== "" ? '<i>' + esc(it.price) + ' ر.س</i>' : "") + '<b>' + esc(it.name) + '</b>' + (it.desc ? '<span>' + esc(it.desc) + '</span>' : "") + '</div>';
+    });
+    h += '</div></div>';
+  });
+  h += '</div></section>';
+
+  /* invite */
+  h += '<section class="pin pour" id="pour"><div class="stage"><canvas id="cv3" aria-hidden="true"></canvas><div class="scrim"></div><div class="inv" id="inv"><p>' + esc(C.invite) + '</p><a class="btn y" href="#visit">الموقع</a></div></div></section>';
+
+  /* 6. place */
+  h += '<section class="pin place" id="place"><div class="stage"><h2>المكان</h2><div class="track" id="track">';
+  (C.place || []).forEach(function (p) { h += '<figure style="aspect-ratio:' + p.w + '/' + p.h + '"><img src="' + esc(p.src) + '" alt="' + esc(p.alt) + '"></figure>'; });
+  h += '</div></div></section>';
+
+  /* 7. visit */
+  h += '<section class="visit" id="visit"><div><h2>زورونا</h2><p class="addr">' + esc(C.address) + '</p><div class="facts">';
+  if (C.hours === "24h") h += '<p>مفتوح 24 ساعة، كل أيام الأسبوع</p>';
+  else if (C.hours) {
+    var today = new Date().getDay();
+    h += '<table class="days"><tbody>';
+    [6,0,1,2,3,4,5].forEach(function (d) {
+      var x = C.hours[d];
+      h += '<tr' + (d === today ? ' class="today"' : "") + '><td>' + D[d] + '</td><td>' + (!x || x === "closed" ? "مغلق" : fmt(x.open) + ' إلى ' + fmt(x.close)) + '</td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  if (C.phone) h += '<p><a href="tel:' + esc(C.phone) + '"><bdi>' + esc(C.phoneText || C.phone) + '</bdi></a></p>';
+  h += '</div><a class="btn" href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">افتح في خرائط جوجل</a></div>';
+  h += '<div class="map"><iframe src="' + esc(embed) + '" loading="lazy" title="خريطة ' + esc(C.name) + '" referrerpolicy="no-referrer-when-downgrade"></iframe></div></section>';
+
+  /* footer */
+  h += '<footer><div class="huge" aria-hidden="true">' + esc(C.word) + '</div><div class="row"><ul>';
+  if (C.instagram) h += '<li><a href="https://instagram.com/' + esc(C.instagram) + '" target="_blank" rel="noopener">إنستجرام</a></li>';
+  if (C.tiktok) h += '<li><a href="https://www.tiktok.com/@' + esc(C.tiktok) + '" target="_blank" rel="noopener">تيك توك</a></li>';
+  if (waUrl) h += '<li><a href="' + esc(waUrl) + '" target="_blank" rel="noopener">واتساب</a></li>';
+  h += '</ul><div class="by">© ' + new Date().getFullYear() + ' ' + esc(C.name) + ' · تصميم <a href="https://weblume-sa.github.io" target="_blank" rel="noopener">Weblume</a></div></div></footer>';
+
+  h += '<nav class="bar" aria-label="إجراءات سريعة">' + (waUrl ? '<a href="' + esc(waUrl) + '" target="_blank" rel="noopener">واتساب</a>' : "") + '<a href="' + esc(mapsUrl) + '" target="_blank" rel="noopener">الاتجاهات</a></nav>';
+
+  document.getElementById("app").innerHTML = h;
+
+  /* ---------- helpers ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var q = function (s, el) { return [].slice.call((el || document).querySelectorAll(s)); };
+  var clamp = function (v) { return Math.max(0, Math.min(1, v)); };
+  var seg = function (p, a, b) { return clamp((p - a) / (b - a)); };
+  var ease = function (t) { return t * t * (3 - 2 * t); };
+  var lerp = function (a, b, t) { return a + (b - a) * t; };
+  var rgb = function (c) { c = c.replace("#", ""); return [0, 2, 4].map(function (i) { return parseInt(c.substr(i, 2), 16); }); };
+  var mix = function (a, b, t) { a = rgb(a); b = rgb(b); return "rgb(" + a.map(function (v, i) { return Math.round(lerp(v, b[i], t)); }).join(",") + ")"; };
+
+  /* ---------- frame sequences on canvas ---------- */
+  var portrait = innerWidth / innerHeight < 1;
+  var queue = [], active = 0;
+  function pump() {
+    while (active < 6 && queue.length) {
+      active++;
+      (function (job) {
+        var im = new Image();
+        im.onload = function () { job.seq.imgs[job.i] = im; active--; job.seq.dirty = true; pump(); req(); };
+        im.onerror = function () { active--; pump(); };
+        im.src = job.seq.base + String(job.i + 1).padStart(3, "0") + ".webp";
+      })(queue.shift());
+    }
+  }
+  function sequence(cv, name, n) {
+    var s = { cv: cv, ctx: cv.getContext("2d"), n: n, imgs: [], base: "assets/" + name + (portrait ? "-m/" : "-d/"), at: 0, shown: null, dirty: true };
+    /* coarse frames first so scrubbing works before everything has loaded */
+    var seen = {}, add = function (i) { if (!seen[i]) { seen[i] = 1; queue.push({ seq: s, i: i }); } };
+    add(0); for (var i = 0; i < n; i += 12) add(i); for (i = 0; i < n; i += 4) add(i); for (i = 0; i < n; i++) add(i);
+    return s;
+  }
+  function draw(s, x) {
+    s.at = Math.round(x * (s.n - 1));
+    var im = null;
+    for (var d = 0; d < s.n && !im; d++) im = s.imgs[s.at - d] || s.imgs[s.at + d];
+    if (!im || (im === s.shown && !s.dirty)) return;
+    s.shown = im; s.dirty = false;
+    var dpr = Math.min(devicePixelRatio || 1, 2), w = Math.round(s.cv.clientWidth * dpr), hh = Math.round(s.cv.clientHeight * dpr);
+    if (s.cv.width !== w || s.cv.height !== hh) { s.cv.width = w; s.cv.height = hh; }
+    s.ctx.imageSmoothingQuality = "high";
+    var r =Math.max(w / im.naturalWidth, hh / im.naturalHeight), iw = im.naturalWidth * r, ih = im.naturalHeight * r;
+    s.ctx.drawImage(im, (w - iw) / 2, (hh - ih) / 2, iw, ih);
+  }
+  var seq1 = sequence($("cv1"), "brew", 162), seq2 = sequence($("cv2"), "beans", 60), seq3 = sequence($("cv3"), "pour", 48);
+  pump();
+
+  /* ---------- scenes ---------- */
+  var caps = q(".cap");
+  function brew(p) {
+    draw(seq1, seg(p, 0, .88));
+    caps.forEach(function (c) {
+      var a = +c.dataset.a, b = +c.dataset.b, o = Math.min(seg(p, a, a + .03), 1 - seg(p, b - .03, b));
+      c.style.opacity = o;
+      c.style.transform = "translateY(" + (1 - seg(p, a, a + .05)) * 40 + "px)";
+    });
+    var e = ease(seg(p, .85, .95));
+    $("dark").style.opacity = e * .62;
+    $("bigword").style.opacity = e;
+    $("bigword").style.transform = "translateY(-62%) scale(" + lerp(1.18, 1, e) + ")";
+    $("herocup").style.transform = "translateY(" + (1 - e) * 100 + "vh) rotate(" + lerp(14, -5, e) + "deg)";
+    $("final").style.opacity = seg(p, .93, .98);
+    $("final").classList.toggle("on", p > .95);
+  }
+
+  var rls = q("#rl div");
+  function roast(p) {
+    draw(seq2, p);
+    var a = 1 - ease(seg(p, .1, .62));
+    /* the clip shows roasted beans, so the early stages tint them back to green */
+    $("cv2").style.filter = "sepia(" + a + ") hue-rotate(" + a * 42 + "deg) saturate(" + (1 + a * .25) + ") brightness(" + (1 + a * .95) + ")";
+    var b = ease(seg(p, .08, .5)), c = ease(seg(p, .55, .95));
+    $("tone").style.background = c > 0 ? mix("#D88A62", "#6E5048", c) : mix("#D7DEC9", "#D88A62", b);
+    $("temp").textContent = Math.round(p < .5 ? lerp(25, 204, seg(p, .05, .5)) : lerp(204, 228, seg(p, .55, .95)));
+    $("curve").style.clipPath = "inset(0 " + (100 - seg(p, .03, .97) * 100) + "% 0 0)";
+    var o = [1 - seg(p, .22, .3), Math.min(seg(p, .26, .34), 1 - seg(p, .64, .72)), seg(p, .68, .76)];
+    rls.forEach(function (l, i) { l.style.opacity = o[i]; });
+  }
+
+  var dstage = $("dstage"), words = q(".dword"), cups = q(".dcup"), infos = q(".dinfo p"), btns = q(".dbtns button");
+  function drinks(x) {
+    var i = Math.min(Math.floor(x), dr.length - 1), j = Math.min(i + 1, dr.length - 1), t = ease(seg(x - i, .3, .7));
+    dstage.style.background = mix(dr[i].bg, dr[j].bg, t);
+    dstage.style.color = mix(dr[i].fg, dr[j].fg, t);
+    words.forEach(function (w, k) {
+      var d = x - k;
+      w.style.opacity = 1 - seg(Math.abs(d), .3, .5);
+      w.style.transform = "translateX(" + d * 18 + "vw)";
+    });
+    cups.forEach(function (c, k) {
+      var d = x - k, e = clamp(Math.abs(d) * 1.05);
+      /* each cup comes up from below, turns upright at centre, and leaves through the top */
+      c.style.opacity = Math.abs(d) < 1 ? 1 : 0;
+      c.style.transform = "translate(-50%,calc(-50% + " + (d < 0 ? 1 : -1) * ease(e) * 78 + "vh)) rotate(" + (d < 0 ? 1 : -1) * ease(e) * 22 + "deg) scale(" + lerp(1, .86, e) + ")";
+    });
+    infos.forEach(function (n, k) { n.style.opacity = 1 - seg(Math.abs(x - k), .2, .36); });
+    var cur = Math.round(x);
+    btns.forEach(function (b, k) { b.setAttribute("aria-pressed", k === cur ? "true" : "false"); });
+  }
+
+  function pour(p) {
+    draw(seq3, p);
+    $("inv").style.opacity = seg(p, .35, .55);
+  }
+
+  var sayWords = q(".say .big span"), say = $("say"), place = $("place"), track = $("track");
+  function statement() {
+    var r = say.getBoundingClientRect(), p = seg(innerHeight - r.top, innerHeight * .25, innerHeight * .25 + r.height * .8);
+    sayWords.forEach(function (w, k) { w.style.opacity = lerp(.18, 1, seg(p * sayWords.length, k, k + 1)); });
+  }
+
+  /* ---------- scroll loop ---------- */
+  var prog = function (el) { var r = el.getBoundingClientRect(); return { p: clamp(-r.top / (r.height - innerHeight)), vis: r.top < innerHeight && r.bottom > 0 }; };
+  var pins = { a: q(".brew")[0], b: $("roast"), c: $("drinks"), e: $("pour") };
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var a = prog(pins.a), b = prog(pins.b), c = prog(pins.c), d = prog(place), e = prog(pins.e);
+    if (e.vis) pour(e.p);
+    if (a.vis) brew(a.p);
+    if (b.vis) roast(b.p);
+    if (c.vis) drinks(c.p * (dr.length - 1));
+    if (d.vis) track.style.transform = "translateX(" + d.p * Math.max(0, track.offsetWidth - innerWidth) + "px)"; /* RTL track overflows left */
+    statement();
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  addEventListener("scroll", req, { passive: true });
+  addEventListener("resize", function () { seq1.dirty = seq2.dirty = seq3.dirty = true; req(); });
+
+  /* the scrub only moves when the visitor scrolls, so it stays on for reduced motion and only the smoothing goes */
+  var lenis = null;
+  if (window.Lenis && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    lenis = new Lenis({ lerp: .1, wheelMultiplier: .9, anchors: true });
+    requestAnimationFrame(function raf(t) { lenis.raf(t); requestAnimationFrame(raf); });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var r = pins.c.getBoundingClientRect(), top = scrollY + r.top + (+b.dataset.i / (dr.length - 1)) * (r.height - innerHeight);
+      lenis ? lenis.scrollTo(top) : scrollTo(0, top);
+    });
+  });
+  brew(0); roast(0); drinks(0); pour(0); frame();
+})();
+</script>
+</body>
+</html>

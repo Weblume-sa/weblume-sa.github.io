@@ -1,0 +1,2210 @@
+{
+  "assets/chat.js": {
+    "mtime": 1793503278.6977272,
+    "seen": 1793504249.859295,
+    "ast_hash": "04dbf5df06d26bf9238574b0a6dfa3a2",
+    "semantic_hash": "04dbf5df06d26bf9238574b0a6dfa3a2"
+  },
+  "assets/firebase-config.js": {
+    "mtime": 1793503278.6977272,
+    "seen": 1793504249.859295,
+    "ast_hash": "064633d8b47acb26b20ab9acda9baba6",
+    "semantic_hash": "064633d8b47acb26b20ab9acda9baba6"
+  },
+  "demo/_template/data.js": {
+    "mtime": 1793503278.7062316,
+    "seen": 1793504249.859295,
+    "ast_hash": "e426600a9d84a20ac549f96bc9418a0a",
+    "semantic_hash": "e426600a9d84a20ac549f96bc9418a0a"
+  },
+  "demo/la-casa-de-pan/data.js": {
+    "mtime": 1793503278.7082314,
+    "seen": 1793504249.859295,
+    "ast_hash": "3426d6b30ae4f3c76e68bc560298f7a3",
+    "semantic_hash": "3426d6b30ae4f3c76e68bc560298f7a3"
+  },
+  "README.md": {
+    "mtime": 1793503278.6957302,
+    "seen": 1793504249.859295,
+    "ast_hash": "30339f64bdf796f99f282c6c81f3441b",
+    "semantic_hash": "30339f64bdf796f99f282c6c81f3441b"
+  },
+  "admin/index.html": {
+    "mtime": 1793503278.69673,
+    "seen": 1793504249.859295,
+    "ast_hash": "60c2d059c46cb29688c6502434cf429d",
+    "semantic_hash": "60c2d059c46cb29688c6502434cf429d"
+  },
+  "demo/README.md": {
+    "mtime": 1793503278.7052321,
+    "seen": 1793504249.859295,
+    "ast_hash": "ebd3cac5791ba60bb5468ff1d0322276",
+    "semantic_hash": "ebd3cac5791ba60bb5468ff1d0322276"
+  },
+  "demo/_template/index.html": {
+    "mtime": 1793503278.707231,
+    "seen": 1793504249.859295,
+    "ast_hash": "2a14717b38e54879e0bd198db785d3ce",
+    "semantic_hash": "2a14717b38e54879e0bd198db785d3ce"
+  },
+  "demo/la-casa-de-pan/index.html": {
+    "mtime": 1793503278.7082314,
+    "seen": 1793504249.859295,
+    "ast_hash": "2a14717b38e54879e0bd198db785d3ce",
+    "semantic_hash": "2a14717b38e54879e0bd198db785d3ce"
+  },
+  "index.html": {
+    "mtime": 1793531070.9835832,
+    "seen": 1793621168.4273717,
+    "ast_hash": "cade97383e68df00cca8ca2191a13b40",
+    "semantic_hash": ""
+  },
+  "assets/hero/book.webp": {
+    "mtime": 1793503478.259,
+    "seen": 1793504249.859295,
+    "ast_hash": "4886f0930601df262c259b426c8b175b",
+    "semantic_hash": "4886f0930601df262c259b426c8b175b"
+  },
+  "assets/hero/quran.webp": {
+    "mtime": 1793503478.219,
+    "seen": 1793504249.859295,
+    "ast_hash": "30796418b04041bb162e792d461afb03",
+    "semantic_hash": "30796418b04041bb162e792d461afb03"
+  },
+  "assets/hero/tyt.webp": {
+    "mtime": 1793503478.183,
+    "seen": 1793504249.859295,
+    "ast_hash": "ae28caa3a28d4a932fd7f14ad538a4ae",
+    "semantic_hash": "ae28caa3a28d4a932fd7f14ad538a4ae"
+  },
+  "assets/weblume-icon.png": {
+    "mtime": 1793503278.7007525,
+    "seen": 1793504249.859295,
+    "ast_hash": "bec2ae442965f7bdad5865a8cebca349",
+    "semantic_hash": "bec2ae442965f7bdad5865a8cebca349"
+  },
+  "assets/weblume-logo-sm.webp": {
+    "mtime": 1793503278.7017534,
+    "seen": 1793504249.859295,
+    "ast_hash": "c46e112cf68600b8a382037431baee43",
+    "semantic_hash": "c46e112cf68600b8a382037431baee43"
+  },
+  "assets/weblume-logo.png": {
+    "mtime": 1793503278.704212,
+    "seen": 1793504249.859295,
+    "ast_hash": "88efe2216afafb8ba088a07eb2d181ec",
+    "semantic_hash": "88efe2216afafb8ba088a07eb2d181ec"
+  },
+  "og-image.jpg": {
+    "mtime": 1793503278.7112737,
+    "seen": 1793504249.859295,
+    "ast_hash": "a99c99be8d18ed98d04851fcf223ce89",
+    "semantic_hash": "a99c99be8d18ed98d04851fcf223ce89"
+  },
+  "assets/intro-ring.webp": {
+    "mtime": 1793515874.941,
+    "seen": 1793527539.3097188,
+    "ast_hash": "c59bb7ce38eb8016055f16f4eb931179",
+    "semantic_hash": ""
+  },
+  "assets/intro-w.webp": {
+    "mtime": 1793515874.915,
+    "seen": 1793527539.3097188,
+    "ast_hash": "91e06d1571a4c2f9b31f4b2bdfbc622e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/data.js": {
+    "mtime": 1793631628.3607292,
+    "seen": 1793631707.314288,
+    "ast_hash": "5b3e42a2ad049ab65cdc8a6d0f644480",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/index.html": {
+    "mtime": 1793631628.3627305,
+    "seen": 1793631707.3153923,
+    "ast_hash": "1ba466be789ade28e0917720248c1672",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/001.webp": {
+    "mtime": 1793624660.5409548,
+    "seen": 1793624910.763623,
+    "ast_hash": "ffa51a32c8435dac24f638a00171994b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/002.webp": {
+    "mtime": 1793624660.5586295,
+    "seen": 1793624910.763623,
+    "ast_hash": "8bc5c0e6fcded2911d8ccae887597582",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/003.webp": {
+    "mtime": 1793624660.5718126,
+    "seen": 1793624910.763623,
+    "ast_hash": "c0033de26557b42e0ce45f2650dc5b36",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/004.webp": {
+    "mtime": 1793624660.5858166,
+    "seen": 1793624910.763623,
+    "ast_hash": "7b014c3d4b478bb0d06226b7baec1788",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/005.webp": {
+    "mtime": 1793624660.601115,
+    "seen": 1793624910.763623,
+    "ast_hash": "1cd72bb08c21e135696c1253b8d4a337",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/006.webp": {
+    "mtime": 1793624660.6121397,
+    "seen": 1793624910.763623,
+    "ast_hash": "6e2cf40250388dcf26adf3eb3fce0ea1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/007.webp": {
+    "mtime": 1793624660.626138,
+    "seen": 1793624910.763623,
+    "ast_hash": "b4c6d9f15bdccf7d52c3bbbc15dc998b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/008.webp": {
+    "mtime": 1793624660.6401453,
+    "seen": 1793624910.763623,
+    "ast_hash": "a5cc9db466c72063d82ebd593fdda787",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/009.webp": {
+    "mtime": 1793624660.6526504,
+    "seen": 1793624910.763623,
+    "ast_hash": "fece35001f7b4ed77bcd3e69292d9e64",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/010.webp": {
+    "mtime": 1793624660.6683955,
+    "seen": 1793624910.763623,
+    "ast_hash": "a06b1fa9b486702332e3e319ae7082cf",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/011.webp": {
+    "mtime": 1793624660.6823928,
+    "seen": 1793624910.763623,
+    "ast_hash": "f6465b85037d963ca74d90d8206543a6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/012.webp": {
+    "mtime": 1793624660.6963937,
+    "seen": 1793624910.763623,
+    "ast_hash": "a547fba909b180b3b4a1a0e2cf6cd512",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/013.webp": {
+    "mtime": 1793624660.7113957,
+    "seen": 1793624910.763623,
+    "ast_hash": "d647bbd7d87a2a8a9bb96bee8930c90a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/014.webp": {
+    "mtime": 1793624660.7213945,
+    "seen": 1793624910.763623,
+    "ast_hash": "414569f9fa06cd68121a995129d81589",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/015.webp": {
+    "mtime": 1793624660.7364047,
+    "seen": 1793624910.763623,
+    "ast_hash": "788b1fcbcda1a768454ed090c9f57935",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/016.webp": {
+    "mtime": 1793624660.752202,
+    "seen": 1793624910.763623,
+    "ast_hash": "4fab6c00258b80bee3cdc0194ac4bab8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/017.webp": {
+    "mtime": 1793624660.7662373,
+    "seen": 1793624910.763623,
+    "ast_hash": "c4cf18994ea86823d8585eb56a553026",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/018.webp": {
+    "mtime": 1793624660.779235,
+    "seen": 1793624910.763623,
+    "ast_hash": "45e818da726cd5f07108f6f9c44b385a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/019.webp": {
+    "mtime": 1793624660.791234,
+    "seen": 1793624910.763623,
+    "ast_hash": "49f68800802fe2acbb2c78e20429875a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/020.webp": {
+    "mtime": 1793624660.8170197,
+    "seen": 1793624910.763623,
+    "ast_hash": "b6c72de219e2a158a0660b1160e29c7a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/021.webp": {
+    "mtime": 1793624660.8280196,
+    "seen": 1793624910.763623,
+    "ast_hash": "0ed157f0124e48cb2f2937238d58eb05",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/022.webp": {
+    "mtime": 1793624660.841037,
+    "seen": 1793624910.763623,
+    "ast_hash": "0f6b6bea4ce0b611fc699882a4421616",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/023.webp": {
+    "mtime": 1793624660.854108,
+    "seen": 1793624910.763623,
+    "ast_hash": "2b5ec4d731f3cfb459cb4d6fff3512d6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/024.webp": {
+    "mtime": 1793624660.866163,
+    "seen": 1793624910.763623,
+    "ast_hash": "504a2364c2768ae13ed466c435dd9551",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/025.webp": {
+    "mtime": 1793624660.8781624,
+    "seen": 1793624910.763623,
+    "ast_hash": "e84370408fc2978dd4c16c5798e0b9f4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/026.webp": {
+    "mtime": 1793624660.888162,
+    "seen": 1793624910.763623,
+    "ast_hash": "c80ac2a5a457a9c54ed07187d0ab0425",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/027.webp": {
+    "mtime": 1793624660.9021623,
+    "seen": 1793624910.763623,
+    "ast_hash": "f19f7ebdb4ba7176b43b1a1ad1212f79",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/028.webp": {
+    "mtime": 1793624660.9316952,
+    "seen": 1793624910.763623,
+    "ast_hash": "58b07007092c9578e1274a34b52403d4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/029.webp": {
+    "mtime": 1793624660.9425092,
+    "seen": 1793624910.763623,
+    "ast_hash": "547ca71c5c8526153ab9678966c90818",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/030.webp": {
+    "mtime": 1793624660.9540272,
+    "seen": 1793624910.763623,
+    "ast_hash": "fdfa670b623c3f5ba6b76472f5524799",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/031.webp": {
+    "mtime": 1793624660.9660368,
+    "seen": 1793624910.763623,
+    "ast_hash": "95dfa42aedda6326e8575d66e1768a9d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/032.webp": {
+    "mtime": 1793624660.9787202,
+    "seen": 1793624910.763623,
+    "ast_hash": "5348f5bf778c72e7af68b520f697012d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/033.webp": {
+    "mtime": 1793624660.9877205,
+    "seen": 1793624910.763623,
+    "ast_hash": "6ded826f4055b126db749c1f28999152",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/034.webp": {
+    "mtime": 1793624660.9987247,
+    "seen": 1793624910.763623,
+    "ast_hash": "02eed252d021451e012130317fc95665",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/035.webp": {
+    "mtime": 1793624661.014722,
+    "seen": 1793624910.763623,
+    "ast_hash": "b35261765c76adb0f8154a4d573d9cb6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/036.webp": {
+    "mtime": 1793624661.0277193,
+    "seen": 1793624910.763623,
+    "ast_hash": "5d2dfe48ec27a07e8b34f1f8dac7b4c6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/037.webp": {
+    "mtime": 1793624661.0397272,
+    "seen": 1793624910.763623,
+    "ast_hash": "e49089f6ae30c1b27328f387525d3646",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/038.webp": {
+    "mtime": 1793624661.0515769,
+    "seen": 1793624910.763623,
+    "ast_hash": "301e9e9b178bb8349bafa787f7f7c1dc",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/039.webp": {
+    "mtime": 1793624661.0661135,
+    "seen": 1793624910.763623,
+    "ast_hash": "8b7124f971e681c39ebf474504f5ce40",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/040.webp": {
+    "mtime": 1793624661.078234,
+    "seen": 1793624910.763623,
+    "ast_hash": "9f6c2f8fdafa54a4ada9a55b13c96897",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/041.webp": {
+    "mtime": 1793624661.088172,
+    "seen": 1793624910.763623,
+    "ast_hash": "230cdc73389acf598b6cfcf5b284371c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/042.webp": {
+    "mtime": 1793624661.1007056,
+    "seen": 1793624910.763623,
+    "ast_hash": "312cbaf2468092865d89d00fec379e97",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/043.webp": {
+    "mtime": 1793624661.1150942,
+    "seen": 1793624910.763623,
+    "ast_hash": "acbb35cc85656aa49039c8ab2b5f1faf",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/044.webp": {
+    "mtime": 1793624661.1274915,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4ce73685a0533f404e1f4526c6958d6a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/045.webp": {
+    "mtime": 1793624661.1396933,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d6a83d01083e7829bc35fe8f4c46ac2b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/046.webp": {
+    "mtime": 1793624661.1488037,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3bbd938a7e7f6405223177522b2b61b1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/047.webp": {
+    "mtime": 1793624661.160328,
+    "seen": 1793624910.7646232,
+    "ast_hash": "742c40ad340b553da979c6d7cbec0d18",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/048.webp": {
+    "mtime": 1793624661.1733258,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9bd8b5d54c3b487dfdc55155b2998250",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/049.webp": {
+    "mtime": 1793624661.1829226,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8a26bf5935b20d9b58a8771d81f61964",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/050.webp": {
+    "mtime": 1793624661.1954029,
+    "seen": 1793624910.7646232,
+    "ast_hash": "579849d7882ddd729690e64abaa87daf",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/051.webp": {
+    "mtime": 1793624661.2054012,
+    "seen": 1793624910.7646232,
+    "ast_hash": "cd48a0d0518b16e9faf5cbb3bd38f876",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/052.webp": {
+    "mtime": 1793624661.216399,
+    "seen": 1793624910.7646232,
+    "ast_hash": "db6f424c41a9f4fa3bce93178bb03a93",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/053.webp": {
+    "mtime": 1793624661.230873,
+    "seen": 1793624910.7646232,
+    "ast_hash": "308dd7e1538807716d5c4077191c0b3a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/054.webp": {
+    "mtime": 1793624661.2422957,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3cc459b6b0889fede24b50bcf2948541",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/055.webp": {
+    "mtime": 1793624661.2546096,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6b995cc9a54c6a2cd967413bb716fbfe",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/056.webp": {
+    "mtime": 1793624661.2659118,
+    "seen": 1793624910.7646232,
+    "ast_hash": "820568ff99d2708cda69ded8ee205a6f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/057.webp": {
+    "mtime": 1793624661.2767508,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d931f09900761610cda4b513df2b1c67",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/058.webp": {
+    "mtime": 1793624661.2907572,
+    "seen": 1793624910.7646232,
+    "ast_hash": "49edf2109dfe246709f4ea4d01c72a41",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/059.webp": {
+    "mtime": 1793624661.3047574,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3b91b3a1ca584c887983c97498283d79",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/060.webp": {
+    "mtime": 1793624661.3167622,
+    "seen": 1793624910.7646232,
+    "ast_hash": "26cfb67113bd7bcbc482cb95de434238",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/061.webp": {
+    "mtime": 1793624661.3267589,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c4c5127c026d0f5ed541c456c290252d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/062.webp": {
+    "mtime": 1793624661.33691,
+    "seen": 1793624910.7646232,
+    "ast_hash": "eafaf390ecd61867aa50d003adf1db17",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/063.webp": {
+    "mtime": 1793624661.349605,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f9d2e59b559c02737ca0f8d15e813f4a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/064.webp": {
+    "mtime": 1793624661.3616796,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5cb0ba55452b85f0ffaef0f479b9210a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/065.webp": {
+    "mtime": 1793624661.374691,
+    "seen": 1793624910.7646232,
+    "ast_hash": "dee631eb9f512b4b8d5838c4e7acd4d8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/066.webp": {
+    "mtime": 1793624661.3846934,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ae963914b2b8fde8f466ee73f19c9a9a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/067.webp": {
+    "mtime": 1793624661.3974197,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b9f130f13b2cc50122930be8c8e115d1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/068.webp": {
+    "mtime": 1793624661.4083426,
+    "seen": 1793624910.7646232,
+    "ast_hash": "06701ef61d7e119d2ce2fefa12283b82",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/069.webp": {
+    "mtime": 1793624661.422834,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2732d0afd190b470a0e919e53ac89bf9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/070.webp": {
+    "mtime": 1793624661.435841,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3d383262203cd4aa8c7ecae1dc40b508",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/071.webp": {
+    "mtime": 1793624661.446839,
+    "seen": 1793624910.7646232,
+    "ast_hash": "40d391f640507dec61aa87100c3aa62a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/072.webp": {
+    "mtime": 1793624661.4567993,
+    "seen": 1793624910.7646232,
+    "ast_hash": "53e0a78f1c9df000fa33c9ab51ed5780",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/073.webp": {
+    "mtime": 1793624661.4850247,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8f271ed26a08a97e5445452bc9e24cb2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/074.webp": {
+    "mtime": 1793624661.4970222,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bad16a9b0828e44c3e9285a3965b7ab2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/075.webp": {
+    "mtime": 1793624661.5080502,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d9b23d67659e3f9c0bf20b514c2fdc83",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/076.webp": {
+    "mtime": 1793624661.521475,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d5c67f9a4e19e7c40aec2dfd76ad6b19",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/077.webp": {
+    "mtime": 1793624661.5329826,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d03b2a35718e7fcfd976505056d93d74",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/078.webp": {
+    "mtime": 1793624661.5437946,
+    "seen": 1793624910.7646232,
+    "ast_hash": "75acecc26bb3f0c585c60bdec85dc0a9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/079.webp": {
+    "mtime": 1793624661.555861,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d6ebf1977ddc085dbb7b6052661cdaf7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/080.webp": {
+    "mtime": 1793624661.5688608,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d03890a24e59a12bc041cdcc42d840be",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/081.webp": {
+    "mtime": 1793624661.5789185,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8b9744cd8a98175c08402203d9ffccd1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/082.webp": {
+    "mtime": 1793624661.5889213,
+    "seen": 1793624910.7646232,
+    "ast_hash": "625f684d093aac533ec7835f2671ba7d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/083.webp": {
+    "mtime": 1793624661.6020298,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f6e30c3b1da4d85479871c3f82318573",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/084.webp": {
+    "mtime": 1793624661.6110303,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0d098ecc5eab44909ec0aba6bbba5e2c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/085.webp": {
+    "mtime": 1793624661.6214893,
+    "seen": 1793624910.7646232,
+    "ast_hash": "55b6cd26f941f8f159696c3482e5ea1a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/086.webp": {
+    "mtime": 1793624661.6334963,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c9d72a9798f9ec59ebdf60f74038c63d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/087.webp": {
+    "mtime": 1793624661.6454966,
+    "seen": 1793624910.7646232,
+    "ast_hash": "758d9cbbac478dfae38a4c9f11cbd271",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/088.webp": {
+    "mtime": 1793624661.6560335,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b8f939e1766a9168493b39faede099e6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/089.webp": {
+    "mtime": 1793624661.66703,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2cf214daf97154c697aadd21243ed438",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/090.webp": {
+    "mtime": 1793624661.677031,
+    "seen": 1793624910.7646232,
+    "ast_hash": "aa30714ae8b100df5ffb17dd6c0ec753",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/091.webp": {
+    "mtime": 1793624661.6893935,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4d24171781a70d5ff25d12e6cfd3018e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/092.webp": {
+    "mtime": 1793624661.699616,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ce967420e06ba9237e6f5b0f596b3cd9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/093.webp": {
+    "mtime": 1793624661.7116768,
+    "seen": 1793624910.7646232,
+    "ast_hash": "290bea7815255344d9cb8b30dd2a3de5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/094.webp": {
+    "mtime": 1793624661.7209287,
+    "seen": 1793624910.7646232,
+    "ast_hash": "588cfd4417a1821a6b2161bc63e3ec51",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/095.webp": {
+    "mtime": 1793624661.7339885,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3525147ef5c39235ba6f1cc96e76bc88",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/096.webp": {
+    "mtime": 1793624661.7445493,
+    "seen": 1793624910.7646232,
+    "ast_hash": "74f0b27d7174691543abd75be57132c3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/097.webp": {
+    "mtime": 1793624661.7560747,
+    "seen": 1793624910.7646232,
+    "ast_hash": "01312d6cb1c6123951853bcdffa1e9aa",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/098.webp": {
+    "mtime": 1793624661.770075,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a82576e78c26e9224e6db85735f97f31",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/099.webp": {
+    "mtime": 1793624661.7802474,
+    "seen": 1793624910.7646232,
+    "ast_hash": "aa05ccfa9a12f7b01490bd9c09a5d70e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/100.webp": {
+    "mtime": 1793624661.810458,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0cb17b2a70a607487ef95ad497d41106",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/101.webp": {
+    "mtime": 1793624661.820932,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c70534350e22310b9ced2894f51eac16",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/102.webp": {
+    "mtime": 1793624661.8307402,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d3b29ba642ebe625106d286596f844a2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/103.webp": {
+    "mtime": 1793624661.8429725,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0c3da675ad08ec6769906f5243ff32c8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/104.webp": {
+    "mtime": 1793624661.853499,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e484b1ed7b9f22352f9acc3fb46ba6f6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/105.webp": {
+    "mtime": 1793624661.8630369,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bcec3343eb9648fa5023fedc2fe8be62",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/106.webp": {
+    "mtime": 1793624661.8750377,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c54c2c3809acbff2cd41f24a81f4620d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/107.webp": {
+    "mtime": 1793624661.8850727,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bb4dc5bee2286a95e3167188c88eb176",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/108.webp": {
+    "mtime": 1793624661.896401,
+    "seen": 1793624910.7646232,
+    "ast_hash": "be75d23cbf10b1386c47b1a05e60acd8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/109.webp": {
+    "mtime": 1793624661.9084141,
+    "seen": 1793624910.7646232,
+    "ast_hash": "52383958c4d439e8e964b4d34e619b36",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/110.webp": {
+    "mtime": 1793624661.9188273,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0e377e25cbfabfc186639896f203760a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/111.webp": {
+    "mtime": 1793624661.9276059,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2ce7189a3b7001225760f4b2d1d6d98f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/112.webp": {
+    "mtime": 1793624661.9389956,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a1b9f8ca605c6f9c2a0b502154eab01f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/113.webp": {
+    "mtime": 1793624661.9718864,
+    "seen": 1793624910.7646232,
+    "ast_hash": "de7f816a6ccc8e18e24cb1eba5873a6d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/114.webp": {
+    "mtime": 1793624661.9848852,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ce6c7316225a13357c6fa18f3edd4e96",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/115.webp": {
+    "mtime": 1793624661.997897,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1cae50ea76fc8a59a27d8e138dc477e3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/116.webp": {
+    "mtime": 1793624662.0296333,
+    "seen": 1793624910.7646232,
+    "ast_hash": "586e14822966f076f1bf3cbe06848455",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/117.webp": {
+    "mtime": 1793624662.0431192,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c0184fab48b72ccca69a3c27fb15c321",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/118.webp": {
+    "mtime": 1793624662.055006,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8eced6c1855f4fc214caf9330644aa92",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/119.webp": {
+    "mtime": 1793624662.0659945,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a535ca1abf6a144b550f26d758ddeef0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/120.webp": {
+    "mtime": 1793624662.0774078,
+    "seen": 1793624910.7646232,
+    "ast_hash": "884b34e2bb5bf0f38bcc4cc539885130",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/121.webp": {
+    "mtime": 1793624662.087625,
+    "seen": 1793624910.7646232,
+    "ast_hash": "87c118b2b97c9749717ba96f52458d2b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/122.webp": {
+    "mtime": 1793624662.0996282,
+    "seen": 1793624910.7646232,
+    "ast_hash": "41854b40f5f5519bcac8afc2bd18393c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/123.webp": {
+    "mtime": 1793624662.1166265,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2e10246363a1a0356f2b22d498212b85",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/124.webp": {
+    "mtime": 1793624662.1256285,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2eafa8ff0463619677797b5bd79c3354",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/125.webp": {
+    "mtime": 1793624662.1406322,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bb2cb3bc959e6bfe4d2edaf79012a5a3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/126.webp": {
+    "mtime": 1793624662.153476,
+    "seen": 1793624910.7646232,
+    "ast_hash": "7b62f6dbb509018a0b23f89a8f9ae022",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/127.webp": {
+    "mtime": 1793624662.164991,
+    "seen": 1793624910.7646232,
+    "ast_hash": "59f4092cd93d8b526efd959b16621572",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/128.webp": {
+    "mtime": 1793624662.175993,
+    "seen": 1793624910.7646232,
+    "ast_hash": "65fb4e166199dc43d3e71698c2058864",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/129.webp": {
+    "mtime": 1793624662.1859934,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ed1d6649649200f3e55353ec65f93641",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/130.webp": {
+    "mtime": 1793624662.1949904,
+    "seen": 1793624910.7646232,
+    "ast_hash": "90b5f8f10130f5c9c7ddebaf90218dbd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/131.webp": {
+    "mtime": 1793624662.2053833,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5920cb14361904c1af34744cc4b1b9b8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/132.webp": {
+    "mtime": 1793624662.2149274,
+    "seen": 1793624910.7646232,
+    "ast_hash": "09f1747ece986242cfa23e0434d8aed5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/133.webp": {
+    "mtime": 1793624662.226925,
+    "seen": 1793624910.7646232,
+    "ast_hash": "592e28b0897bdbcefc0f08ef175992ed",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/134.webp": {
+    "mtime": 1793624662.2369332,
+    "seen": 1793624910.7646232,
+    "ast_hash": "64755136a73a8b85b8b8b11f2394db1b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/135.webp": {
+    "mtime": 1793624662.2494473,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2aec19d029463de514662e394b290ee0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/136.webp": {
+    "mtime": 1793624662.25746,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a65efef1c89c2e425fa12b8b76aa8d4d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/137.webp": {
+    "mtime": 1793624662.2739854,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f4ca8c684c6721e12123187fa3c73dcd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/138.webp": {
+    "mtime": 1793624662.2886825,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fdd9914c257a5a234b12c26d0224cef9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/139.webp": {
+    "mtime": 1793624662.3006809,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e75305e049f7a8921396bb473b492afd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/140.webp": {
+    "mtime": 1793624662.3136795,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a64320c94149a4323f693389afa30a64",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/141.webp": {
+    "mtime": 1793624662.3266797,
+    "seen": 1793624910.7646232,
+    "ast_hash": "09180846924d16ad63cb2d7c9ecca5a8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/142.webp": {
+    "mtime": 1793624662.3396885,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a0556e9ac2e23268c901e1dbac977275",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/143.webp": {
+    "mtime": 1793624662.3507857,
+    "seen": 1793624910.7646232,
+    "ast_hash": "43984af43cc689e38524c9a126440ccb",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/144.webp": {
+    "mtime": 1793624662.3650696,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1720767f741bca95296d8b00180c9024",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/145.webp": {
+    "mtime": 1793624662.3759747,
+    "seen": 1793624910.7646232,
+    "ast_hash": "acf6a304389efa8e963378f85f001b2e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/146.webp": {
+    "mtime": 1793624662.3875,
+    "seen": 1793624910.7646232,
+    "ast_hash": "50cac727f46248da3e354d3892d26c82",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/147.webp": {
+    "mtime": 1793624662.4009829,
+    "seen": 1793624910.7646232,
+    "ast_hash": "766c3dbc23bb505a4e659f72262f0f6c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/148.webp": {
+    "mtime": 1793624662.410375,
+    "seen": 1793624910.7646232,
+    "ast_hash": "942fe59e615ff5ee6f16f85acc593d7c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/149.webp": {
+    "mtime": 1793624662.4203756,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1a9f4828fcdce5aaf0e5e4ca341e399c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/150.webp": {
+    "mtime": 1793624662.4334579,
+    "seen": 1793624910.7646232,
+    "ast_hash": "960dd4c95b6bbb7bf9bbf2e72ca79308",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/151.webp": {
+    "mtime": 1793624662.4464672,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6e09dca4f209cd36ef58d9b5078c92c0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/152.webp": {
+    "mtime": 1793624662.4577675,
+    "seen": 1793624910.7646232,
+    "ast_hash": "db4522518fd68b4ea655b6a0bded4938",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/153.webp": {
+    "mtime": 1793624662.468773,
+    "seen": 1793624910.7646232,
+    "ast_hash": "086e38f2981d8e00bc5b16578afecd80",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/154.webp": {
+    "mtime": 1793624662.4807508,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ac77768bd315113fae1cff42e081019a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/155.webp": {
+    "mtime": 1793624662.48975,
+    "seen": 1793624910.7646232,
+    "ast_hash": "46dfcc7821dd4bb090ac06a377c4f435",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/156.webp": {
+    "mtime": 1793624662.499748,
+    "seen": 1793624910.7646232,
+    "ast_hash": "05c85c7664b66bd5597da307f83f719e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/157.webp": {
+    "mtime": 1793624662.5227504,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fa93103db9e0fc20546d3b1e591b2b30",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/158.webp": {
+    "mtime": 1793624662.5347624,
+    "seen": 1793624910.7646232,
+    "ast_hash": "112354107de0549f8adec52102021a00",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/159.webp": {
+    "mtime": 1793624662.545972,
+    "seen": 1793624910.7646232,
+    "ast_hash": "dd57cc9df63f3dd66a5d73ef7acff1e4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/160.webp": {
+    "mtime": 1793624662.5572126,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ee5c38079f1591fd89c8ab6a1461bd4b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/161.webp": {
+    "mtime": 1793624662.5688596,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e53a1a01755da86185c3164aef19a509",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-d/162.webp": {
+    "mtime": 1793624662.5789347,
+    "seen": 1793624910.7646232,
+    "ast_hash": "316d3f2baee96f0fa11a382b86ee80e5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/001.webp": {
+    "mtime": 1793624662.6248517,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c9058b69ed08a7cf6e999e613d651202",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/002.webp": {
+    "mtime": 1793624662.635851,
+    "seen": 1793624910.7646232,
+    "ast_hash": "cdc5cd190367fee313552bf8a38c43c6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/003.webp": {
+    "mtime": 1793624662.6458573,
+    "seen": 1793624910.7646232,
+    "ast_hash": "313c58038f3d04e9b9368f075605cd0d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/004.webp": {
+    "mtime": 1793624662.657233,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fb604f0b08dd555158801078fbe6fd1d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/005.webp": {
+    "mtime": 1793624662.6667566,
+    "seen": 1793624910.7646232,
+    "ast_hash": "165347842b5a6b2546f77a450d19651c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/006.webp": {
+    "mtime": 1793624662.677375,
+    "seen": 1793624910.7646232,
+    "ast_hash": "dcdf95fd41406c4ee4376df8812b1264",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/007.webp": {
+    "mtime": 1793624662.6873827,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9c0ff23ef01be8b85db749f6776c437f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/008.webp": {
+    "mtime": 1793624662.6984515,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fd5bd5b348c728014b4ecb43ed34797e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/009.webp": {
+    "mtime": 1793624662.7104483,
+    "seen": 1793624910.7646232,
+    "ast_hash": "44508890782586815b9140a4ba1d2e2b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/010.webp": {
+    "mtime": 1793624662.7224548,
+    "seen": 1793624910.7646232,
+    "ast_hash": "24e8fb01ea6592b17106b4b40a9a6ede",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/011.webp": {
+    "mtime": 1793624662.7379618,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3ef8cee5b5269da42964157223357f15",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/012.webp": {
+    "mtime": 1793624662.7486944,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fb98b6359c899c6d5a3edf51640a48cd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/013.webp": {
+    "mtime": 1793624662.7623432,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f8c19a4c8bc7ac534e91a5450c99aa7e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/014.webp": {
+    "mtime": 1793624662.77149,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d3ff3f0a9f08d7a87a6f8a925fa8a53b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/015.webp": {
+    "mtime": 1793624662.7834973,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1cdbbb63ddf63aee6c1c482c0ae27bd9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/016.webp": {
+    "mtime": 1793624662.7944992,
+    "seen": 1793624910.7646232,
+    "ast_hash": "910947937ad85c9b5c452bdc0e972b76",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/017.webp": {
+    "mtime": 1793624662.810065,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2852cd7ce9e0d014fde0818ddae120fd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/018.webp": {
+    "mtime": 1793624662.8204195,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a6cb3f18b93083053826590e288a2712",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/019.webp": {
+    "mtime": 1793624662.8314207,
+    "seen": 1793624910.7646232,
+    "ast_hash": "50612ab8eafcdac876c78dfba2875e63",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/020.webp": {
+    "mtime": 1793624662.8669095,
+    "seen": 1793624910.7646232,
+    "ast_hash": "251abfe63d68194eb4bd0cdf7cd85889",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/021.webp": {
+    "mtime": 1793624662.880911,
+    "seen": 1793624910.7646232,
+    "ast_hash": "07439422f388a898e1bb2faa7c4a9dd5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/022.webp": {
+    "mtime": 1793624662.8929121,
+    "seen": 1793624910.7646232,
+    "ast_hash": "416be8a4c4e279f8fb0b0edfcb871bb9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/023.webp": {
+    "mtime": 1793624662.9021115,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2b353e8abf403b02d0e88dfbc52ce2c6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/024.webp": {
+    "mtime": 1793624662.9131174,
+    "seen": 1793624910.7646232,
+    "ast_hash": "872edeef48cc0a78a9c8f68dd319f722",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/025.webp": {
+    "mtime": 1793624662.9236364,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ab52ab5f8a587c5afeeecb9bcaeba631",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/026.webp": {
+    "mtime": 1793624662.9347649,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6996159345d49d4033b5d8e3992c9595",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/027.webp": {
+    "mtime": 1793624662.9449196,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a1b1e8385ed33f63b68fb38384240d77",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/028.webp": {
+    "mtime": 1793624663.1011019,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c1993fa9fa852ed965a9f2f6a06c3104",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/029.webp": {
+    "mtime": 1793624663.1121023,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f6e5a91008de97be20da8da4f621eed7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/030.webp": {
+    "mtime": 1793624663.126269,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3021041bdf0cf9f391ea0ebc2bc10bfa",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/031.webp": {
+    "mtime": 1793624663.1342697,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9b2bee64b512ff1be91f6bca5983eba6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/032.webp": {
+    "mtime": 1793624663.1507988,
+    "seen": 1793624910.7646232,
+    "ast_hash": "7d924e839b7404d01b7d5295d366bfc2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/033.webp": {
+    "mtime": 1793624663.1609979,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f6ba0c2987e78c842cec90770cd04d01",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/034.webp": {
+    "mtime": 1793624663.173234,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d7e792cfe1c64416645b5c25a0bb9c19",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/035.webp": {
+    "mtime": 1793624663.1837146,
+    "seen": 1793624910.7646232,
+    "ast_hash": "25b3238d79bcdb38236b2a529a4bd04d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/036.webp": {
+    "mtime": 1793624663.1997163,
+    "seen": 1793624910.7646232,
+    "ast_hash": "859c4b684b1d976379d3bc6a050190f7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/037.webp": {
+    "mtime": 1793624663.2107224,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b45a08a0515acee67556d04a0c79ea85",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/038.webp": {
+    "mtime": 1793624663.2197185,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c75cf37283b055a49016d1f41f6e1fd3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/039.webp": {
+    "mtime": 1793624663.2307172,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3fd6c1c98b042c5252d4238c9d508d0b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/040.webp": {
+    "mtime": 1793624663.2457252,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1cee710065a05a7fd00165fc3453247b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/041.webp": {
+    "mtime": 1793624663.257229,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f9f0962fc067054cb0f6f95417b26d4e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/042.webp": {
+    "mtime": 1793624663.2668855,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0bf1499ead063b69be9010a662dfc2ae",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/043.webp": {
+    "mtime": 1793624663.2761059,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e2bb88b65a03d35c93e02a6be432ecf4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/044.webp": {
+    "mtime": 1793624663.29092,
+    "seen": 1793624910.7646232,
+    "ast_hash": "89fc9fabf3eb819386fc36afbca69ade",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/045.webp": {
+    "mtime": 1793624663.3022585,
+    "seen": 1793624910.7646232,
+    "ast_hash": "de4829cf8aabb279fa4c937882b93352",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/046.webp": {
+    "mtime": 1793624663.3117592,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c0b8dde88086b208138185c29ddbed4e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/047.webp": {
+    "mtime": 1793624663.32275,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ad88b4546abbf870aedb6c257c638bfe",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/048.webp": {
+    "mtime": 1793624663.3318408,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6e12c3b8b424cb8ce1dd595e5f2f4947",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/049.webp": {
+    "mtime": 1793624663.3458986,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5f26c349a17e27d91a10c08a3529bd53",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/050.webp": {
+    "mtime": 1793624663.3574212,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0c5538b8a5b9572b23df17ab91c70642",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/051.webp": {
+    "mtime": 1793624663.3675416,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8c5640e82f16771214be9cb393c3dcdd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/052.webp": {
+    "mtime": 1793624663.3770568,
+    "seen": 1793624910.7646232,
+    "ast_hash": "67afb39e6821f566c0a6d577950ccc54",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/053.webp": {
+    "mtime": 1793624663.3903697,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b8f46dd0e069afe52d184c68abb513cb",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/054.webp": {
+    "mtime": 1793624663.4018927,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6443cc1864a74f5b9b660af2541240bf",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/055.webp": {
+    "mtime": 1793624663.4118855,
+    "seen": 1793624910.7646232,
+    "ast_hash": "33fb6ae84a1d42ed6b1d2dac51b8b02f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/056.webp": {
+    "mtime": 1793624663.4238896,
+    "seen": 1793624910.7646232,
+    "ast_hash": "561df6dba8932a0b077b3d492f5f1665",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/057.webp": {
+    "mtime": 1793624663.4343307,
+    "seen": 1793624910.7646232,
+    "ast_hash": "70c3ad9c57cfe6534c9f5c07bfac93b0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/058.webp": {
+    "mtime": 1793624663.4433377,
+    "seen": 1793624910.7646232,
+    "ast_hash": "352265c7f74bf511fda0e25beeeeef7d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/059.webp": {
+    "mtime": 1793624663.4545336,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f297c8e61f1b450485d9ddb9d7a6b1ee",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/060.webp": {
+    "mtime": 1793624663.4666026,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c15b4d56d922e1b8596ba106dc4dc33f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/061.webp": {
+    "mtime": 1793624663.4834535,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b1cc29c4e98ba1e56d2f8804c6d75998",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/062.webp": {
+    "mtime": 1793624663.4944496,
+    "seen": 1793624910.7646232,
+    "ast_hash": "cd07363d7f86e7309e454407bca9ba94",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/063.webp": {
+    "mtime": 1793624663.5064528,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e46fe3d202362e6748cf4de9e8c250d2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/064.webp": {
+    "mtime": 1793624663.5184603,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4760264d3333a48557376b644e251299",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/065.webp": {
+    "mtime": 1793624663.5275521,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c0123f4808e8f927f357340bc4c1be38",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/066.webp": {
+    "mtime": 1793624663.5375564,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f7107fc4fe3775b96744d962321e1087",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/067.webp": {
+    "mtime": 1793624663.5485582,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fd6b8b61c024b3f52f6b39a34561f91e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/068.webp": {
+    "mtime": 1793624663.560698,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d9117b0935e96c3fb870607bb09cf342",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/069.webp": {
+    "mtime": 1793624663.5739856,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bad5c15dd9f2333db2a77b829848863f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/070.webp": {
+    "mtime": 1793624663.5841265,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1b271a7edd1ded57809aeb51c5dcf05a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/071.webp": {
+    "mtime": 1793624663.596356,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a397848313a822a30fa07627262884f8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/072.webp": {
+    "mtime": 1793624663.6074877,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2567e008d334e4dd590aa5ba086caa57",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/073.webp": {
+    "mtime": 1793624663.6248176,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9326bcaab95f30a996a5d6f80a1644db",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/074.webp": {
+    "mtime": 1793624663.6348174,
+    "seen": 1793624910.7646232,
+    "ast_hash": "455ded3ac9a72232b116aa7b9263fcb4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/075.webp": {
+    "mtime": 1793624663.6453278,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9888f14faaaeab758929821006231bd2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/076.webp": {
+    "mtime": 1793624663.656328,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1419edd6812d2ffb932955d187458a77",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/077.webp": {
+    "mtime": 1793624663.6681447,
+    "seen": 1793624910.7646232,
+    "ast_hash": "21853711b83ba2e6a7e660eaafe9b0a4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/078.webp": {
+    "mtime": 1793624663.6772504,
+    "seen": 1793624910.7646232,
+    "ast_hash": "65b2ce149d15bb53c75ccea948b0ab10",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/079.webp": {
+    "mtime": 1793624663.68825,
+    "seen": 1793624910.7646232,
+    "ast_hash": "860b5318750823dbb3a915c77816720b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/080.webp": {
+    "mtime": 1793624663.70025,
+    "seen": 1793624910.7646232,
+    "ast_hash": "7e2e882e90a1f9f9702f9e53f1866cef",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/081.webp": {
+    "mtime": 1793624663.7112503,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4bce3357227da833046d2afdc3bb7a8c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/082.webp": {
+    "mtime": 1793624663.720743,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3a382fa7217c3d668b9810f8d1e69e89",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/083.webp": {
+    "mtime": 1793624663.7327871,
+    "seen": 1793624910.7646232,
+    "ast_hash": "46aa4698069c2df97d44ee87f455cdf4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/084.webp": {
+    "mtime": 1793624663.7427883,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8a7cd6d65e9d64ce8278207a6bf7ae69",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/085.webp": {
+    "mtime": 1793624663.757896,
+    "seen": 1793624910.7646232,
+    "ast_hash": "65505b41840400680841f59eb0e3face",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/086.webp": {
+    "mtime": 1793624663.7679124,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c426dd81089bcbf2033f66dbd43fc4f0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/087.webp": {
+    "mtime": 1793624663.7829127,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d8c9ef284ddb2e0b79e8266d94f938c6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/088.webp": {
+    "mtime": 1793624663.7949138,
+    "seen": 1793624910.7646232,
+    "ast_hash": "af19653c5079b481d5caac1d28f3e9ec",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/089.webp": {
+    "mtime": 1793624663.8039203,
+    "seen": 1793624910.7646232,
+    "ast_hash": "3beb638cbb5bda930ff6e4ebc6530b57",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/090.webp": {
+    "mtime": 1793624663.8154266,
+    "seen": 1793624910.7646232,
+    "ast_hash": "629c5d4916d6bb177bcc08b587a9f901",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/091.webp": {
+    "mtime": 1793624663.8272061,
+    "seen": 1793624910.7646232,
+    "ast_hash": "762751d4fdbffa7b48f721d283bc8f43",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/092.webp": {
+    "mtime": 1793624663.839828,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6af2b9bbde002e55bc5ea7eea3ab7c60",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/093.webp": {
+    "mtime": 1793624663.8528378,
+    "seen": 1793624910.7646232,
+    "ast_hash": "11cc90778c4fb9f7302dfffb0f9ecd5d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/094.webp": {
+    "mtime": 1793624663.8649452,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a0420ab121b74837733c52c51a5b32ba",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/095.webp": {
+    "mtime": 1793624663.8742461,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8b5dd37e9c35629d9bca24e5ae81166f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/096.webp": {
+    "mtime": 1793624663.8892741,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fa3a12936517c609889a2ef68ffefab4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/097.webp": {
+    "mtime": 1793624663.8992748,
+    "seen": 1793624910.7646232,
+    "ast_hash": "08b2a920be794788861c47d57fc73f11",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/098.webp": {
+    "mtime": 1793624663.9107513,
+    "seen": 1793624910.7646232,
+    "ast_hash": "784127b063e1673ea84baf3ff0762e56",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/099.webp": {
+    "mtime": 1793624663.9215631,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c4d707a78f00d018cd85ffb1bcffb5c1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/100.webp": {
+    "mtime": 1793624663.93356,
+    "seen": 1793624910.7646232,
+    "ast_hash": "34b7a1d093b5ded6c65f2bb1b0adaad4",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/101.webp": {
+    "mtime": 1793624663.944573,
+    "seen": 1793624910.7646232,
+    "ast_hash": "6464010830fb30323432b8945d76f34d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/102.webp": {
+    "mtime": 1793624663.9546523,
+    "seen": 1793624910.7646232,
+    "ast_hash": "65fd3d6fe07eb937ef0a05251066623d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/103.webp": {
+    "mtime": 1793624663.9798946,
+    "seen": 1793624910.7646232,
+    "ast_hash": "297fd67217873eef93cb41970d91d683",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/104.webp": {
+    "mtime": 1793624663.9899125,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d046a70be56f4e09e420c4d86e431ff0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/105.webp": {
+    "mtime": 1793624663.999912,
+    "seen": 1793624910.7646232,
+    "ast_hash": "39f6954f538ce2e8e21ac1195e54c118",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/106.webp": {
+    "mtime": 1793624664.0099137,
+    "seen": 1793624910.7646232,
+    "ast_hash": "c4ff63b1a7bbd496e590cf6e03d7c3d3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/107.webp": {
+    "mtime": 1793624664.0190227,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d28062053e3eb4a2d6abfdcaa672d8b6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/108.webp": {
+    "mtime": 1793624664.0286016,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0a1a48bf8fea84db28756d762038c5da",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/109.webp": {
+    "mtime": 1793624664.0436103,
+    "seen": 1793624910.7646232,
+    "ast_hash": "27bdad5bbb1822f6f1fa5113ff789afb",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/110.webp": {
+    "mtime": 1793624664.053932,
+    "seen": 1793624910.7646232,
+    "ast_hash": "991a7a4e2d6e09b70c792b7af88675c9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/111.webp": {
+    "mtime": 1793624664.0645363,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d13efb376e53dcb725564791737ffb03",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/112.webp": {
+    "mtime": 1793624664.0765045,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9d3e0fa0dee78dcaea7f324749dae9ab",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/113.webp": {
+    "mtime": 1793624664.0867,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5db754890c40774035e4db33ad09e040",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/114.webp": {
+    "mtime": 1793624664.0967102,
+    "seen": 1793624910.7646232,
+    "ast_hash": "041cb10242e8d79d8a0834c3f794dc34",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/115.webp": {
+    "mtime": 1793624664.1079228,
+    "seen": 1793624910.7646232,
+    "ast_hash": "cb5867d60e8e79409aac2472270f74f6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/116.webp": {
+    "mtime": 1793624664.1219983,
+    "seen": 1793624910.7646232,
+    "ast_hash": "a8584ce5ff19fdff130ae9564e0c082e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/117.webp": {
+    "mtime": 1793624664.1312482,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d1d98f0693249591144976348b1a7c83",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/118.webp": {
+    "mtime": 1793624664.140523,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f05696acf4d23f52353fd16781e05891",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/119.webp": {
+    "mtime": 1793624664.1510255,
+    "seen": 1793624910.7646232,
+    "ast_hash": "967cdedffb2a0b3f4f12e2124229655b",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/120.webp": {
+    "mtime": 1793624664.1640158,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1d5143987aa3183d1aab73efeba52808",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/121.webp": {
+    "mtime": 1793624664.1730149,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9d88352b57006af45d61a5a3a49d2678",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/122.webp": {
+    "mtime": 1793624664.1854591,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5e61b8a68fa4c2fbd532978720a618e9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/123.webp": {
+    "mtime": 1793624664.196456,
+    "seen": 1793624910.7646232,
+    "ast_hash": "fcc4f763f678048a856c0d3f703fcf46",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/124.webp": {
+    "mtime": 1793624664.207458,
+    "seen": 1793624910.7646232,
+    "ast_hash": "f2429e8d7d4c7a693cc9b982e9ab4edb",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/125.webp": {
+    "mtime": 1793624664.2219002,
+    "seen": 1793624910.7646232,
+    "ast_hash": "7667f0578b5c6812f4a889afe434fab8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/126.webp": {
+    "mtime": 1793624664.23518,
+    "seen": 1793624910.7646232,
+    "ast_hash": "baca6b4ac1a45d578ebb94797020ca60",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/127.webp": {
+    "mtime": 1793624664.2451696,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4eea78a693fe5bb01fdb6344e1726946",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/128.webp": {
+    "mtime": 1793624664.2551699,
+    "seen": 1793624910.7646232,
+    "ast_hash": "33005a5cf8347187ee13ae0e572b5ad8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/129.webp": {
+    "mtime": 1793624664.267009,
+    "seen": 1793624910.7646232,
+    "ast_hash": "86381b8d3ac4519870ef3473879c2ad3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/130.webp": {
+    "mtime": 1793624664.2765496,
+    "seen": 1793624910.7646232,
+    "ast_hash": "dfd13d8332191939185fe8eef560c6b7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/131.webp": {
+    "mtime": 1793624664.2871573,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e886e33a55aa8e1f5bf606864dbc74bc",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/132.webp": {
+    "mtime": 1793624664.2991605,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1ba50ee5f4e3ad9ba05a719d46515346",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/133.webp": {
+    "mtime": 1793624664.3111596,
+    "seen": 1793624910.7646232,
+    "ast_hash": "41a13eff1cf44a08e2dcd7c3c7c71a54",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/134.webp": {
+    "mtime": 1793624664.32347,
+    "seen": 1793624910.7646232,
+    "ast_hash": "b9fb4f812bf20a541d8e219d0e219f8e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/135.webp": {
+    "mtime": 1793624664.3324702,
+    "seen": 1793624910.7646232,
+    "ast_hash": "88f9332d5a5fef280eb3917ab0711750",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/136.webp": {
+    "mtime": 1793624664.3464768,
+    "seen": 1793624910.7646232,
+    "ast_hash": "9623560832b6dccf2c7a198dc0224733",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/137.webp": {
+    "mtime": 1793624664.3586588,
+    "seen": 1793624910.7646232,
+    "ast_hash": "710436935e10ae970dfe84495e3b5ecc",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/138.webp": {
+    "mtime": 1793624664.3684142,
+    "seen": 1793624910.7646232,
+    "ast_hash": "277c75a74b41644c9bfe26e8b81395e1",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/139.webp": {
+    "mtime": 1793624664.3774233,
+    "seen": 1793624910.7646232,
+    "ast_hash": "035ae35e0eb20b4ed798b7d32a17f3dc",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/140.webp": {
+    "mtime": 1793624664.3894236,
+    "seen": 1793624910.7646232,
+    "ast_hash": "26d8bc3e8418c122e08b4bcf642a7ede",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/141.webp": {
+    "mtime": 1793624664.401713,
+    "seen": 1793624910.7646232,
+    "ast_hash": "10d89916ba49644ffbb563fc750bd4a8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/142.webp": {
+    "mtime": 1793624664.4127095,
+    "seen": 1793624910.7646232,
+    "ast_hash": "84df3b43eb73084034ec5addd28edc7a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/143.webp": {
+    "mtime": 1793624664.4237096,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d959b9e31954917475efa1dae0218217",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/144.webp": {
+    "mtime": 1793624664.432716,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8226fe3bae095663d58ab1ce0bd4a480",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/145.webp": {
+    "mtime": 1793624664.4467213,
+    "seen": 1793624910.7646232,
+    "ast_hash": "1cb4ae364d41bf6eb5e6e2fc32bb2f9d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/146.webp": {
+    "mtime": 1793624664.45672,
+    "seen": 1793624910.7646232,
+    "ast_hash": "0b9b744720ebeb89615bf069f475530d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/147.webp": {
+    "mtime": 1793624664.4668984,
+    "seen": 1793624910.7646232,
+    "ast_hash": "32e01bfec99ca691b0f115dad0487c7d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/148.webp": {
+    "mtime": 1793624664.4762049,
+    "seen": 1793624910.7646232,
+    "ast_hash": "bc0a2b52c2f394e85d1d09cb0f2476b5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/149.webp": {
+    "mtime": 1793624664.486704,
+    "seen": 1793624910.7646232,
+    "ast_hash": "8aa589ce77c88958e8d2f0474320122c",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/150.webp": {
+    "mtime": 1793624664.4962122,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e1063dbc51edc1a707c9a69c1018e9f8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/151.webp": {
+    "mtime": 1793624664.506214,
+    "seen": 1793624910.7646232,
+    "ast_hash": "692f959a4560e8ad5165fd8e12136ee9",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/152.webp": {
+    "mtime": 1793624664.5182114,
+    "seen": 1793624910.7646232,
+    "ast_hash": "88e240d7eead5f146996d721325757cc",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/153.webp": {
+    "mtime": 1793624664.532213,
+    "seen": 1793624910.7646232,
+    "ast_hash": "4ecf242d5f279f5538cc621d00929ae7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/154.webp": {
+    "mtime": 1793624664.5422223,
+    "seen": 1793624910.7646232,
+    "ast_hash": "889609edc0839729f11cdcf4b1ee4bfd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/155.webp": {
+    "mtime": 1793624664.5522268,
+    "seen": 1793624910.7646232,
+    "ast_hash": "aa4b288dd7fb386dc7385071ca6d88ce",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/156.webp": {
+    "mtime": 1793624664.5659263,
+    "seen": 1793624910.7646232,
+    "ast_hash": "776dae4b422cd43afa3db96ee67b5b4d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/157.webp": {
+    "mtime": 1793624664.578068,
+    "seen": 1793624910.7646232,
+    "ast_hash": "15ca0a84dc529cf73cac87a9c2e246ba",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/158.webp": {
+    "mtime": 1793624664.588524,
+    "seen": 1793624910.7646232,
+    "ast_hash": "99a3ac2e781e19a8868c6501c36e05ce",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/159.webp": {
+    "mtime": 1793624664.599848,
+    "seen": 1793624910.7646232,
+    "ast_hash": "d475640b9516e35effdf163ebe8e229a",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/160.webp": {
+    "mtime": 1793624664.6098504,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ec125a6863e3164fd0a1d547ee365ab0",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/161.webp": {
+    "mtime": 1793624664.6228516,
+    "seen": 1793624910.7646232,
+    "ast_hash": "5933eb435f025eda6193ce9c819723bb",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/brew-m/162.webp": {
+    "mtime": 1793624664.634919,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ab746abbb511160db90201292d42c245",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/drink-capp.webp": {
+    "mtime": 1793624659.971805,
+    "seen": 1793624910.7646232,
+    "ast_hash": "81d2dd392f55c8d885ecbdd0592dbd8f",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/drink-green.webp": {
+    "mtime": 1793624660.191374,
+    "seen": 1793624910.7646232,
+    "ast_hash": "2aa582dd4a24a7f68c9bc934e1bb4279",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/drink-tall.webp": {
+    "mtime": 1793624659.728422,
+    "seen": 1793624910.7646232,
+    "ast_hash": "ae87e1fdd75045237b06c8c8908a0dcd",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/menu-coffee.webp": {
+    "mtime": 1793624674.716931,
+    "seen": 1793624910.7646232,
+    "ast_hash": "191e86d1681d41317eada508f64d55ca",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/menu-matcha.webp": {
+    "mtime": 1793624675.2918358,
+    "seen": 1793624910.7646232,
+    "ast_hash": "e0d2ad64b22d3de84a09de4e189d9a45",
+    "semantic_hash": ""
+  },
+  "demo/_backup-loopie-2026-11-02/data.js": {
+    "mtime": 1793625628.738532,
+    "seen": 1793626763.2418413,
+    "ast_hash": "b3809fd440315f39d6549f9dfcd80944",
+    "semantic_hash": ""
+  },
+  "demo/_backup-loopie-2026-11-02/index.html": {
+    "mtime": 1793625628.7075322,
+    "seen": 1793626763.2418413,
+    "ast_hash": "6824d4e42e1d33c2f738b783c4da3e81",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/bean-dark.webp": {
+    "mtime": 1793626481.170939,
+    "seen": 1793626763.2428424,
+    "ast_hash": "113b24c52469a76a26679909f2fc35c2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/bean-green.webp": {
+    "mtime": 1793626648.898965,
+    "seen": 1793626763.2428424,
+    "ast_hash": "976dcac61b105d5db693899023c3eae2",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/bean-mid.webp": {
+    "mtime": 1793626480.6564562,
+    "seen": 1793626763.2428424,
+    "ast_hash": "29265c89221c97113fa784ad04df05b6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/drink-amer.webp": {
+    "mtime": 1793626318.6954105,
+    "seen": 1793626763.2428424,
+    "ast_hash": "b0c603f7cec96687d9a36abd4a4eb2c3",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/drink-esp.webp": {
+    "mtime": 1793626318.857305,
+    "seen": 1793626763.2428424,
+    "ast_hash": "f91098659b0244651f3432d6e2b3d9f6",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/menu-dessert.webp": {
+    "mtime": 1793627173.8050096,
+    "seen": 1793627346.5899043,
+    "ast_hash": "bc851f5e87df6a88711a506e110cdf77",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-chair.webp": {
+    "mtime": 1793627204.8406522,
+    "seen": 1793627346.5899043,
+    "ast_hash": "36cf92644b5c3e90929809d70aead39d",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-cup.webp": {
+    "mtime": 1793627206.3709757,
+    "seen": 1793627346.5899043,
+    "ast_hash": "dbbf4ce511b4767fde53c82bb5752306",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-hall.webp": {
+    "mtime": 1793627205.881011,
+    "seen": 1793627346.5899043,
+    "ast_hash": "ae87582b8fb4ecaf45ff6c696baeaee7",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-stools.webp": {
+    "mtime": 1793627205.3501797,
+    "seen": 1793627346.5899043,
+    "ast_hash": "96a42abdc4ba855b4c7051e6d34d194e",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-tile.webp": {
+    "mtime": 1793627204.3454115,
+    "seen": 1793627346.5899043,
+    "ast_hash": "21b5804010a5cbe9aaa1f16b916f5e24",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/mood-yellow.webp": {
+    "mtime": 1793627203.7263024,
+    "seen": 1793627346.5899043,
+    "ast_hash": "919838623b0b9772d7f99bb817a4b499",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/scene3d.js": {
+    "mtime": 1793629230.3154888,
+    "seen": 1793630496.8005552,
+    "ast_hash": "03091e40606deb82695561702c9c59a5",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/pour.webp": {
+    "mtime": 1793629653.0105052,
+    "seen": 1793630496.801935,
+    "ast_hash": "69b529c33cf0e7221d61cf9cb88416ab",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/pour.mp4": {
+    "mtime": 1793629652.806226,
+    "seen": 1793630496.801935,
+    "ast_hash": "dd302e123d9bad698ae5833d3c6a9ff8",
+    "semantic_hash": ""
+  },
+  "demo/loopie-cafe/assets/img/menu-drip.webp": {
+    "mtime": 1793631628.2272084,
+    "seen": 1793631707.3153923,
+    "ast_hash": "897a2787eed69ae2b637a9711d32f917",
+    "semantic_hash": ""
+  }
+}
