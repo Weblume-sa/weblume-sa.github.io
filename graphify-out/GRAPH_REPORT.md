@@ -1,15 +1,17 @@
 # Graph Report - weblume-site  (2026-11-17)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 7 files · ~18,200 words
+- Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 1 file(s) not represented in the graph (top: .rules 1)
 
 ## Summary
-- 206 nodes · 274 edges · 15 communities (11 shown, 4 thin omitted)
+- 208 nodes · 282 edges · 15 communities (11 shown, 4 thin omitted)
 - Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `94c55aca`
+- Built from commit: `9fae2bde`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,9 +31,9 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `leadCard()` - 10 edges
-2. `Demo Page Renderer IIFE` - 9 edges
-3. `Official Weblume logo (source file)` - 9 edges
-4. `render()` - 8 edges
+2. `render()` - 9 edges
+3. `Demo Page Renderer IIFE` - 9 edges
+4. `Official Weblume logo (source file)` - 9 edges
 5. `Demo Page Renderer IIFE` - 8 edges
 6. `TYT hero screenshot (tyt.webp)` - 8 edges
 7. `send()` - 7 edges
@@ -68,7 +70,7 @@
 
 ### Community 0 - "Live Chat Widget"
 Cohesion: 0.08
-Nodes (37): alertPhone(), applyTexts(), body, box, bubble(), cmp, compress(), connect() (+29 more)
+Nodes (39): alertPhone(), applyTexts(), body, box, bubble(), cmp, compress(), connect() (+31 more)
 
 ### Community 1 - "Cafe Demo Template"
 Cohesion: 0.10
@@ -83,8 +85,8 @@ Cohesion: 0.11
 Nodes (17): Quran Companion home screen hero image, Brand logo and app name (رفيق القرآن), Secondary CTA button: أكمل من حيث توقفت (Continue where you stopped), Today's review card: مراجعة اليوم (Today's review), Daily review habit (مراجعة), Gold small tagline: your daily memorization companion (رفيقك اليومي في الحفظ), Header controls: account icon, theme toggle, EN language switch, Hero headline: ابدأ رحلتك مع القرآن (Start your Quran journey) (+9 more)
 
 ### Community 4 - "Admin Leads Tracker"
-Cohesion: 0.14
-Nodes (18): Logo red parts only (arrow and LUME), for the intro, Logo white parts only (W and WEB), for the intro, Site icon: W mark on black, Weblume logo, transparent, full size, Official Weblume logo (source file), Black, white and red brand palette, White W mark with red upward arrow, WEBLUME wordmark (WEB white, LUME red) (+10 more)
+Cohesion: 0.18
+Nodes (14): Logo red parts only (arrow and LUME), for the intro, Logo white parts only (W and WEB), for the intro, Weblume logo, transparent, full size, Official Weblume logo (source file), Black, white and red brand palette, White W mark with red upward arrow, WEBLUME wordmark (WEB white, LUME red), Weblume logo, transparent, 560px (header, footer, chat, admin) (+6 more)
 
 ### Community 5 - "Order Form and Language"
 Cohesion: 0.25
@@ -95,8 +97,8 @@ Cohesion: 0.16
 Nodes (14): AskMyBook Project, Drifting Web Icons Canvas Background, checkSpeed(), frame(), Gallery Arrows, Dots and Swipe, Hero Project Gallery (auto flip + manual controls), Image Save Guard (no right-click / drag), makeMark() (+6 more)
 
 ### Community 7 - "AskMyBook Screenshot"
-Cohesion: 0.16
-Nodes (13): applyLang(), closeAll(), closeSel(), Custom Select Listbox Widget, Instagram DM Fallback (ig.me/m/weblume1), Order Form (#orderForm), Order Form Submit Handler, renderSelect() (+5 more)
+Cohesion: 0.13
+Nodes (17): Site icon: W mark on black, applyLang(), closeAll(), closeSel(), Custom Select Listbox Widget, Instagram DM Fallback (ig.me/m/weblume1), Order Form (#orderForm), Order Form Submit Handler (+9 more)
 
 ### Community 8 - "TYT Cafe Screenshot"
 Cohesion: 0.20
@@ -122,18 +124,18 @@ Nodes (6): Weblume admin panel, onAuthStateChanged admin gate, stop(), GitHub Pa
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Weblume Website` connect `Admin Leads Tracker` to `Cafe Demo Template`, `Homepage Background and Work`, `AskMyBook Screenshot`?**
-  _High betweenness centrality (0.203) - this node is a cross-community bridge._
+- **Why does `Weblume Website` connect `AskMyBook Screenshot` to `Cafe Demo Template`, `Homepage Background and Work`?**
+  _High betweenness centrality (0.205) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `_template Folder`) actually correct?**
   _`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Chat Floating Button (#chatFab)`, `Brand Color Contrast Check`, `Menu Category Chips Scroll Spy` to the rest of the system?**
   _37 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Live Chat Widget` be split into smaller, more focused modules?**
-  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
-- **Why does `Order Form (#orderForm)` connect `AskMyBook Screenshot` to `Admin Leads Tracker`?**
-  _High betweenness centrality (0.152) - this node is a cross-community bridge._
+  _Cohesion score 0.08478513356562137 - nodes in this community are weakly interconnected._
 - **Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `Client Demo Workflow`) actually correct?**
   _`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Should `Cafe Demo Template` be split into smaller, more focused modules?**
+  _Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected._
 
 ### Low-confidence Hints
 _AMBIGUOUS edges — the extractor was unsure. Verify before acting on these._

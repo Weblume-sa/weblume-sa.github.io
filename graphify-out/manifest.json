@@ -1,9 +1,9 @@
 {
   "assets/chat.js": {
-    "mtime": 1793503278.6977272,
-    "seen": 1793504249.859295,
-    "ast_hash": "04dbf5df06d26bf9238574b0a6dfa3a2",
-    "semantic_hash": "04dbf5df06d26bf9238574b0a6dfa3a2"
+    "mtime": 1794913066.299285,
+    "seen": 1794913230.468146,
+    "ast_hash": "9c2689a9f69118596f9c0ef8b6a3ec18",
+    "semantic_hash": ""
   },
   "assets/firebase-config.js": {
     "mtime": 1793503278.6977272,
@@ -54,10 +54,10 @@
     "semantic_hash": "2a14717b38e54879e0bd198db785d3ce"
   },
   "index.html": {
-    "mtime": 1794873426.3350847,
-    "seen": 1794873703.3531177,
-    "ast_hash": "b6a9b196e9ff783f17fe721fe9367814",
-    "semantic_hash": "b6a9b196e9ff783f17fe721fe9367814"
+    "mtime": 1794913085.4257865,
+    "seen": 1794913230.468146,
+    "ast_hash": "f136533d2b56a17e80423da836d5e7f5",
+    "semantic_hash": ""
   },
   "assets/hero/book.webp": {
     "mtime": 1793503478.259,
@@ -118,5 +118,17 @@
     "seen": 1794873703.3531177,
     "ast_hash": "ed3917e54e6d7b32760d0ef3f69a343c",
     "semantic_hash": "ed3917e54e6d7b32760d0ef3f69a343c"
+  },
+  "demo/_backup-loopie-2026-11-02/data.js": {
+    "mtime": 1793625628.738532,
+    "seen": 1794913230.468146,
+    "ast_hash": "b3809fd440315f39d6549f9dfcd80944",
+    "semantic_hash": ""
+  },
+  "demo/_backup-loopie-2026-11-02/index.html": {
+    "mtime": 1793625628.7075322,
+    "seen": 1794913230.468146,
+    "ast_hash": "6824d4e42e1d33c2f738b783c4da3e81",
+    "semantic_hash": ""
   }
 }
