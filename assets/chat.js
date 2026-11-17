@@ -19,7 +19,9 @@ const T = {
     namePh: 'اسمك', start: 'ابدأ المحادثة', nameErr: 'اكتب اسمك عشان نعرف بنكلم مين',
     msgPh: 'اكتب رسالتك…', send: 'إرسال', close: 'إغلاق', photo: 'إرسال صورة',
     failed: 'الرسالة متبعتتش، دوس هنا وجرّب تاني', noLinks: 'مش مسموح بإرسال لينكات في الشات.',
-    badImg: 'الملف ده مش صورة', bigImg: 'الصورة كبيرة أوي، جرّب صورة تانية', photoLbl: '📷 صورة'
+    badImg: 'الملف ده مش صورة', bigImg: 'الصورة كبيرة أوي، جرّب صورة تانية', photoLbl: '📷 صورة',
+    save: 'احفظ المحادثة بحساب جوجل', saved: 'المحادثة محفوظة على حسابك في جوجل',
+    googleStart: 'ابدأ بحساب جوجل', googleErr: 'ما قدرناش نسجّل دخولك بجوجل، جرّب تاني'
   },
   en: {
     online: 'Online now', away: "We'll reply as soon as we can",
@@ -27,15 +29,19 @@ const T = {
     namePh: 'Your name', start: 'Start chatting', nameErr: 'Add your name so we know who we are talking to',
     msgPh: 'Type your message…', send: 'Send', close: 'Close', photo: 'Send a photo',
     failed: "Message wasn't sent, tap to retry", noLinks: "Links can't be sent in this chat.",
-    badImg: "That file isn't an image", bigImg: 'That image is too large, try another one', photoLbl: '📷 Photo'
+    badImg: "That file isn't an image", bigImg: 'That image is too large, try another one', photoLbl: '📷 Photo',
+    save: 'Save this chat with Google', saved: 'This chat is saved to your Google account',
+    googleStart: 'Continue with Google', googleErr: "Couldn't sign you in with Google, please try again"
   }
 };
 const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'ar');
 const t = k => T[lang()][k];
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
-  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
 };
+const GOOGLE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.6 12.3c0-.8-.1-1.5-.2-2.3H12v4.3h5.9a5 5 0 0 1-2.2 3.3v2.8h3.6c2.1-1.9 3.3-4.8 3.3-8.1z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.8c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.9A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7H2.1a11 11 0 0 0 0 10z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7l3.7 2.9C6.7 7.3 9.1 5.4 12 5.4z"/></svg>';
 
 /* ---------- styles ---------- */
 const css = `
@@ -71,6 +77,13 @@ const css = `
 .wlc-in:focus{border-color:#d4182a}
 .wlc-go{height:48px;border:0;border-radius:999px;background:#d4182a;color:#fff;font:inherit;font-weight:600;font-size:15px;cursor:pointer}
 .wlc-go:hover{background:#ef2336}
+.wlc-g{display:flex;align-items:center;justify-content:center;gap:10px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:#fff;color:#1f1f1f;font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+.wlc-g:hover{background:#eef0f3}
+.wlc-g svg,.wlc-save svg{width:20px;height:20px;flex:none}
+.wlc-save{display:flex;align-items:center;justify-content:center;gap:9px;margin:0;padding:9px 14px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:#e9e6e2;font:inherit;font-size:13.5px;cursor:pointer}
+.wlc-save:hover{background:rgba(255,255,255,.08)}
+.wlc.is-google .wlc-save{cursor:default;color:#8fdcae;background:rgba(61,220,132,.07)}
+.wlc.is-google .wlc-g{display:none}
 .wlc-cmp{display:none;align-items:flex-end;gap:8px;padding:10px 14px;padding-bottom:max(10px,env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.08)}
 .wlc.named .wlc-cmp{display:flex}
 .wlc.named .wlc-name{display:none}
@@ -105,11 +118,13 @@ box.innerHTML = `
       <div class="wlc-st"><i></i><span data-k="away"></span></div>
       <button class="wlc-x" type="button" data-k-aria="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
+    <button class="wlc-save" type="button">${GOOGLE_ICON}<span data-k="save"></span></button>
     <div class="wlc-body" aria-live="polite"></div>
     <form class="wlc-name" novalidate>
       <input class="wlc-in" maxlength="60" autocomplete="name" data-k-ph="namePh">
       <small data-k="nameErr"></small>
       <button class="wlc-go" type="submit" data-k="start"></button>
+      <button class="wlc-g" type="button">${GOOGLE_ICON}<span data-k="googleStart"></span></button>
     </form>
     <form class="wlc-cmp" novalidate>
       <button class="wlc-btn ghost wlc-att" type="button" data-k-aria="photo"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg></button>
@@ -250,9 +265,8 @@ async function connect() {
     await authM.setPersistence(auth, authM.browserLocalPersistence).catch(() => {});
     const user = await new Promise(res => { const u = authM.onAuthStateChanged(auth, x => { u(); res(x); }); });
     const cred = user ? { user } : await authM.signInAnonymously(auth);
-    const uid = cred.user.uid;
-    Object.assign(fb, { fsM, db, uid, chatRef: fsM.doc(db, 'chats', uid) });
-    fb.msgsRef = fsM.collection(fb.chatRef, 'messages');
+    Object.assign(fb, { fsM, db, authM, auth });
+    await useAccount(cred.user);
 
     fsM.onSnapshot(fsM.doc(db, 'meta', 'status'), s => {
       const d = s.data();
@@ -261,24 +275,73 @@ async function connect() {
       statusEl.textContent = t(online ? 'online' : 'away');
     }, () => {});
 
-    if (store.get(STARTED_KEY)) listen();
     return fb;
   })();
   return fb.ready;
 }
 
+// Point the chat at this account's conversation: chats are stored under the signed-in uid.
+async function useAccount(user) {
+  const { fsM, db } = fb;
+  (fb.unsubs || []).forEach(u => u());
+  Object.assign(fb, { uid: user.uid, chatRef: fsM.doc(db, 'chats', user.uid), unsubs: [], listening: false });
+  fb.msgsRef = fsM.collection(fb.chatRef, 'messages');
+  messages = []; seenAdmin = -1;
+  box.classList.toggle('is-google', !user.isAnonymous);
+  box.querySelector('.wlc-save span').dataset.k = user.isAnonymous ? 'save' : 'saved';
+  applyTexts();
+  if (!user.isAnonymous && user.displayName && !store.get(NAME_KEY)) {
+    store.set(NAME_KEY, user.displayName.slice(0, 60));
+    box.classList.add('named');
+  }
+  // a Google account may already have a chat from another device
+  const existing = await fsM.getDoc(fb.chatRef).then(s => s.exists(), () => false);
+  if (existing) store.set(STARTED_KEY, '1'); else store.del(STARTED_KEY);
+  if (existing) listen();
+  render();
+}
+
+// Sign in with Google. An anonymous visitor's account is upgraded in place, so the chat they already
+// have stays; if that Google account was used before, its saved chat is opened instead.
+async function signInGoogle() {
+  try {
+    await connect();
+    const { authM, auth } = fb;
+    const provider = new authM.GoogleAuthProvider();
+    const current = auth.currentUser;
+    let user;
+    try {
+      user = current && current.isAnonymous
+        ? (await authM.linkWithPopup(current, provider)).user
+        : (await authM.signInWithPopup(auth, provider)).user;
+    } catch (e) {
+      if (e.code !== 'auth/credential-already-in-use') throw e;
+      user = (await authM.signInWithCredential(auth, authM.GoogleAuthProvider.credentialFromError(e))).user;
+    }
+    await useAccount(user);
+    if (store.get(STARTED_KEY) && user.displayName) fb.fsM.updateDoc(fb.chatRef, { name: store.get(NAME_KEY) || user.displayName }).catch(() => {});
+    if (matchMedia('(hover:hover)').matches) msgIn.focus();
+  } catch (e) {
+    if (e && (e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request')) return;
+    console.error('Weblume chat:', e);
+    setNote(t('googleErr'));
+  }
+}
+$('.wlc-save').addEventListener('click', () => { if (!box.classList.contains('is-google')) signInGoogle(); });
+$('.wlc-g').addEventListener('click', signInGoogle);
+
 function listen() {
   if (fb.listening) return;
   fb.listening = true;
   const { fsM } = fb;
-  fsM.onSnapshot(fb.chatRef, s => { linksAllowed = Boolean(s.exists() && s.data().linksAllowed); }, () => {});
-  fsM.onSnapshot(fsM.query(fb.msgsRef, fsM.orderBy('at', 'asc')), snap => {
+  fb.unsubs.push(fsM.onSnapshot(fb.chatRef, s => { linksAllowed = Boolean(s.exists() && s.data().linksAllowed); }, () => {}));
+  fb.unsubs.push(fsM.onSnapshot(fsM.query(fb.msgsRef, fsM.orderBy('at', 'asc')), snap => {
     messages = snap.docs.map(d => d.data());
     const admins = messages.filter(m => m.from === 'admin').length;
     if (seenAdmin < 0 || isOpen) seenAdmin = admins;
     setUnread(Math.max(0, admins - seenAdmin));
     render();
-  }, () => {});
+  }, () => {}));
 }
 
 async function ensureChat() {
