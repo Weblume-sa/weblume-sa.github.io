@@ -96,28 +96,6 @@
       "admin_index_when"
     ],
     "3": [
-      "assets_work_bakehome",
-      "assets_work_loopie",
-      "index_askmybook_project",
-      "index_bakehome_project",
-      "index_bg_canvas_animation",
-      "index_checkspeed",
-      "index_frame",
-      "index_gallery_controls",
-      "index_hero_fan_animation",
-      "index_image_guard",
-      "index_loopie_project",
-      "index_makemark",
-      "index_performance_guard",
-      "index_portfolio_work_section",
-      "index_quran_companion_project",
-      "index_resize",
-      "index_sprite_rasterization",
-      "index_stopanimation",
-      "index_tyt_cafe_project",
-      "index_tyt_menu_project"
-    ],
-    "4": [
       "assets_hero_quran",
       "assets_hero_quran_arabic_rtl_layout",
       "assets_hero_quran_brand_logo",
@@ -138,7 +116,7 @@
       "assets_hero_quran_recent_memorization_card",
       "assets_hero_quran_start_button"
     ],
-    "5": [
+    "4": [
       "assets_weblume_icon",
       "index_applylang",
       "index_closeall",
@@ -158,7 +136,7 @@
       "index_weblumechat_bridge",
       "og_image"
     ],
-    "6": [
+    "5": [
       "admin_index_addform_submit_handler",
       "admin_index_copy",
       "admin_index_finddup",
@@ -177,7 +155,7 @@
       "admin_index_startleads",
       "admin_index_toast"
     ],
-    "7": [
+    "6": [
       "assets_logo_red",
       "assets_logo_white",
       "assets_weblume_logo",
@@ -187,11 +165,28 @@
       "assets_weblume_logo_official_wordmark",
       "assets_weblume_logo_sm",
       "index_header_logo",
+      "index_hero_logo_arrow",
       "index_intro_arrow_rise",
       "index_intro_flight",
       "index_intro_lume_wipe",
       "index_intro_stage",
       "index_logo_intro"
+    ],
+    "7": [
+      "assets_hero_bakehome",
+      "assets_hero_loopie",
+      "assets_work_bakehome",
+      "assets_work_loopie",
+      "index_askmybook_project",
+      "index_bakehome_project",
+      "index_gallery_controls",
+      "index_hero_fan_animation",
+      "index_image_guard",
+      "index_loopie_project",
+      "index_portfolio_work_section",
+      "index_quran_companion_project",
+      "index_tyt_cafe_project",
+      "index_tyt_menu_project"
     ],
     "8": [
       "assets_hero_book",
@@ -230,16 +225,26 @@
       "readme_weblume"
     ],
     "11": [
+      "index_bg_canvas_animation",
+      "index_checkspeed",
+      "index_frame",
+      "index_makemark",
+      "index_performance_guard",
+      "index_resize",
+      "index_sprite_rasterization",
+      "index_stopanimation"
+    ],
+    "12": [
       "assets_hero_tyt_centered_hero_layout",
       "assets_hero_tyt_dark_gold_purple_palette"
     ],
-    "12": [
+    "13": [
       "demo_backup_loopie_2026_11_02_data"
     ],
-    "13": [
+    "14": [
       "index_hero_perks"
     ],
-    "14": [
+    "15": [
       "index_onscroll"
     ]
   },
@@ -247,23 +252,34 @@
     "0": 0.08478513356562137,
     "1": 0.09686609686609686,
     "2": 0.12631578947368421,
-    "3": 0.12105263157894737,
-    "4": 0.10526315789473684,
-    "5": 0.13071895424836602,
-    "6": 0.25,
-    "7": 0.17582417582417584,
+    "3": 0.10526315789473684,
+    "4": 0.13071895424836602,
+    "5": 0.25,
+    "6": 0.1619047619047619,
+    "7": 0.18681318681318682,
     "8": 0.19696969696969696,
     "9": 0.28888888888888886,
     "10": 0.25,
-    "11": 1.0,
+    "11": 0.32142857142857145,
     "12": 1.0,
     "13": 1.0,
-    "14": 1.0
+    "14": 1.0,
+    "15": 1.0
   },
   "gods": [
     {
+      "id": "index_hero_fan_animation",
+      "label": "Hero Project Gallery (auto flip + manual controls)",
+      "degree": 12
+    },
+    {
       "id": "admin_index_leadcard",
       "label": "leadCard()",
+      "degree": 10
+    },
+    {
+      "id": "assets_weblume_logo_official",
+      "label": "Official Weblume logo (source file)",
       "degree": 10
     },
     {
@@ -274,11 +290,6 @@
     {
       "id": "demo__template_index_page_renderer",
       "label": "Demo Page Renderer IIFE",
-      "degree": 9
-    },
-    {
-      "id": "assets_weblume_logo_official",
-      "label": "Official Weblume logo (source file)",
       "degree": 9
     },
     {
@@ -297,18 +308,13 @@
       "degree": 7
     },
     {
-      "id": "index_hero_fan_animation",
-      "label": "Hero Project Gallery (auto flip + manual controls)",
-      "degree": 7
-    },
-    {
-      "id": "index_portfolio_work_section",
-      "label": "Portfolio Work Section (#work)",
-      "degree": 7
-    },
-    {
       "id": "assets_hero_quran",
       "label": "Quran Companion home screen hero image",
+      "degree": 7
+    },
+    {
+      "id": "index_weblume_site",
+      "label": "Weblume Website",
       "degree": 7
     }
   ],
@@ -325,6 +331,28 @@
       "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Site icon: W mark on black` unexpectedly reaches hub `Weblume Website`"
     },
     {
+      "source": "Hero Project Gallery (auto flip + manual controls)",
+      "target": "Bake Home hero window screenshot",
+      "source_files": [
+        "index.html",
+        "assets/hero/bakehome.webp"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Bake Home hero window screenshot` unexpectedly reaches hub `Hero Project Gallery (auto flip + manual controls)`"
+    },
+    {
+      "source": "Hero Project Gallery (auto flip + manual controls)",
+      "target": "Loopie Café hero window screenshot",
+      "source_files": [
+        "index.html",
+        "assets/hero/loopie.webp"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Loopie Café hero window screenshot` unexpectedly reaches hub `Hero Project Gallery (auto flip + manual controls)`"
+    },
+    {
       "source": "Logo Intro (official logo reveal)",
       "target": "Logo white parts only (W and WEB), for the intro",
       "source_files": [
@@ -336,37 +364,15 @@
       "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Logo white parts only (W and WEB), for the intro` unexpectedly reaches hub `Logo Intro (official logo reveal)`"
     },
     {
-      "source": "Single-file index.html site",
-      "target": "Weblume admin panel",
-      "source_files": [
-        "README.md",
-        "admin/index.html"
-      ],
-      "confidence": "AMBIGUOUS",
-      "relation": "conceptually_related_to",
-      "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories"
-    },
-    {
-      "source": "Bake Home Menu Project (حلويات البيت)",
-      "target": "Bake Home work card photo (cake and sweets)",
+      "source": "Hero Logo Arrow (red arrow from the logo behind the gallery)",
+      "target": "Official Weblume logo (source file)",
       "source_files": [
         "index.html",
-        "assets/work/bakehome.webp"
+        "assets/weblume-logo-official.png"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
-    },
-    {
-      "source": "Loopie Café Project (قهوة لوباي)",
-      "target": "Loopie work card photo (coffee cherries)",
-      "source_files": [
-        "index.html",
-        "assets/work/loopie.webp"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
+      "why": "crosses file types (image ↔ doc); connects across different repos/directories; peripheral node `Hero Logo Arrow (red arrow from the logo behind the gallery)` unexpectedly reaches hub `Official Weblume logo (source file)`"
     }
   ],
   "questions": [
@@ -378,18 +384,18 @@
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Weblume Website` connect `Order Form and Language` to `Cafe Demo Template`, `Quran Companion Screenshot`?",
-      "why": "High betweenness centrality (0.214) - this node is a cross-community bridge."
+      "question": "Why does `Weblume Website` connect `Admin Leads Tracker` to `Cafe Demo Template`, `AskMyBook Screenshot`?",
+      "why": "High betweenness centrality (0.216) - this node is a cross-community bridge."
     },
     {
       "type": "verify_inferred",
-      "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `_template Folder`) actually correct?",
-      "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
+      "question": "Are the 3 inferred relationships involving `Hero Project Gallery (auto flip + manual controls)` (e.g. with `Image Save Guard (no right-click / drag)` and `Logo Intro (official logo reveal)`) actually correct?",
+      "why": "`Hero Project Gallery (auto flip + manual controls)` has 3 INFERRED edges - model-reasoned connections that need verification."
     },
     {
       "type": "isolated_nodes",
       "question": "What connects `Chat Floating Button (#chatFab)`, `Brand Color Contrast Check`, `Menu Category Chips Scroll Spy` to the rest of the system?",
-      "why": "39 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "why": "41 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
@@ -398,7 +404,7 @@
     },
     {
       "type": "verify_inferred",
-      "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `Client Demo Workflow`) actually correct?",
+      "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `_template Folder`) actually correct?",
       "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
     },
     {
