@@ -72,7 +72,6 @@
       "demo_template_data"
     ],
     "2": [
-      "admin_index_admin_panel",
       "admin_index_beep",
       "admin_index_compress",
       "admin_index_file_change_handler",
@@ -84,7 +83,6 @@
       "admin_index_loadimage",
       "admin_index_logout_handler",
       "admin_index_notify",
-      "admin_index_onauthstatechanged",
       "admin_index_openchat",
       "admin_index_renderlist",
       "admin_index_rendermsgs",
@@ -92,14 +90,8 @@
       "admin_index_sendadmin",
       "admin_index_setonline",
       "admin_index_showlinkstate",
-      "admin_index_showtab",
       "admin_index_start",
-      "admin_index_stop",
-      "admin_index_stopleads",
-      "admin_index_when",
-      "readme_github_pages",
-      "readme_single_file_site",
-      "readme_weblume"
+      "admin_index_when"
     ],
     "3": [
       "assets_hero_quran",
@@ -123,6 +115,26 @@
       "assets_hero_quran_start_button"
     ],
     "4": [
+      "assets_logo_red",
+      "assets_logo_white",
+      "assets_weblume_icon",
+      "assets_weblume_logo",
+      "assets_weblume_logo_official",
+      "assets_weblume_logo_official_palette",
+      "assets_weblume_logo_official_w_mark",
+      "assets_weblume_logo_official_wordmark",
+      "assets_weblume_logo_sm",
+      "index_header_logo",
+      "index_intro_arrow_rise",
+      "index_intro_flight",
+      "index_intro_lume_wipe",
+      "index_intro_stage",
+      "index_logo_intro",
+      "index_process_steps",
+      "index_weblume_site",
+      "og_image"
+    ],
+    "5": [
       "admin_index_addform_submit_handler",
       "admin_index_copy",
       "admin_index_finddup",
@@ -141,30 +153,14 @@
       "admin_index_startleads",
       "admin_index_toast"
     ],
-    "5": [
-      "index_applylang",
-      "index_closeall",
-      "index_closesel",
-      "index_custom_select_widget",
-      "index_data_en_i18n",
-      "index_instagram_dm_fallback",
-      "index_order_form",
-      "index_order_form_submit",
-      "index_process_steps",
-      "index_renderselect",
-      "index_sendrequest",
-      "index_service_card_picker",
-      "index_services_section",
-      "index_setvalue",
-      "index_weblume_site",
-      "index_weblumechat_bridge"
-    ],
     "6": [
       "index_askmybook_project",
       "index_bg_canvas_animation",
       "index_checkspeed",
       "index_frame",
+      "index_gallery_controls",
       "index_hero_fan_animation",
+      "index_image_guard",
       "index_makemark",
       "index_performance_guard",
       "index_portfolio_work_section",
@@ -176,6 +172,22 @@
       "index_tyt_menu_project"
     ],
     "7": [
+      "index_applylang",
+      "index_closeall",
+      "index_closesel",
+      "index_custom_select_widget",
+      "index_data_en_i18n",
+      "index_instagram_dm_fallback",
+      "index_order_form",
+      "index_order_form_submit",
+      "index_renderselect",
+      "index_sendrequest",
+      "index_service_card_picker",
+      "index_services_section",
+      "index_setvalue",
+      "index_weblumechat_bridge"
+    ],
+    "8": [
       "assets_hero_book",
       "assets_hero_book_add_pdf_button",
       "assets_hero_book_arabic_first_rtl",
@@ -189,7 +201,7 @@
       "assets_hero_book_tutor_panel",
       "assets_hero_book_voice_controls"
     ],
-    "8": [
+    "9": [
       "assets_hero_tyt",
       "assets_hero_tyt_get_directions_button",
       "assets_hero_tyt_language_toggle",
@@ -201,100 +213,48 @@
       "assets_hero_tyt_view_menu_button",
       "assets_hero_tyt_wordmark"
     ],
-    "9": [
-      "demo_loopie_cafe_brew",
-      "demo_loopie_cafe_cafe",
-      "demo_loopie_cafe_draw",
-      "demo_loopie_cafe_drinkdata",
-      "demo_loopie_cafe_drinks",
-      "demo_loopie_cafe_errors",
-      "demo_loopie_cafe_esc",
-      "demo_loopie_cafe_fmt",
-      "demo_loopie_cafe_frame",
-      "demo_loopie_cafe_gallery",
-      "demo_loopie_cafe_iris",
-      "demo_loopie_cafe_lang",
-      "demo_loopie_cafe_load",
-      "demo_loopie_cafe_loopopen",
-      "demo_loopie_cafe_menu",
-      "demo_loopie_cafe_menuphone",
-      "demo_loopie_cafe_mins",
-      "demo_loopie_cafe_page",
-      "demo_loopie_cafe_place",
-      "demo_loopie_cafe_pour",
-      "demo_loopie_cafe_pump",
-      "demo_loopie_cafe_req",
-      "demo_loopie_cafe_roast",
-      "demo_loopie_cafe_sequence"
-    ],
     "10": [
-      "assets_weblume_logo",
-      "assets_weblume_logo_brand_palette",
-      "assets_weblume_logo_red_orbit_ring",
-      "assets_weblume_logo_tagline",
-      "assets_weblume_logo_w_mark",
-      "assets_weblume_logo_wordmark"
+      "admin_index_admin_panel",
+      "admin_index_onauthstatechanged",
+      "admin_index_showtab",
+      "admin_index_stop",
+      "admin_index_stopleads",
+      "readme_github_pages",
+      "readme_single_file_site",
+      "readme_weblume"
     ],
     "11": [
-      "assets_weblume_logo_sm",
-      "assets_weblume_logo_sm_brand_palette",
-      "assets_weblume_logo_sm_tagline",
-      "assets_weblume_logo_sm_w_mark",
-      "assets_weblume_logo_sm_wordmark"
-    ],
-    "12": [
-      "og_image_brand_palette",
-      "og_image_tagline",
-      "og_image_w_mark",
-      "og_image_weblume_logo",
-      "og_image_wordmark"
-    ],
-    "13": [
-      "assets_weblume_icon",
-      "assets_weblume_icon_brand_palette",
-      "assets_weblume_icon_code_window_icon",
-      "assets_weblume_icon_w_monogram"
-    ],
-    "14": [
       "assets_hero_tyt_centered_hero_layout",
       "assets_hero_tyt_dark_gold_purple_palette"
     ],
-    "15": [
-      "index_onscroll"
-    ],
-    "17": [
-      "ref_three"
-    ],
-    "18": [
+    "12": [
       "demo_backup_loopie_2026_11_02_data"
+    ],
+    "13": [
+      "index_hero_perks"
+    ],
+    "14": [
+      "index_onscroll"
     ]
   },
   "cohesion": {
     "0": 0.08333333333333333,
     "1": 0.09686609686609686,
-    "2": 0.08465608465608465,
+    "2": 0.12631578947368421,
     "3": 0.10526315789473684,
-    "4": 0.25,
-    "5": 0.15,
-    "6": 0.18681318681318682,
-    "7": 0.19696969696969696,
-    "8": 0.28888888888888886,
-    "9": 0.11231884057971014,
-    "10": 0.4666666666666667,
-    "11": 0.7,
-    "12": 0.5,
-    "13": 0.8333333333333334,
-    "14": 1.0,
-    "15": 1.0,
-    "17": 1.0,
-    "18": 1.0
+    "4": 0.13725490196078433,
+    "5": 0.25,
+    "6": 0.15833333333333333,
+    "7": 0.16483516483516483,
+    "8": 0.19696969696969696,
+    "9": 0.28888888888888886,
+    "10": 0.25,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0
   },
   "gods": [
-    {
-      "id": "demo_loopie_cafe_page",
-      "label": "Loopie Cafe Page",
-      "degree": 11
-    },
     {
       "id": "admin_index_leadcard",
       "label": "leadCard()",
@@ -303,6 +263,11 @@
     {
       "id": "demo__template_index_page_renderer",
       "label": "Demo Page Renderer IIFE",
+      "degree": 9
+    },
+    {
+      "id": "assets_weblume_logo_official",
+      "label": "Official Weblume logo (source file)",
       "degree": 9
     },
     {
@@ -331,17 +296,39 @@
       "degree": 7
     },
     {
-      "id": "admin_index_addform_submit_handler",
-      "label": "addForm new lead submit handler",
+      "id": "index_weblume_site",
+      "label": "Weblume Website",
       "degree": 7
     },
     {
-      "id": "admin_index_openchat",
-      "label": "openChat()",
-      "degree": 6
+      "id": "admin_index_addform_submit_handler",
+      "label": "addForm new lead submit handler",
+      "degree": 7
     }
   ],
   "surprises": [
+    {
+      "source": "Weblume Website",
+      "target": "Site icon: W mark on black",
+      "source_files": [
+        "index.html",
+        "assets/weblume-icon.png"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Site icon: W mark on black` unexpectedly reaches hub `Weblume Website`"
+    },
+    {
+      "source": "Logo Intro (official logo reveal)",
+      "target": "Logo white parts only (W and WEB), for the intro",
+      "source_files": [
+        "index.html",
+        "assets/logo-white.webp"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Logo white parts only (W and WEB), for the intro` unexpectedly reaches hub `Logo Intro (official logo reveal)`"
+    },
     {
       "source": "Single-file index.html site",
       "target": "Weblume admin panel",
@@ -354,48 +341,26 @@
       "why": "ambiguous connection - not explicitly stated in source; connects across different repos/directories"
     },
     {
-      "source": "Demo Preview Ribbon",
-      "target": "Weblume Website",
+      "source": "Red Arrow Rises Out of the W",
+      "target": "Logo red parts only (arrow and LUME), for the intro",
       "source_files": [
-        "demo/_template/index.html",
-        "index.html"
+        "index.html",
+        "assets/logo-red.webp"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities"
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
     },
     {
-      "source": "Arabic and English Switch",
-      "target": "window.CAFE (Loopie)",
+      "source": "LUME Soft Mask Wipe",
+      "target": "Logo red parts only (arrow and LUME), for the intro",
       "source_files": [
-        "demo/loopie-cafe/index.html",
-        "demo/loopie-cafe/data.js"
+        "index.html",
+        "assets/logo-red.webp"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "crosses file types (doc ↔ code); peripheral node `Arabic and English Switch` unexpectedly reaches hub `window.CAFE (Loopie)`"
-    },
-    {
-      "source": "Demo Page Renderer IIFE",
-      "target": "Demo Page Renderer IIFE",
-      "source_files": [
-        "demo/la-casa-de-pan/index.html",
-        "demo/_template/index.html"
-      ],
-      "confidence": "INFERRED",
-      "relation": "semantically_similar_to",
-      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
-    },
-    {
-      "source": "_template Folder",
-      "target": "Demo Page Renderer IIFE",
-      "source_files": [
-        "demo/README.md",
-        "demo/_template/index.html"
-      ],
-      "confidence": "INFERRED",
-      "relation": "references",
-      "why": "inferred connection - not explicitly stated in source; peripheral node `_template Folder` unexpectedly reaches hub `Demo Page Renderer IIFE`"
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
     }
   ],
   "questions": [
@@ -407,8 +372,8 @@
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Weblume Website` connect `Order Form and Language` to `Cafe Demo Template`, `Homepage Background and Work`?",
-      "why": "High betweenness centrality (0.102) - this node is a cross-community bridge."
+      "question": "Why does `Weblume Website` connect `Admin Leads Tracker` to `Cafe Demo Template`, `Homepage Background and Work`, `AskMyBook Screenshot`?",
+      "why": "High betweenness centrality (0.203) - this node is a cross-community bridge."
     },
     {
       "type": "verify_inferred",
@@ -418,7 +383,7 @@
     {
       "type": "isolated_nodes",
       "question": "What connects `Chat Floating Button (#chatFab)`, `Brand Color Contrast Check`, `Menu Category Chips Scroll Spy` to the rest of the system?",
-      "why": "35 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "why": "37 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
@@ -426,14 +391,14 @@
       "why": "Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected."
     },
     {
+      "type": "bridge_node",
+      "question": "Why does `Order Form (#orderForm)` connect `AskMyBook Screenshot` to `Admin Leads Tracker`?",
+      "why": "High betweenness centrality (0.152) - this node is a cross-community bridge."
+    },
+    {
       "type": "verify_inferred",
       "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `Client Demo Workflow`) actually correct?",
       "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `Cafe Demo Template` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected."
     }
   ]
 }
