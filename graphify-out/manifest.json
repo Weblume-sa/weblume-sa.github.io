@@ -1,15 +1,15 @@
 {
   "assets/chat.js": {
-    "mtime": 1794913066.299285,
-    "seen": 1794913230.468146,
-    "ast_hash": "9c2689a9f69118596f9c0ef8b6a3ec18",
+    "mtime": 1795173099.4820402,
+    "seen": 1795173267.2044828,
+    "ast_hash": "f4d56345f548da681c4249e4deea5f2c",
     "semantic_hash": ""
   },
   "assets/firebase-config.js": {
-    "mtime": 1793503278.6977272,
-    "seen": 1793504249.859295,
-    "ast_hash": "064633d8b47acb26b20ab9acda9baba6",
-    "semantic_hash": "064633d8b47acb26b20ab9acda9baba6"
+    "mtime": 1795173099.483041,
+    "seen": 1795173267.2044828,
+    "ast_hash": "817f5ab75393edc43b8d31ca63c570b2",
+    "semantic_hash": ""
   },
   "demo/_template/data.js": {
     "mtime": 1793503278.7062316,
@@ -24,39 +24,39 @@
     "semantic_hash": "3426d6b30ae4f3c76e68bc560298f7a3"
   },
   "README.md": {
-    "mtime": 1793503278.6957302,
-    "seen": 1793504249.859295,
-    "ast_hash": "30339f64bdf796f99f282c6c81f3441b",
-    "semantic_hash": "30339f64bdf796f99f282c6c81f3441b"
+    "mtime": 1795173099.486099,
+    "seen": 1795173267.2044828,
+    "ast_hash": "086fe0f73cdcdcf6a3085820c513e728",
+    "semantic_hash": ""
   },
   "admin/index.html": {
-    "mtime": 1793503278.69673,
-    "seen": 1793504249.859295,
-    "ast_hash": "60c2d059c46cb29688c6502434cf429d",
-    "semantic_hash": "60c2d059c46cb29688c6502434cf429d"
+    "mtime": 1795173099.4810402,
+    "seen": 1795173267.2044828,
+    "ast_hash": "f5b2d136cddad1568314b83bfae877d7",
+    "semantic_hash": ""
   },
   "demo/README.md": {
-    "mtime": 1793503278.7052321,
-    "seen": 1793504249.859295,
-    "ast_hash": "ebd3cac5791ba60bb5468ff1d0322276",
-    "semantic_hash": "ebd3cac5791ba60bb5468ff1d0322276"
+    "mtime": 1795173099.487369,
+    "seen": 1795173267.2044828,
+    "ast_hash": "4ae652cb551acc691bc03715523fe278",
+    "semantic_hash": ""
   },
   "demo/_template/index.html": {
-    "mtime": 1793503278.707231,
-    "seen": 1793504249.859295,
-    "ast_hash": "2a14717b38e54879e0bd198db785d3ce",
-    "semantic_hash": "2a14717b38e54879e0bd198db785d3ce"
+    "mtime": 1795173099.4840417,
+    "seen": 1795173267.2044828,
+    "ast_hash": "ce9352fafcbf859755b596879d3a5960",
+    "semantic_hash": ""
   },
   "demo/la-casa-de-pan/index.html": {
-    "mtime": 1793503278.7082314,
-    "seen": 1793504249.859295,
-    "ast_hash": "2a14717b38e54879e0bd198db785d3ce",
-    "semantic_hash": "2a14717b38e54879e0bd198db785d3ce"
+    "mtime": 1795173099.4840417,
+    "seen": 1795173267.2044828,
+    "ast_hash": "ce9352fafcbf859755b596879d3a5960",
+    "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1794913085.4257865,
-    "seen": 1794913230.468146,
-    "ast_hash": "f136533d2b56a17e80423da836d5e7f5",
+    "mtime": 1795173113.5554,
+    "seen": 1795173267.2044828,
+    "ast_hash": "924cd18cd1b37e8f37fc5db4e182922f",
     "semantic_hash": ""
   },
   "assets/hero/book.webp": {
@@ -77,47 +77,23 @@
     "ast_hash": "ae28caa3a28d4a932fd7f14ad538a4ae",
     "semantic_hash": "ae28caa3a28d4a932fd7f14ad538a4ae"
   },
-  "assets/weblume-icon.png": {
-    "mtime": 1794873386.66,
-    "seen": 1794873703.3531177,
-    "ast_hash": "d2128a8996cf43d391e29321c8b224d2",
-    "semantic_hash": "d2128a8996cf43d391e29321c8b224d2"
-  },
-  "assets/weblume-logo-sm.webp": {
-    "mtime": 1794873386.168,
-    "seen": 1794873703.3531177,
-    "ast_hash": "157c9af4f57310481a292c58b96940c9",
-    "semantic_hash": "157c9af4f57310481a292c58b96940c9"
-  },
-  "assets/weblume-logo.png": {
-    "mtime": 1794873386.052,
-    "seen": 1794873703.3531177,
-    "ast_hash": "fefb9cfacfcb03744792647999dba2c8",
-    "semantic_hash": "fefb9cfacfcb03744792647999dba2c8"
-  },
   "og-image.jpg": {
-    "mtime": 1794873386.706,
-    "seen": 1794873703.3531177,
-    "ast_hash": "80f4a8c789f12b4c5ce423085f4428e0",
-    "semantic_hash": "80f4a8c789f12b4c5ce423085f4428e0"
+    "mtime": 1795173062.786,
+    "seen": 1795173267.2044828,
+    "ast_hash": "e8222817b6c11c4ec7a845fbde342dbb",
+    "semantic_hash": ""
   },
   "assets/logo-red.webp": {
-    "mtime": 1794873386.236,
-    "seen": 1794873703.3531177,
-    "ast_hash": "c9c06b678d826add0cf8df6374efb5ec",
-    "semantic_hash": "c9c06b678d826add0cf8df6374efb5ec"
+    "mtime": 1795173062.242,
+    "seen": 1795173267.2044828,
+    "ast_hash": "738cfd6125d0b61201c78ba3f0fbbaec",
+    "semantic_hash": ""
   },
   "assets/logo-white.webp": {
-    "mtime": 1794873386.2,
-    "seen": 1794873703.3531177,
-    "ast_hash": "12d07bb6d1d2d0f3669e0974e1fca656",
-    "semantic_hash": "12d07bb6d1d2d0f3669e0974e1fca656"
-  },
-  "assets/weblume-logo-official.png": {
-    "mtime": 1794873386.318,
-    "seen": 1794873703.3531177,
-    "ast_hash": "ed3917e54e6d7b32760d0ef3f69a343c",
-    "semantic_hash": "ed3917e54e6d7b32760d0ef3f69a343c"
+    "mtime": 1795173062.213,
+    "seen": 1795173267.2044828,
+    "ast_hash": "4f1748f0a54ccbb0f9c75066dd4afb68",
+    "semantic_hash": ""
   },
   "demo/_backup-loopie-2026-11-02/data.js": {
     "mtime": 1793625628.738532,
@@ -129,6 +105,54 @@
     "mtime": 1793625628.7075322,
     "seen": 1794913230.468146,
     "ast_hash": "6824d4e42e1d33c2f738b783c4da3e81",
+    "semantic_hash": ""
+  },
+  "assets/hero/bakehome.webp": {
+    "mtime": 1794915783.795,
+    "seen": 1795173267.2044828,
+    "ast_hash": "f4753b22711fe756cfdbf4f3c99f48d1",
+    "semantic_hash": ""
+  },
+  "assets/hero/loopie.webp": {
+    "mtime": 1794915777.908,
+    "seen": 1795173267.2044828,
+    "ast_hash": "6a336a955fb187e43eb87f708cb3e5cd",
+    "semantic_hash": ""
+  },
+  "assets/icon.png": {
+    "mtime": 1795173062.721,
+    "seen": 1795173267.2044828,
+    "ast_hash": "e6cb004bb10dd5a943fa7e88718c99d6",
+    "semantic_hash": ""
+  },
+  "assets/logo-official.png": {
+    "mtime": 1795173062.332,
+    "seen": 1795173267.2044828,
+    "ast_hash": "75d120da150a866457b3e3275077d334",
+    "semantic_hash": ""
+  },
+  "assets/logo-sm.webp": {
+    "mtime": 1795173062.175,
+    "seen": 1795173267.2044828,
+    "ast_hash": "df147549cdfd48645f72d0daf424539a",
+    "semantic_hash": ""
+  },
+  "assets/logo.png": {
+    "mtime": 1795173062.091,
+    "seen": 1795173267.2044828,
+    "ast_hash": "0884f5daa96a7094c17674a9391263dd",
+    "semantic_hash": ""
+  },
+  "assets/work/bakehome.webp": {
+    "mtime": 1794914009.761,
+    "seen": 1795173267.2044828,
+    "ast_hash": "826e2af04c2a01e96c9712c2a56de180",
+    "semantic_hash": ""
+  },
+  "assets/work/loopie.webp": {
+    "mtime": 1794914002.582,
+    "seen": 1795173267.2044828,
+    "ast_hash": "704b790e92c4e26e3e683d51e48e794d",
     "semantic_hash": ""
   }
 }

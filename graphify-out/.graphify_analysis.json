@@ -45,6 +45,38 @@
       "index_chat_fab"
     ],
     "1": [
+      "assets_hero_bakehome",
+      "assets_hero_loopie",
+      "assets_icon",
+      "assets_logo",
+      "assets_logo_official",
+      "assets_logo_red",
+      "assets_logo_sm",
+      "assets_logo_white",
+      "assets_work_bakehome",
+      "assets_work_loopie",
+      "index_askmybook_project",
+      "index_bakehome_project",
+      "index_gallery_controls",
+      "index_header_logo",
+      "index_hero_fan_animation",
+      "index_hero_logo_arrow",
+      "index_image_guard",
+      "index_intro_arrow_rise",
+      "index_intro_flight",
+      "index_intro_lume_wipe",
+      "index_intro_stage",
+      "index_logo_intro",
+      "index_loopie_project",
+      "index_portfolio_work_section",
+      "index_process_steps",
+      "index_quran_companion_project",
+      "index_tyt_cafe_project",
+      "index_tyt_menu_project",
+      "index_weblume_site",
+      "og_image"
+    ],
+    "2": [
       "demo__template_index_brand_contrast",
       "demo__template_index_cafe_config",
       "demo__template_index_category_scroll_spy",
@@ -73,7 +105,7 @@
       "demo_readme_template_folder",
       "demo_template_data"
     ],
-    "2": [
+    "3": [
       "admin_index_beep",
       "admin_index_compress",
       "admin_index_file_change_handler",
@@ -95,7 +127,7 @@
       "admin_index_start",
       "admin_index_when"
     ],
-    "3": [
+    "4": [
       "assets_hero_quran",
       "assets_hero_quran_arabic_rtl_layout",
       "assets_hero_quran_brand_logo",
@@ -115,26 +147,6 @@
       "assets_hero_quran_quran_companion_app",
       "assets_hero_quran_recent_memorization_card",
       "assets_hero_quran_start_button"
-    ],
-    "4": [
-      "assets_weblume_icon",
-      "index_applylang",
-      "index_closeall",
-      "index_closesel",
-      "index_custom_select_widget",
-      "index_data_en_i18n",
-      "index_instagram_dm_fallback",
-      "index_order_form",
-      "index_order_form_submit",
-      "index_process_steps",
-      "index_renderselect",
-      "index_sendrequest",
-      "index_service_card_picker",
-      "index_services_section",
-      "index_setvalue",
-      "index_weblume_site",
-      "index_weblumechat_bridge",
-      "og_image"
     ],
     "5": [
       "admin_index_addform_submit_handler",
@@ -156,39 +168,22 @@
       "admin_index_toast"
     ],
     "6": [
-      "assets_logo_red",
-      "assets_logo_white",
-      "assets_weblume_logo",
-      "assets_weblume_logo_official",
-      "assets_weblume_logo_official_palette",
-      "assets_weblume_logo_official_w_mark",
-      "assets_weblume_logo_official_wordmark",
-      "assets_weblume_logo_sm",
-      "index_header_logo",
-      "index_hero_logo_arrow",
-      "index_intro_arrow_rise",
-      "index_intro_flight",
-      "index_intro_lume_wipe",
-      "index_intro_stage",
-      "index_logo_intro"
+      "index_applylang",
+      "index_closeall",
+      "index_closesel",
+      "index_custom_select_widget",
+      "index_data_en_i18n",
+      "index_instagram_dm_fallback",
+      "index_order_form",
+      "index_order_form_submit",
+      "index_renderselect",
+      "index_sendrequest",
+      "index_service_card_picker",
+      "index_services_section",
+      "index_setvalue",
+      "index_weblumechat_bridge"
     ],
     "7": [
-      "assets_hero_bakehome",
-      "assets_hero_loopie",
-      "assets_work_bakehome",
-      "assets_work_loopie",
-      "index_askmybook_project",
-      "index_bakehome_project",
-      "index_gallery_controls",
-      "index_hero_fan_animation",
-      "index_image_guard",
-      "index_loopie_project",
-      "index_portfolio_work_section",
-      "index_quran_companion_project",
-      "index_tyt_cafe_project",
-      "index_tyt_menu_project"
-    ],
-    "8": [
       "assets_hero_book",
       "assets_hero_book_add_pdf_button",
       "assets_hero_book_arabic_first_rtl",
@@ -202,7 +197,7 @@
       "assets_hero_book_tutor_panel",
       "assets_hero_book_voice_controls"
     ],
-    "9": [
+    "8": [
       "assets_hero_tyt",
       "assets_hero_tyt_get_directions_button",
       "assets_hero_tyt_language_toggle",
@@ -214,7 +209,7 @@
       "assets_hero_tyt_view_menu_button",
       "assets_hero_tyt_wordmark"
     ],
-    "10": [
+    "9": [
       "admin_index_admin_panel",
       "admin_index_onauthstatechanged",
       "admin_index_showtab",
@@ -224,7 +219,7 @@
       "readme_single_file_site",
       "readme_weblume"
     ],
-    "11": [
+    "10": [
       "index_bg_canvas_animation",
       "index_checkspeed",
       "index_frame",
@@ -234,37 +229,36 @@
       "index_sprite_rasterization",
       "index_stopanimation"
     ],
-    "12": [
+    "11": [
       "assets_hero_tyt_centered_hero_layout",
       "assets_hero_tyt_dark_gold_purple_palette"
     ],
-    "13": [
+    "12": [
       "demo_backup_loopie_2026_11_02_data"
     ],
-    "14": [
+    "13": [
       "index_hero_perks"
     ],
-    "15": [
+    "14": [
       "index_onscroll"
     ]
   },
   "cohesion": {
     "0": 0.08478513356562137,
-    "1": 0.09686609686609686,
-    "2": 0.12631578947368421,
-    "3": 0.10526315789473684,
-    "4": 0.13071895424836602,
+    "1": 0.0896551724137931,
+    "2": 0.09686609686609686,
+    "3": 0.12631578947368421,
+    "4": 0.10526315789473684,
     "5": 0.25,
-    "6": 0.1619047619047619,
-    "7": 0.18681318681318682,
-    "8": 0.19696969696969696,
-    "9": 0.28888888888888886,
-    "10": 0.25,
-    "11": 0.32142857142857145,
+    "6": 0.16483516483516483,
+    "7": 0.19696969696969696,
+    "8": 0.28888888888888886,
+    "9": 0.25,
+    "10": 0.32142857142857145,
+    "11": 1.0,
     "12": 1.0,
     "13": 1.0,
-    "14": 1.0,
-    "15": 1.0
+    "14": 1.0
   },
   "gods": [
     {
@@ -275,11 +269,6 @@
     {
       "id": "admin_index_leadcard",
       "label": "leadCard()",
-      "degree": 10
-    },
-    {
-      "id": "assets_weblume_logo_official",
-      "label": "Official Weblume logo (source file)",
       "degree": 10
     },
     {
@@ -308,28 +297,22 @@
       "degree": 7
     },
     {
-      "id": "assets_hero_quran",
-      "label": "Quran Companion home screen hero image",
+      "id": "index_portfolio_work_section",
+      "label": "Portfolio Work Section (#work)",
       "degree": 7
     },
     {
       "id": "index_weblume_site",
-      "label": "Weblume Website",
+      "label": "Phainora Website",
+      "degree": 7
+    },
+    {
+      "id": "assets_hero_quran",
+      "label": "Quran Companion home screen hero image",
       "degree": 7
     }
   ],
   "surprises": [
-    {
-      "source": "Weblume Website",
-      "target": "Site icon: W mark on black",
-      "source_files": [
-        "index.html",
-        "assets/weblume-icon.png"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Site icon: W mark on black` unexpectedly reaches hub `Weblume Website`"
-    },
     {
       "source": "Hero Project Gallery (auto flip + manual controls)",
       "target": "Bake Home hero window screenshot",
@@ -353,39 +336,50 @@
       "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Loopie Café hero window screenshot` unexpectedly reaches hub `Hero Project Gallery (auto flip + manual controls)`"
     },
     {
+      "source": "Phainora Website",
+      "target": "Site icon: Phainora P on black",
+      "source_files": [
+        "index.html",
+        "assets/icon.png"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Site icon: Phainora P on black` unexpectedly reaches hub `Phainora Website`"
+    },
+    {
+      "source": "Hero Logo Arrow (red arrow from the logo behind the gallery)",
+      "target": "Official Phainora logo (white P with red arrow, PHAINORA wordmark)",
+      "source_files": [
+        "index.html",
+        "assets/logo-official.png"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Hero Logo Arrow (red arrow from the logo behind the gallery)` unexpectedly reaches hub `Official Phainora logo (white P with red arrow, PHAINORA wordmark)`"
+    },
+    {
       "source": "Logo Intro (official logo reveal)",
-      "target": "Logo white parts only (W and WEB), for the intro",
+      "target": "Logo white parts only (P and PHAI), for the intro",
       "source_files": [
         "index.html",
         "assets/logo-white.webp"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Logo white parts only (W and WEB), for the intro` unexpectedly reaches hub `Logo Intro (official logo reveal)`"
-    },
-    {
-      "source": "Hero Logo Arrow (red arrow from the logo behind the gallery)",
-      "target": "Official Weblume logo (source file)",
-      "source_files": [
-        "index.html",
-        "assets/weblume-logo-official.png"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "crosses file types (image ↔ doc); connects across different repos/directories; peripheral node `Hero Logo Arrow (red arrow from the logo behind the gallery)` unexpectedly reaches hub `Official Weblume logo (source file)`"
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories; peripheral node `Logo white parts only (P and PHAI), for the intro` unexpectedly reaches hub `Logo Intro (official logo reveal)`"
     }
   ],
   "questions": [
     {
       "type": "ambiguous_edge",
-      "question": "What is the exact relationship between `Weblume admin panel` and `Single-file index.html site`?",
+      "question": "What is the exact relationship between `Phainora admin panel` and `Single-file index.html site`?",
       "why": "Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low.",
       "low_confidence": true
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Weblume Website` connect `Admin Leads Tracker` to `Cafe Demo Template`, `AskMyBook Screenshot`?",
-      "why": "High betweenness centrality (0.216) - this node is a cross-community bridge."
+      "question": "Why does `Phainora Website` connect `Cafe Demo Template` to `Admin Chat Inbox`, `Homepage Background and Work`?",
+      "why": "High betweenness centrality (0.211) - this node is a cross-community bridge."
     },
     {
       "type": "verify_inferred",
@@ -394,8 +388,8 @@
     },
     {
       "type": "isolated_nodes",
-      "question": "What connects `Chat Floating Button (#chatFab)`, `Brand Color Contrast Check`, `Menu Category Chips Scroll Spy` to the rest of the system?",
-      "why": "41 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "question": "What connects `Chat Floating Button (#chatFab)`, `TYT Digital Menu Project`, `Four-Step Process (Talk, Design, Build, Launch)` to the rest of the system?",
+      "why": "38 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
@@ -403,14 +397,14 @@
       "why": "Cohesion score 0.08478513356562137 - nodes in this community are weakly interconnected."
     },
     {
+      "type": "bridge_node",
+      "question": "Why does `Order Form (#orderForm)` connect `Homepage Background and Work` to `Cafe Demo Template`?",
+      "why": "High betweenness centrality (0.159) - this node is a cross-community bridge."
+    },
+    {
       "type": "verify_inferred",
       "question": "Are the 2 inferred relationships involving `Demo Page Renderer IIFE` (e.g. with `Demo Page Renderer IIFE` and `_template Folder`) actually correct?",
       "why": "`Demo Page Renderer IIFE` has 2 INFERRED edges - model-reasoned connections that need verification."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `Cafe Demo Template` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.09686609686609686 - nodes in this community are weakly interconnected."
     }
   ]
 }

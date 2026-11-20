@@ -1,4 +1,4 @@
-// Firebase project settings for the Weblume live chat.
+// Firebase project settings for the Phainora live chat.
 // Paste the values from Firebase console → Project settings → Your apps → Web app.
 export const firebaseConfig = {
   apiKey: "AIzaSyArDAcCrzEUj3LsgVmjw0T74aznE-SBwg4",

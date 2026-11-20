@@ -1,4 +1,4 @@
-// Weblume live chat widget (visitor side). Messages are stored in Firestore:
+// Phainora live chat widget (visitor side). Messages are stored in Firestore:
 //   chats/{visitorUid}            -> name, lastMessage, updatedAt, unreadAdmin, linksAllowed (admin only)
 //   chats/{visitorUid}/messages   -> from: 'visitor' | 'admin', text, image (data URL, optional), at
 //   meta/status                   -> online, at   (written by the admin page)
@@ -15,7 +15,7 @@ const LINK_RE = /(https?:\/\/|www\.)|\b[a-z0-9-]+\.(com|net|org|io|me|sa|eg|ly|c
 const T = {
   ar: {
     online: 'أونلاين دلوقتي', away: 'هنرد عليك في أقرب وقت',
-    hello: 'أهلاً بيك في Weblume! محتاج موقع لإيه؟ اكتبلنا أو ابعت صورة وهنرد عليك هنا.',
+    hello: 'أهلاً بيك في Phainora! محتاج موقع لإيه؟ اكتبلنا أو ابعت صورة وهنرد عليك هنا.',
     namePh: 'اسمك', start: 'ابدأ المحادثة', nameErr: 'اكتب اسمك عشان نعرف بنكلم مين',
     msgPh: 'اكتب رسالتك…', send: 'إرسال', close: 'إغلاق', photo: 'إرسال صورة',
     failed: 'الرسالة متبعتتش، دوس هنا وجرّب تاني', noLinks: 'مش مسموح بإرسال لينكات في الشات.',
@@ -25,7 +25,7 @@ const T = {
   },
   en: {
     online: 'Online now', away: "We'll reply as soon as we can",
-    hello: 'Welcome to Weblume! What kind of website do you need? Send a message or a photo and we will reply right here.',
+    hello: 'Welcome to Phainora! What kind of website do you need? Send a message or a photo and we will reply right here.',
     namePh: 'Your name', start: 'Start chatting', nameErr: 'Add your name so we know who we are talking to',
     msgPh: 'Type your message…', send: 'Send', close: 'Close', photo: 'Send a photo',
     failed: "Message wasn't sent, tap to retry", noLinks: "Links can't be sent in this chat.",
@@ -114,7 +114,7 @@ box.setAttribute('aria-hidden', 'true');
 box.innerHTML = `
   <div class="wlc-col">
     <div class="wlc-hd">
-      <img class="wlc-logo" src="assets/weblume-logo-sm.webp" alt="Weblume">
+      <img class="wlc-logo" src="assets/logo-sm.webp" alt="Phainora">
       <div class="wlc-st"><i></i><span data-k="away"></span></div>
       <button class="wlc-x" type="button" data-k-aria="close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
@@ -323,7 +323,7 @@ async function signInGoogle() {
     if (matchMedia('(hover:hover)').matches) msgIn.focus();
   } catch (e) {
     if (e && (e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request')) return;
-    console.error('Weblume chat:', e);
+    console.error('Phainora chat:', e);
     setNote(t('googleErr'));
   }
 }
@@ -386,7 +386,7 @@ async function send(text, image) {
     alertPhone(text, Boolean(image));
   } catch (e) {
     p.failed = true;
-    console.error('Weblume chat:', e);
+    console.error('Phainora chat:', e);
   }
   render();
   return true;
@@ -448,7 +448,7 @@ function open() {
   seenAdmin = messages.filter(m => m.from === 'admin').length;
   setUnread(0);
   render();
-  connect().catch(e => console.error('Weblume chat:', e));
+  connect().catch(e => console.error('Phainora chat:', e));
   if (matchMedia('(hover:hover)').matches) {
     setTimeout(() => (box.classList.contains('named') ? msgIn : nameIn).focus({ preventScroll: true }), 300);
   }
