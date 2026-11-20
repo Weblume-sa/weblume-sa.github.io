@@ -6,7 +6,7 @@ import { firebaseConfig, FIREBASE_SDK, isConfigured } from './firebase-config.js
 
 const FALLBACK = 'https://ig.me/m/weblume1';
 const NTFY_TOPIC = 'weblume-chat-k7q2x9m4';          // phone alerts via the ntfy app
-const ADMIN_URL = 'https://weblume-sa.github.io/admin/';
+const ADMIN_URL = 'https://phainora.pages.dev/admin/';
 const NAME_KEY = 'wl-chat-name';
 const STARTED_KEY = 'wl-chat-started';
 const MAX_IMAGE_CHARS = 850000;                       // keeps each message under Firestore's 1 MB limit
